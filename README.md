@@ -1,1 +1,1 @@
-# RV64I Pipelined Processor
+# RV64I Pipelined Scalar Processor
