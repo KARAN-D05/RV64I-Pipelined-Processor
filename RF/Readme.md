@@ -30,8 +30,6 @@ A parameterized 64-bit register file containing 32 registers with two asynchrono
 
 ## Static Timing Analysis (OpenSTA)
 
-Clock period constraint:
-
 ```
 10 ns
 ```
