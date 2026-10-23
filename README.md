@@ -25,10 +25,9 @@ Timing results correspond to static timing analysis using a 10 ns clock period.
 
 ## ⚙️ Implemented Modules
 
-| Module               | Description                                                                                 | Status |
-| -------------------- | --------------------------------------------------------------------------------------------| ------ |
-| Register File        | 32 64-Bit Registers for operands and intermediate results storage during program execution  | ✅     |
-
+| Module               | Description                                                                        | Status |
+| -------------------- | -----------------------------------------------------------------------------------| ------ |
+| Register File        | 32 64-Bit Registers for operands and intermediate results during program execution | ✅     |
 
 ## 📜License
 - Source code and HDL files are licensed under the MIT License.
