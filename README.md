@@ -12,6 +12,17 @@
 - [Instruction Set Architecture](ISA.md)
 - [Computer Organization](Organization.md)
 
+## 🔬 Physical Characterization
+
+The following table summarizes post-synthesis implementation results obtained using the Sky130 HD standard-cell library.
+Timing results correspond to static timing analysis using a 10 ns clock period.
+
+> Technology: Sky130HD
+
+| Module              | Estimated Area | Critical Path | Estimated Fmax | Estimated Total Power |
+| ------------------- | -------------  | ------------  | -------------  | --------------------  |
+| [Register File](RF) | 89365.7088 µm² |       0.78 ns |      ~1.28 GHz |               12.1 mW |
+
 ## 📜License
 - Source code and HDL files are licensed under the MIT License.
 - Documentation, diagrams, images, and PDFs are licensed under Creative Commons Attribution 4.0 (CC BY 4.0).
