@@ -1,3 +1,4 @@
+// Register-File (32 Register * 64-Bit)
 `default_nettype none
 
 module RF #(
