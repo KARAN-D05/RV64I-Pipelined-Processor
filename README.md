@@ -23,6 +23,13 @@ Timing results correspond to static timing analysis using a 10 ns clock period.
 | ------------------- | -------------  | ------------  | -------------  | --------------------  |
 | [Register File](RF) | 89365.7088 µm² |       0.78 ns |      ~1.28 GHz |               12.1 mW |
 
+## ⚙️ Implemented Modules
+
+| Module               | Description                                                                                 | Status |
+| -------------------- | --------------------------------------------------------------------------------------------| ------ |
+| Register File        | 32 64-Bit Registers for operands and intermediate results storage during program execution  | ✅     |
+
+
 ## 📜License
 - Source code and HDL files are licensed under the MIT License.
 - Documentation, diagrams, images, and PDFs are licensed under Creative Commons Attribution 4.0 (CC BY 4.0).
