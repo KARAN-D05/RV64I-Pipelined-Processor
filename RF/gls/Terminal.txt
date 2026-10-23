@@ -1,0 +1,14 @@
+VCD info: dumpfile Sim.vcd opened for output.
+t = 0 | Raddr1 = 0 | Raddr2 = 0 | Waddr = 0 | write = 0 | data_in = 0000000000000000 | data_out1 = 0000000000000000 | data_out = 0000000000000000
+t = 11000 | Raddr1 = 0 | Raddr2 = 0 | Waddr = a | write = 1 | data_in = 9ae29ae29ae29ae2 | data_out1 = 0000000000000000 | data_out = 0000000000000000
+t = 21000 | Raddr1 = 0 | Raddr2 = 0 | Waddr = 6 | write = 1 | data_in = ffffffffffffffff | data_out1 = 0000000000000000 | data_out = 0000000000000000
+t = 31000 | Raddr1 = a | Raddr2 = 6 | Waddr = 6 | write = 0 | data_in = ffffffffffffffff | data_out1 = 9ae29ae29ae29ae2 | data_out = ffffffffffffffff
+t = 41000 | Raddr1 = 0 | Raddr2 = 0 | Waddr = 6 | write = 0 | data_in = ffffffffffffffff | data_out1 = 0000000000000000 | data_out = 0000000000000000
+t = 51000 | Raddr1 = 0 | Raddr2 = 0 | Waddr = 0 | write = 1 | data_in = aaaaaaaaaaaaaaaa | data_out1 = 0000000000000000 | data_out = 0000000000000000
+t = 61000 | Raddr1 = 0 | Raddr2 = a | Waddr = 0 | write = 0 | data_in = aaaaaaaaaaaaaaaa | data_out1 = 0000000000000000 | data_out = 9ae29ae29ae29ae2
+t = 71000 | Raddr1 = a | Raddr2 = a | Waddr = a | write = 1 | data_in = 123456789abcdef0 | data_out1 = 9ae29ae29ae29ae2 | data_out = 9ae29ae29ae29ae2
+t = 75000 | Raddr1 = a | Raddr2 = a | Waddr = a | write = 1 | data_in = 123456789abcdef0 | data_out1 = 123456789abcdef0 | data_out = 123456789abcdef0
+t = 81000 | Raddr1 = a | Raddr2 = a | Waddr = a | write = 0 | data_in = 123456789abcdef0 | data_out1 = 123456789abcdef0 | data_out = 123456789abcdef0
+t = 91000 | Raddr1 = a | Raddr2 = 6 | Waddr = a | write = 0 | data_in = 123456789abcdef0 | data_out1 = 123456789abcdef0 | data_out = ffffffffffffffff
+Simulation Complete!
+rf_tb.sv:96: $finish called at 101000 (1ps)
