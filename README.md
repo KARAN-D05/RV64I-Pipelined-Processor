@@ -1,4 +1,4 @@
-# RV64I Pipelined Scalar Processor
+# RV64I Pipelined Processor
 
 ## 🛠️ Tools & Technologies
 ![Icarus Verilog](https://img.shields.io/badge/Icarus_Verilog-Simulation-1E88E5?style=flat-square)
