@@ -12,7 +12,7 @@ The Sign Extender is a combinational RTL module that extracts and reconstructs i
 - Verified using directed test cases covering positive and negative immediates, boundary values, and immediate-field reconstruction.
 
 <p align="center">
-  <img src="images/SE_waveform.png" width="800" alt="Sign Extender RTL Simulation Waveform">
+  <img src="images/SE_Waveform.png" width="800" alt="Sign Extender RTL Simulation Waveform">
   <br>
   <em>RTL simulation waveform showing immediate reconstruction and sign/zero extension.</em>
 </p>
