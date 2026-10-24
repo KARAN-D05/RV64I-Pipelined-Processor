@@ -1,4 +1,3 @@
-VCD info: dumpfile Sim.vcd opened for output.
 time = 0 | instr = 00508113 | imm = 0000000000000005
 time = 1000 | instr = fff08113 | imm = ffffffffffffffff
 time = 2000 | instr = 80008113 | imm = fffffffffffff800
