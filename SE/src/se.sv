@@ -34,7 +34,7 @@ module se #(
     end else if (instr[6:0] == j_type) begin
         imm = {{OW-21{instr[31]}}, instr[31], instr[19:12], instr[20], instr[30:21], 1'b0};
     end else begin
-        imm = OW'b0;
+        imm = OW'(1'b0);
     end
   end
 
