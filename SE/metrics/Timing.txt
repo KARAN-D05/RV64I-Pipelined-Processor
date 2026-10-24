@@ -1,0 +1,19 @@
+Startpoint: instr[2] (input port)
+Endpoint: imm[12] (output port)
+Path Group: unconstrained
+Path Type: max
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00 v input external delay
+   0.00    0.00 v instr[2] (in)
+   0.21    0.21 v _193_/Y (sky130_fd_sc_hd__nand4bb_1)
+   0.34    0.55 v _195_/X (sky130_fd_sc_hd__o32a_1)
+   2.42    2.97 ^ _202_/Y (sky130_fd_sc_hd__o31ai_1)
+   0.08    3.05 ^ _229_/X (sky130_fd_sc_hd__a21o_1)
+   0.00    3.05 ^ imm[12] (out)
+           3.05   data arrival time
+---------------------------------------------------------
+(Path is unconstrained)
+
+

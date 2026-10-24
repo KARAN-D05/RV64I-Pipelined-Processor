@@ -1,0 +1,40 @@
+11. Printing statistics.
+
+=== se ===
+
+   Number of wires:                198
+   Number of wire bits:            731
+   Number of public wires:          10
+   Number of public wire bits:     152
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 89
+     sky130_fd_sc_hd__a211o_1       11
+     sky130_fd_sc_hd__a21boi_0       1
+     sky130_fd_sc_hd__a21o_1        41
+     sky130_fd_sc_hd__a21oi_1        1
+     sky130_fd_sc_hd__a221o_1        1
+     sky130_fd_sc_hd__a221oi_1       1
+     sky130_fd_sc_hd__a22o_1         4
+     sky130_fd_sc_hd__a32o_1         1
+     sky130_fd_sc_hd__and2_0         1
+     sky130_fd_sc_hd__clkinv_1       1
+     sky130_fd_sc_hd__lpflow_inputiso1p_1      2
+     sky130_fd_sc_hd__lpflow_isobufsrc_1      7
+     sky130_fd_sc_hd__nand2b_1       1
+     sky130_fd_sc_hd__nand3_1        1
+     sky130_fd_sc_hd__nand3b_1       1
+     sky130_fd_sc_hd__nand4_1        1
+     sky130_fd_sc_hd__nand4b_1       2
+     sky130_fd_sc_hd__nand4bb_1      1
+     sky130_fd_sc_hd__nor2_1         3
+     sky130_fd_sc_hd__nor3b_1        1
+     sky130_fd_sc_hd__nor4bb_1       1
+     sky130_fd_sc_hd__o21a_1         1
+     sky130_fd_sc_hd__o31ai_1        2
+     sky130_fd_sc_hd__o32a_1         1
+     sky130_fd_sc_hd__o32ai_1        1
+
+   Chip area for module '\se': 670.643200
+
