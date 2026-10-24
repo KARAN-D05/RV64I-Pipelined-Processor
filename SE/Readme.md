@@ -36,9 +36,6 @@ The Sign Extender is a combinational RTL module that extracts and reconstructs i
 
 ## Power Analysis
 
-**Analysis Corner:** Sky130HD
-**Clock Period Reference:** 10 ns (100 MHz)
-
 | Power Component |        Power |
 | --------------- | -----------  |
 | Internal Power  |      54.3 µW |
