@@ -22,12 +22,14 @@ Timing results correspond to static timing analysis using a 10 ns clock period.
 | Module              | Estimated Area | Critical Path | Estimated Fmax | Estimated Total Power |
 | ------------------- | -------------  | ------------  | -------------  | --------------------  |
 | [Register File](RF) | 89365.7088 µm² |       0.78 ns |      ~1.28 GHz |               12.1 mW |
+| [Sign Extender](SE) | 670.6432 µm²   |       3.05 ns |       ~328 MHz |               77.0 µW |
 
 ## ⚙️ Implemented Modules
 
 | Module               | Description                                                       | Status |
 | -------------------- | ------------------------------------------------------------------| ------ |
 | Register File        | Stores operands and intermediate results during program execution | ✅     |
+| Sign Extender | Extracts, reconstructs, and extends RV64I instruction immediates to 64 bits | ✅      |
 
 ## 📜License
 - Source code and HDL files are licensed under the MIT License.
