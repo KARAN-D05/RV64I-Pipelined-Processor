@@ -1,7 +1,3 @@
-11. Printing statistics.
-
-=== se ===
-
    Number of wires:                198
    Number of wire bits:            731
    Number of public wires:          10
