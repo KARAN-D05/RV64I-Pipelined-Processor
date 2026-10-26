@@ -1,3 +1,5 @@
+// 4KB Instruction Memory(ROM)
+
 module ROM #(
     parameter MSIZE = 1024,
     parameter IWIDTH = 32,
