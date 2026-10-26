@@ -1,5 +1,3 @@
-17. Printing statistics.
-
 === pc ===
 
    Number of wires:                964
