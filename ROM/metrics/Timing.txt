@@ -1,0 +1,21 @@
+Startpoint: addr[5] (input port)
+Endpoint: out[15] (output port)
+Path Group: unconstrained
+Path Type: max
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00 ^ input external delay
+   0.00    0.00 ^ addr[5] (in)
+   5.89    5.89 v _5624_/Y (sky130_fd_sc_hd__clkinv_1)
+   3.28    9.18 ^ _6179_/Y (sky130_fd_sc_hd__o211ai_1)
+   0.22    9.40 v _7865_/Y (sky130_fd_sc_hd__a32oi_1)
+   0.35    9.75 v _7866_/X (sky130_fd_sc_hd__mux2_1)
+   0.44   10.20 v _7882_/X (sky130_fd_sc_hd__mux4_2)
+   0.46   10.66 v _7946_/X (sky130_fd_sc_hd__mux4_2)
+   0.00   10.66 v out[15] (out)
+          10.66   data arrival time
+---------------------------------------------------------
+(Path is unconstrained)
+
+

@@ -1,0 +1,10 @@
+VCD info: dumpfile Sim.vcd opened for output.
+t = 0 | addr=0 | out=ba01acad
+t = 10000 | addr=4 | out=7d1d2787
+t = 20000 | addr=8 | out=e458c551
+t = 30000 | addr=12 | out=62a1fe28
+t = 40000 | addr=16 | out=f1fec3da
+t = 50000 | addr=20 | out=19377418
+t = 60000 | addr=24 | out=0135f782
+Simulation Complete
+rom_tb.sv:42: $finish called at 70000 (1ps)
