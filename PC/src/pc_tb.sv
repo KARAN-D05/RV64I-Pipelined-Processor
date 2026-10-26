@@ -219,7 +219,7 @@ module testbench;
 
 `endif
 
-    $display("Simulation Complete!");
+    $display("Simulation Complete");
     $finish;
 
   end
