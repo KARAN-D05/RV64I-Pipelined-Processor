@@ -25,9 +25,7 @@ time = 171000 | target = 8000000000001000 | stall = 0 | branch = 1 | rst = 0 | o
 time = 175000 | target = 8000000000001000 | stall = 0 | branch = 1 | rst = 0 | out = 8000000000001000
 time = 181000 | target = 8000000000001000 | stall = 0 | branch = 0 | rst = 0 | out = 8000000000001000
 time = 185000 | target = 8000000000001000 | stall = 0 | branch = 0 | rst = 0 | out = 8000000000001004
-Simulation Complete!
-pc_tb.sv:218: $finish called at 186000 (1ps)
-VCD info: dumpfile Sim.vcd opened for output.
+
 Random Testing
 time = 0 | target = 31f0566386b97b0d | stall = 0 | branch = 0 | rst = 1 | out = 0
 time = 21000 | target = 80f3e30186d7cd0d | stall = 0 | branch = 0 | rst = 1 | out = 0
