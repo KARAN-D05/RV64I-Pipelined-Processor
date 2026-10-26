@@ -16,7 +16,7 @@ The functional implementation initializes the memory to zero and loads instructi
 - Supports 1,024 instruction words (4 KiB) by default
 
 <p align="center">
-  <img src="images/ROM_waveform.png" width="1000"/>
+  <img src="images/ROM_Waveform.png" width="1000"/>
   <br>
   <sub>Instruction Memory RTL Simulation</sub>
 </p>
