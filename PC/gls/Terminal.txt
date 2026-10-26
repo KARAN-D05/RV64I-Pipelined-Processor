@@ -1,4 +1,3 @@
-VCD info: dumpfile Sim.vcd opened for output.
 Manual Testing
 time = 0 | target = 123456789abcdef0 | stall = 0 | branch = 0 | rst = 1 | out = 0
 time = 11000 | target = 123456789abcdef0 | stall = 0 | branch = 0 | rst = 0 | out = 0
@@ -13773,5 +13772,3 @@ time = 199981000 | target = 7d8c48fbefd691df | stall = 0 | branch = 0 | rst = 0 
 time = 199985000 | target = 7d8c48fbefd691df | stall = 0 | branch = 0 | rst = 0 | out = 4
 time = 199995000 | target = 7d8c48fbefd691df | stall = 0 | branch = 0 | rst = 0 | out = 8
 Pass = 10000 | Fail = 0
-Simulation Complete!
-pc_tb.sv:218: $finish called at 200001000 (1ps)
