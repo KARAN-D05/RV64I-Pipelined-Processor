@@ -47,7 +47,7 @@ module testbench;
     addr = 24;
     #10;
 
-    $display("Simulation Complete");
+    $display("Simulation Complete!");
     $finish;
 
  end
