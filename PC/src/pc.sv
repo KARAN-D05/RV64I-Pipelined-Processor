@@ -1,3 +1,4 @@
+// 64-Bit Program Counter
 `default_nettype none
 
 module pc #(
