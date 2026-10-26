@@ -1,5 +1,3 @@
-12. Printing statistics.
-
 === ROM ===
 
    Number of wires:               5624
