@@ -1,7 +1,7 @@
 # RV64I ALU
 
 - A parameterized 64-bit combinational Arithmetic Logic Unit implementing the arithmetic, logical, shift, and comparison operations required by the RV64I instruction subset.
-- Uses a **64-bit Kogge–Stone Adder (KSA)** for addition, reducing the combinational critical path compared with the initial implementation.
+- Uses a **64-bit Kogge-Stone Adder (KSA)** for addition, reducing the combinational critical path compared with the initial implementation.
 - Supports register-register and register-immediate operations through an operand-selection input.
 - Generates six branch-condition signals for equality, signed comparisons, and unsigned comparisons.
 - Verified using directed RTL test vectors and gate-level simulation (GLS) after synthesis and technology mapping.
@@ -59,7 +59,7 @@ The ALU independently compares `op2` and `rs2` to generate branch-condition sign
 - **Invalid opcodes:** Verified that encodings `1010` through `1111` produce zero.
 
 <p align="center">
-  <img src="images/ALY_Synthesis.png" width="800"/>
+  <img src="images/ALU_Synthesis.png" width="800"/>
   <br>
   <sub>RV64I ALU Synthesized Netlist</sub>
 </p>
@@ -92,7 +92,7 @@ Gate-level simulation was performed after synthesis and technology mapping to ve
 | Area                | 14,311.2256 µm² | 15,377.2480 µm² |
 | Critical Path Delay |        16.88 ns |        10.36 ns |
 
-The Kogge–Stone implementation reduces the measured unconstrained critical path delay by approximately **38.6%**, at an area increase of approximately **7.45%**. The KSA-based implementation is retained for the project because of this timing improvement.
+The Kogge-Stone implementation reduces the measured unconstrained critical path delay by approximately **38.6%**, at an area increase of approximately **7.45%**. The KSA-based implementation is retained for the project because of this timing improvement.
 
 ## Power Analysis
 
