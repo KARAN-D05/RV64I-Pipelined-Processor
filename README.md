@@ -35,7 +35,7 @@ Timing results correspond to static timing analysis using a 10 ns clock period.
 | Sign Extender | Extracts, reconstructs, and extends RV64I instruction immediates to 64 bits | ✅      |
 | Program Counter | Maintains the current address and selects sequential or branch addresses | ✅      |
 | ROM | Stores and fetches 32-bit instructions using the PC's byte address | ✅ |
-| ALU | Performs arithmetic, logical, shift operations and generates branch-condition signals | ✅ |
+| ALU | Performs arithmetic, logical, shift operations and generates comparision signals | ✅ |
 
 ## 📜License
 - Source code and HDL files are licensed under the MIT License.
