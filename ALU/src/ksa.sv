@@ -1,4 +1,4 @@
-// 64-Bit Kogge-Stone Adder
+// 64-Bit Kogge-Stone Adder(KSA)
 
 module ksa #(
     parameter WIDTH = 64
