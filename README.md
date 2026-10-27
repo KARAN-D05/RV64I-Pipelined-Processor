@@ -40,3 +40,6 @@ Timing results correspond to static timing analysis using a 10 ns clock period.
 ## 📜License
 - Source code and HDL files are licensed under the MIT License.
 - Documentation, diagrams, images, and PDFs are licensed under Creative Commons Attribution 4.0 (CC BY 4.0).
+
+
+Design and optimization of high-throughput arithmetic datapaths by taking proven arithmetic units and investigating how architectural techniques such as pipelining, parallelism and vectorization can improve their performance beyond their conventional implementations.
