@@ -196,7 +196,7 @@ module testbench;
     rs1 = 64'h8000000000000000; imm = 64'd64; alu_op = 3;
     #5; if (out !== 64'h8000000000000000) $error("SRLI truncation test failed");
 
-    $display("Simulation Complete!");
+    $display("Simulation Complete");
     $finish;
 
   end
