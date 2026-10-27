@@ -1,0 +1,47 @@
+VCD info: dumpfile sim.vcd opened for output.
+t = 0 | rs1 = 000000000000000a | rs2 = 0000000000000014 | imm = 0000000000000005 | alu_op = 0000 | alu_src = 0 | out = 000000000000001e | beq = 0 | bne = 1 | blt = 1 | bge = 0 | bltu = 1 | bgeu = 0
+t = 5000 | rs1 = 000000000000000a | rs2 = 0000000000000014 | imm = 0000000000000005 | alu_op = 0000 | alu_src = 1 | out = 000000000000000f | beq = 0 | bne = 1 | blt = 0 | bge = 1 | bltu = 0 | bgeu = 1
+t = 10000 | rs1 = 7fffffffffffffff | rs2 = 0000000000000001 | imm = 0000000000000005 | alu_op = 0000 | alu_src = 0 | out = 8000000000000000 | beq = 0 | bne = 1 | blt = 0 | bge = 1 | bltu = 0 | bgeu = 1
+t = 15000 | rs1 = ffffffffffffffff | rs2 = 0000000000000001 | imm = 0000000000000005 | alu_op = 0000 | alu_src = 0 | out = 0000000000000000 | beq = 0 | bne = 1 | blt = 1 | bge = 0 | bltu = 0 | bgeu = 1
+t = 20000 | rs1 = 0000000000000014 | rs2 = 0000000000000007 | imm = 0000000000000005 | alu_op = 0001 | alu_src = 0 | out = 000000000000000d | beq = 0 | bne = 1 | blt = 0 | bge = 1 | bltu = 0 | bgeu = 1
+t = 25000 | rs1 = 0000000000000007 | rs2 = 0000000000000014 | imm = 0000000000000005 | alu_op = 0001 | alu_src = 0 | out = fffffffffffffff3 | beq = 0 | bne = 1 | blt = 1 | bge = 0 | bltu = 1 | bgeu = 0
+t = 30000 | rs1 = 0000000000000005 | rs2 = 0000000000000005 | imm = 0000000000000005 | alu_op = 0001 | alu_src = 0 | out = 0000000000000000 | beq = 1 | bne = 0 | blt = 0 | bge = 1 | bltu = 0 | bgeu = 1
+t = 35000 | rs1 = 0000000000000001 | rs2 = 0000000000000004 | imm = 0000000000000005 | alu_op = 0010 | alu_src = 0 | out = 0000000000000010 | beq = 0 | bne = 1 | blt = 1 | bge = 0 | bltu = 1 | bgeu = 0
+t = 40000 | rs1 = 0000000000000001 | rs2 = 000000000000003f | imm = 0000000000000005 | alu_op = 0010 | alu_src = 0 | out = 8000000000000000 | beq = 0 | bne = 1 | blt = 1 | bge = 0 | bltu = 1 | bgeu = 0
+t = 45000 | rs1 = ffffffffffffffff | rs2 = 0000000000000000 | imm = 0000000000000005 | alu_op = 0010 | alu_src = 0 | out = ffffffffffffffff | beq = 0 | bne = 1 | blt = 1 | bge = 0 | bltu = 0 | bgeu = 1
+t = 50000 | rs1 = 8000000000000000 | rs2 = 0000000000000001 | imm = 0000000000000005 | alu_op = 0011 | alu_src = 0 | out = 4000000000000000 | beq = 0 | bne = 1 | blt = 1 | bge = 0 | bltu = 0 | bgeu = 1
+t = 55000 | rs1 = ffffffffffffffff | rs2 = 000000000000003f | imm = 0000000000000005 | alu_op = 0011 | alu_src = 0 | out = 0000000000000001 | beq = 0 | bne = 1 | blt = 1 | bge = 0 | bltu = 0 | bgeu = 1
+t = 60000 | rs1 = 8000000000000000 | rs2 = 0000000000000001 | imm = 0000000000000005 | alu_op = 0100 | alu_src = 0 | out = c000000000000000 | beq = 0 | bne = 1 | blt = 1 | bge = 0 | bltu = 0 | bgeu = 1
+t = 65000 | rs1 = ffffffffffffffff | rs2 = 000000000000003f | imm = 0000000000000005 | alu_op = 0100 | alu_src = 0 | out = ffffffffffffffff | beq = 0 | bne = 1 | blt = 1 | bge = 0 | bltu = 0 | bgeu = 1
+t = 70000 | rs1 = 7fffffffffffffff | rs2 = 0000000000000001 | imm = 0000000000000005 | alu_op = 0100 | alu_src = 0 | out = 3fffffffffffffff | beq = 0 | bne = 1 | blt = 0 | bge = 1 | bltu = 0 | bgeu = 1
+t = 75000 | rs1 = 000000000000f0f0 | rs2 = 000000000000ff00 | imm = 0000000000000005 | alu_op = 0101 | alu_src = 0 | out = 000000000000f000 | beq = 0 | bne = 1 | blt = 1 | bge = 0 | bltu = 1 | bgeu = 0
+t = 80000 | rs1 = 000000000000f0f0 | rs2 = 0000000000000f0f | imm = 0000000000000005 | alu_op = 0110 | alu_src = 0 | out = 000000000000ffff | beq = 0 | bne = 1 | blt = 0 | bge = 1 | bltu = 0 | bgeu = 1
+t = 85000 | rs1 = 000000000000ffff | rs2 = 0000000000000f0f | imm = 0000000000000005 | alu_op = 0111 | alu_src = 0 | out = 000000000000f0f0 | beq = 0 | bne = 1 | blt = 0 | bge = 1 | bltu = 0 | bgeu = 1
+t = 90000 | rs1 = ffffffffffffffff | rs2 = 0000000000000001 | imm = 0000000000000005 | alu_op = 1000 | alu_src = 0 | out = 0000000000000001 | beq = 0 | bne = 1 | blt = 1 | bge = 0 | bltu = 0 | bgeu = 1
+t = 95000 | rs1 = 8000000000000000 | rs2 = 0000000000000000 | imm = 0000000000000005 | alu_op = 1000 | alu_src = 0 | out = 0000000000000001 | beq = 0 | bne = 1 | blt = 1 | bge = 0 | bltu = 0 | bgeu = 1
+t = 100000 | rs1 = 0000000000000001 | rs2 = ffffffffffffffff | imm = 0000000000000005 | alu_op = 1000 | alu_src = 0 | out = 0000000000000000 | beq = 0 | bne = 1 | blt = 0 | bge = 1 | bltu = 1 | bgeu = 0
+t = 105000 | rs1 = ffffffffffffffff | rs2 = 0000000000000001 | imm = 0000000000000005 | alu_op = 1001 | alu_src = 0 | out = 0000000000000000 | beq = 0 | bne = 1 | blt = 1 | bge = 0 | bltu = 0 | bgeu = 1
+t = 110000 | rs1 = 0000000000000001 | rs2 = ffffffffffffffff | imm = 0000000000000005 | alu_op = 1001 | alu_src = 0 | out = 0000000000000001 | beq = 0 | bne = 1 | blt = 0 | bge = 1 | bltu = 1 | bgeu = 0
+t = 115000 | rs1 = 0000000000000000 | rs2 = 0000000000000000 | imm = 0000000000000005 | alu_op = 1001 | alu_src = 0 | out = 0000000000000000 | beq = 1 | bne = 0 | blt = 0 | bge = 1 | bltu = 0 | bgeu = 1
+t = 120000 | rs1 = 0000000000000000 | rs2 = 0000000000000000 | imm = 0000000000000005 | alu_op = 1010 | alu_src = 0 | out = 0000000000000000 | beq = 1 | bne = 0 | blt = 0 | bge = 1 | bltu = 0 | bgeu = 1
+t = 125000 | rs1 = 0000000000000000 | rs2 = 0000000000000000 | imm = 0000000000000005 | alu_op = 1011 | alu_src = 0 | out = 0000000000000000 | beq = 1 | bne = 0 | blt = 0 | bge = 1 | bltu = 0 | bgeu = 1
+t = 130000 | rs1 = 0000000000000000 | rs2 = 0000000000000000 | imm = 0000000000000005 | alu_op = 1100 | alu_src = 0 | out = 0000000000000000 | beq = 1 | bne = 0 | blt = 0 | bge = 1 | bltu = 0 | bgeu = 1
+t = 135000 | rs1 = 0000000000000000 | rs2 = 0000000000000000 | imm = 0000000000000005 | alu_op = 1101 | alu_src = 0 | out = 0000000000000000 | beq = 1 | bne = 0 | blt = 0 | bge = 1 | bltu = 0 | bgeu = 1
+t = 140000 | rs1 = 0000000000000000 | rs2 = 0000000000000000 | imm = 0000000000000005 | alu_op = 1110 | alu_src = 0 | out = 0000000000000000 | beq = 1 | bne = 0 | blt = 0 | bge = 1 | bltu = 0 | bgeu = 1
+t = 145000 | rs1 = 0000000000000000 | rs2 = 0000000000000000 | imm = 0000000000000005 | alu_op = 1111 | alu_src = 0 | out = 0000000000000000 | beq = 1 | bne = 0 | blt = 0 | bge = 1 | bltu = 0 | bgeu = 1
+t = 150000 | rs1 = 0000000000000005 | rs2 = 0000000000000005 | imm = 0000000000000005 | alu_op = 0000 | alu_src = 0 | out = 000000000000000a | beq = 1 | bne = 0 | blt = 0 | bge = 1 | bltu = 0 | bgeu = 1
+t = 155000 | rs1 = 0000000000000003 | rs2 = 0000000000000008 | imm = 0000000000000005 | alu_op = 0000 | alu_src = 0 | out = 000000000000000b | beq = 0 | bne = 1 | blt = 1 | bge = 0 | bltu = 1 | bgeu = 0
+t = 160000 | rs1 = ffffffffffffffff | rs2 = 0000000000000001 | imm = 0000000000000005 | alu_op = 0000 | alu_src = 0 | out = 0000000000000000 | beq = 0 | bne = 1 | blt = 1 | bge = 0 | bltu = 0 | bgeu = 1
+t = 165000 | rs1 = 8000000000000000 | rs2 = 7fffffffffffffff | imm = 0000000000000005 | alu_op = 0000 | alu_src = 0 | out = ffffffffffffffff | beq = 0 | bne = 1 | blt = 1 | bge = 0 | bltu = 0 | bgeu = 1
+t = 170000 | rs1 = 0000000000000001 | rs2 = 7fffffffffffffff | imm = 0000000000000004 | alu_op = 0010 | alu_src = 1 | out = 0000000000000010 | beq = 0 | bne = 1 | blt = 1 | bge = 0 | bltu = 1 | bgeu = 0
+t = 175000 | rs1 = 0000000000000001 | rs2 = 7fffffffffffffff | imm = 000000000000003f | alu_op = 0010 | alu_src = 1 | out = 8000000000000000 | beq = 0 | bne = 1 | blt = 1 | bge = 0 | bltu = 1 | bgeu = 0
+t = 180000 | rs1 = ffffffffffffffff | rs2 = 7fffffffffffffff | imm = 0000000000000000 | alu_op = 0010 | alu_src = 1 | out = ffffffffffffffff | beq = 0 | bne = 1 | blt = 1 | bge = 0 | bltu = 0 | bgeu = 1
+t = 185000 | rs1 = 8000000000000000 | rs2 = 7fffffffffffffff | imm = 0000000000000001 | alu_op = 0011 | alu_src = 1 | out = 4000000000000000 | beq = 0 | bne = 1 | blt = 1 | bge = 0 | bltu = 0 | bgeu = 1
+t = 190000 | rs1 = ffffffffffffffff | rs2 = 7fffffffffffffff | imm = 000000000000003f | alu_op = 0011 | alu_src = 1 | out = 0000000000000001 | beq = 0 | bne = 1 | blt = 1 | bge = 0 | bltu = 0 | bgeu = 1
+t = 195000 | rs1 = 8000000000000000 | rs2 = 7fffffffffffffff | imm = 0000000000000000 | alu_op = 0011 | alu_src = 1 | out = 8000000000000000 | beq = 0 | bne = 1 | blt = 1 | bge = 0 | bltu = 0 | bgeu = 1
+t = 200000 | rs1 = 8000000000000000 | rs2 = 7fffffffffffffff | imm = 0000000000000001 | alu_op = 0100 | alu_src = 1 | out = c000000000000000 | beq = 0 | bne = 1 | blt = 1 | bge = 0 | bltu = 0 | bgeu = 1
+t = 205000 | rs1 = ffffffffffffffff | rs2 = 7fffffffffffffff | imm = 000000000000003f | alu_op = 0100 | alu_src = 1 | out = ffffffffffffffff | beq = 0 | bne = 1 | blt = 1 | bge = 0 | bltu = 0 | bgeu = 1
+t = 210000 | rs1 = 7fffffffffffffff | rs2 = 7fffffffffffffff | imm = 0000000000000001 | alu_op = 0100 | alu_src = 1 | out = 3fffffffffffffff | beq = 0 | bne = 1 | blt = 0 | bge = 1 | bltu = 0 | bgeu = 1
+t = 215000 | rs1 = 8000000000000000 | rs2 = 7fffffffffffffff | imm = 0000000000000040 | alu_op = 0011 | alu_src = 1 | out = 8000000000000000 | beq = 0 | bne = 1 | blt = 1 | bge = 0 | bltu = 0 | bgeu = 1
+Simulation Complete!
+alu_tb.sv:193: $finish called at 220000 (1ps)
