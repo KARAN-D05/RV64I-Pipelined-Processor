@@ -24,8 +24,8 @@ Timing results correspond to static timing analysis using a 10 ns clock period.
 | [Register File](RF) | 89365.7088 µm² |       0.78 ns |      ~1.28 GHz |               12.1 mW |
 | [Sign Extender](SE) | 670.6432 µm²   |       3.05 ns |       ~328 MHz |               77 µW |
 | [Program Counter](PC) | 3727.3248 µm²  | 5.75 ns       | ~174 MHz       | 380 µW                |
-| [ROM](ROM) | 24,908.8896 µm² | 10.66 ns | ~93.81 MHz | 11.6 mW |
-| [ALU](ALU) | 15377.2480 µm² | 10.36 ns | ~96.5 MHz | 9.04 mW |
+| [ROM (1024x32)](ROM) | 24,908.8896 µm² | 10.66 ns | ~93.81 MHz | 11.6 mW |
+| [Arithmetic and Logic Unit](ALU) | 15377.2480 µm² | 10.36 ns | ~96.5 MHz | 9.04 mW |
 | [Target Address Generator](TAG) |  7124.3328 µm² |       4.18 ns |       ~239 MHz |               4.26 mW |
 
 ## ⚙️ Implemented Modules
