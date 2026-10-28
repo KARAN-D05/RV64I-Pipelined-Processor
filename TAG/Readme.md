@@ -2,6 +2,12 @@
 
 The Target Address Generator is a combinational RTL module for calculating branch and jump target addresses in the RV64I pipelined processor. It supports PC-relative targets for branches and `JAL`, register-relative targets for `JALR`, and return-address generation for jump instructions.
 
+<p align="center">
+  <img src="images/TAG_Synthesis.png" width="1000"/>
+  <br>
+  <sub>TAG Synthesis</sub>
+</p>
+
 ## Features
 
 - Calculates branch and `JAL` targets using `PC + immediate`.
