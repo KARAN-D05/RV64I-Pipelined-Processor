@@ -2,11 +2,20 @@
 
 ## 🛠️ Tools & Technologies
 ![RISC-V](https://img.shields.io/badge/ISA-RISC_V_(RV64I)-3949AB?style=flat-square)
-![Icarus Verilog](https://img.shields.io/badge/IVerilog-Simulation-8E24AA?style=flat-square)
+![Icarus Verilog](https://img.shields.io/badge/Icarus_Verilog-Simulation-8E24AA?style=flat-square)
 ![Verilator](https://img.shields.io/badge/Verilator-Linting-00897B?style=flat-square)
-![Testbenches](https://img.shields.io/badge/SystemVerilog_Testbench-Verification-D81B60?style=flat-square)
 ![GTKWave](https://img.shields.io/badge/GTKWave-Waveform-F57C00?style=flat-square)
 ![Yosys](https://img.shields.io/badge/Yosys-Synthesis-43A047?style=flat-square)
+
+![RISC-V](https://img.shields.io/badge/ISA-RV64I-3949AB?style=flat-square)
+![64-bit](https://img.shields.io/badge/Architecture-64--bit-546E7A?style=flat-square)
+![5-Stage Pipeline](https://img.shields.io/badge/Design-5--Stage_Pipeline-00897B?style=flat-square)
+![Icarus Verilog](https://img.shields.io/badge/Icarus_Verilog-Simulation-1E88E5?style=flat-square)
+![Verilator](https://img.shields.io/badge/Verilator-Linting-00897B?style=flat-square)
+![Cocotb](https://img.shields.io/badge/Cocotb-Verification-D81B60?style=flat-square)
+![GTKWave](https://img.shields.io/badge/GTKWave-Waveforms-F57C00?style=flat-square)
+![Yosys](https://img.shields.io/badge/Yosys-Synthesis-43A047?style=flat-square)
+![OpenSTA](https://img.shields.io/badge/OpenSTA-Static_Timing_Analysis-8E24AA?style=flat-square)
 
 ## 📚 Documentation
 - [Instruction Set Architecture](ISA.md)
