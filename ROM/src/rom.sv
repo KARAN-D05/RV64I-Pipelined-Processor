@@ -1,4 +1,4 @@
-// 4KB Instruction Memory(ROM)
+// 4KB Instruction Memory (ROM)
 
 module ROM #(
     parameter MSIZE = 1024,
