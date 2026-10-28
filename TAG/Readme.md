@@ -28,28 +28,3 @@ The Target Address Generator is a combinational RTL module for calculating branc
 | Conditional branches | `PC + B_imm`             | Not applicable |
 | `JAL`                | `PC + J_imm`             | `PC + 4`       |
 | `JALR`               | `(rs1 + I_imm) & ~64'd1` | `PC + 4`       |
-
-## Synthesis Results
-
-| Metric                        |         Result |
-| ----------------------------- | -------------  |
-| Total Area                    | 7,124.3328 µm² |
-
-## Static Timing Analysis (STA)
-
-**Timing Analysis:** OpenSTA
-
-| Metric                    |   Result |
-| ------------------------- | -------  |
-| Worst Reported Path Delay |  4.18 ns |
-| Estimated Fmax Equivalent | ~239 MHz |
-
-## Power Analysis
-
-
-| Power Component |      Result |
-| --------------- | ---------- |
-| Internal Power  |     2.27 mW |
-| Switching Power |     2.00 mW |
-| Leakage Power   |     2.37 nW |
-| **Total Power** |  4.26 mW |
