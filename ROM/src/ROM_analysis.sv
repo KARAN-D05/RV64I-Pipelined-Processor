@@ -1,6 +1,5 @@
 // Hardcoded ROM for synthesis/STA/power characterization
-// Not a Valid RV64I Program
-
+// Not a Valid RV64I Progr
 module ROM #(
     parameter integer MSIZE = 1024,
     parameter integer IWIDTH = 32,
