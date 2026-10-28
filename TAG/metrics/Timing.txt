@@ -4,7 +4,7 @@ Path Group: unconstrained
 Path Type: max
 
   Delay    Time   Description
----------------------------------------------------------
+--------------------------------------------------------
    0.00    0.00 ^ input external delay
    0.00    0.00 ^ is_jalr (in)
    0.32    0.32 v _384_/X (sky130_fd_sc_hd__mux2_1)
