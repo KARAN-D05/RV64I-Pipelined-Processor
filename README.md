@@ -5,8 +5,8 @@
 ![5-Stage Pipeline](https://img.shields.io/badge/Design-5--Stage_Pipeline-D81B60?style=flat-square)
 ![Icarus Verilog](https://img.shields.io/badge/Icarus_Verilog-Simulation-8E24AA?style=flat-square)
 ![Verilator](https://img.shields.io/badge/Verilator-Linting-00897B?style=flat-square)
-![GTKWave](https://img.shields.io/badge/GTKWave-Waveform-F57C00?style=flat-square)
-![Yosys](https://img.shields.io/badge/Yosys-Synthesis-43A047?style=flat-square)
+![GTKWave](https://img.shields.io/badge/GTKWave-Waveforms-F57C00?style=flat-square)
+![Yosys](https://img.shields.io/badge/Yosys-Logic_Synthesis-43A047?style=flat-square)
 
 ## 📚 Documentation
 - [Instruction Set Architecture](ISA.md)
