@@ -1,9 +1,10 @@
 # RV64I Pipelined Processor
 
 ## 🛠️ Tools & Technologies
-![RISC-V](https://img.shields.io/badge/ISA-RISC_V_(RV64I)-3949AB?style=flat-square)
+![RISC-V](https://img.shields.io/badge/ISA-RISC_-V_(RV64I)-3949AB?style=flat-square)
 ![Icarus Verilog](https://img.shields.io/badge/Icarus_Verilog-Simulation-1E88E5?style=flat-square)
 ![Verilator](https://img.shields.io/badge/Verilator-Linting-00897B?style=flat-square)
+![SystemVerilog](https://img.shields.io/badge/System_Verilog-Verification-D81B60?style=flat-square)
 ![GTKWave](https://img.shields.io/badge/GTKWave-Waveforms-F57C00?style=flat-square)
 ![Yosys](https://img.shields.io/badge/Yosys-Logic_Synthesis-43A047?style=flat-square)
 
