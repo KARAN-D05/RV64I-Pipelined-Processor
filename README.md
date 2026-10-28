@@ -26,6 +26,7 @@ Timing results correspond to static timing analysis using a 10 ns clock period.
 | [Program Counter](PC) | 3727.3248 µm²  | 5.75 ns       | ~174 MHz       | 380 µW                |
 | [ROM](ROM) | 24,908.8896 µm² | 10.66 ns | ~93.81 MHz | 11.6 mW |
 | [ALU](ALU) | 15377.2480 µm² | 10.36 ns | ~96.5 MHz | 9.04 mW |
+| [TAG](TAG) |  7124.3328 µm² |       4.18 ns |       ~239 MHz |               4.26 mW |
 
 ## ⚙️ Implemented Modules
 
@@ -36,10 +37,10 @@ Timing results correspond to static timing analysis using a 10 ns clock period.
 | Program Counter | Maintains the current address and selects sequential or branch addresses | ✅      |
 | ROM | Stores and fetches 32-bit instructions using the PC's byte address | ✅ |
 | ALU | Performs arithmetic, logical, shift operations and generates comparision signals | ✅ |
+| Target Address Generator | Calculates branch and jump targets and generates return addresses | ✅      |
 
 ## 📜License
 - Source code and HDL files are licensed under the MIT License.
 - Documentation, diagrams, images, and PDFs are licensed under Creative Commons Attribution 4.0 (CC BY 4.0).
-
 
 Design and optimization of high-throughput arithmetic datapaths by taking proven arithmetic units and investigating how architectural techniques such as pipelining, parallelism and vectorization can improve their performance beyond their conventional implementations.
