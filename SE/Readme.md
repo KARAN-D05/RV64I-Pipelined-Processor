@@ -16,29 +16,3 @@ The Sign Extender is a combinational RTL module that extracts and reconstructs i
   <br>
   <em>RTL simulation waveform showing immediate reconstruction and sign/zero extension.</em>
 </p>
-
-## Synthesis Results
-
-**Technology:** Sky130HD Standard Cell Library
-**Synthesis Tool:** Yosys
-
-| Metric               |       Result |
-| -------------------- | -----------  |
-| Total Standard Cells |           89 |
-| Cell Area            | 670.6432 µm² |
-
-## Static Timing Analysis (STA)
-
-| Metric                    |   Result |
-| ------------------------- | -------  |
-| Worst Reported Path Delay |  3.05 ns |
-| Estimated Fmax Equivalent | ~328 MHz |
-
-## Power Analysis
-
-| Power Component |        Power |
-| --------------- | -----------  |
-| Internal Power  |      54.3 µW |
-| Switching Power |      22.7 µW |
-| Leakage Power   | ~0.000637 µW |
-| **Total Power** |   77.0 µW   |
