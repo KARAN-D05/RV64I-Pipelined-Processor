@@ -102,7 +102,7 @@ module testbench;
     is_jalr = 1;
     #1;
 
-    $display("Simulation Complete!");
+    $display("Simulation Complete");
     $finish;
 
   end
