@@ -12,6 +12,12 @@ The Instruction Fetch (IF) stage combines the Program Counter (PC) and Instructi
 - Loads instruction memory contents from `Program.hex` using `$readmemh`.
 - Uses byte-addressed instruction memory, with each 32-bit instruction occupying 4 bytes.
 
+<p align="center">
+  <img src="images/IF_Waveform.png" width="1000"/>
+  <br>
+  <sub>RV64I ALU Waveform</sub>
+</p>
+
 ## Interface
 
 | Signal      | Direction | Width   | Description                        |
