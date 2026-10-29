@@ -20,6 +20,7 @@
 | SE | Extracts, reconstructs, and extends RV64I instruction immediates to 64 bits | ✅      |
 | PC | Maintains the current address and selects sequential or branch addresses | ✅      |
 | ROM | Stores and fetches 32-bit instructions using the PC's byte address | ✅ |
+| IF | combines the PC and ROM to provide the current instruction and its address | ✅ |
 | ALU | Performs arithmetic, logical, shift operations and generates comparision signals | ✅ |
 | TAG | Calculates branch and jump targets and generates return addresses | ✅      |
 
