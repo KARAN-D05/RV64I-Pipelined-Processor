@@ -4,7 +4,7 @@
 module testbench;
 
   parameter W = 64;
-  parameter MOPS = 10;
+  parameter MOPS = 15;
 
   logic [W-1:0] rs1;
   logic [W-1:0] rs2;
@@ -196,7 +196,79 @@ module testbench;
     rs1 = 64'h8000000000000000; imm = 64'd64; alu_op = 3;
     #5; if (out !== 64'h8000000000000000) $error("SRLI truncation test failed");
 
-    $display("Simulation Complete");
+    alu_src = 0; rs1 = 64'd10; rs2 = 64'd20; alu_op = 10;
+    #5; if (out !== 64'd30) $error("ADDW basic test failed");
+
+    rs1 = 64'h000000007FFFFFFF; rs2 = 64'd1;
+    #5; if (out !== 64'hFFFFFFFF80000000) $error("ADDW sign-extension test failed");
+
+    rs1 = 64'hFFFFFFFF00000005; rs2 = 64'h0000000000000003;
+    #5; if (out !== 64'd8) $error("ADDW lower-32-bit test failed");
+
+    rs1 = 64'h00000000FFFFFFFF; rs2 = 64'd1;
+    #5; if (out !== 64'd0) $error("ADDW wraparound test failed");
+
+    alu_src = 0; rs1 = 64'd20; rs2 = 64'd7; alu_op = 11;
+    #5; if (out !== 64'd13) $error("SUBW basic test failed");
+
+    rs1 = 64'd5; rs2 = 64'd10;
+    #5; if (out !== 64'hFFFFFFFFFFFFFFFB) $error("SUBW negative-result test failed");
+
+    rs1 = 64'd0; rs2 = 64'd1;
+    #5; if (out !== 64'hFFFFFFFFFFFFFFFF) $error("SUBW underflow test failed");
+
+    rs1 = 64'hFFFFFFFF0000000A; rs2 = 64'hAAAAAAAA00000003;
+    #5; if (out !== 64'd7) $error("SUBW lower-32-bit test failed");
+
+    alu_src = 0; rs1 = 64'd1; rs2 = 64'd4; alu_op = 12;
+    #5; if (out !== 64'd16) $error("SLLW basic test failed");
+
+    rs1 = 64'd1; rs2 = 64'd32;
+    #5; if (out !== 64'd1) $error("SLLW shift-amount truncation failed");
+
+    rs1 = 64'd1; rs2 = 64'd31;
+    #5; if (out !== 64'hFFFFFFFF80000000) $error("SLLW sign-extension test failed");
+
+    rs1 = 64'hFFFFFFFF00000001; rs2 = 64'd1;
+    #5; if (out !== 64'd2) $error("SLLW lower-32-bit test failed");
+
+    alu_src = 0; rs1 = 64'h0000000080000000; rs2 = 64'd1; alu_op = 13;
+    #5; if (out !== 64'h0000000040000000) $error("SRLW logical-shift test failed");
+
+    rs1 = 64'h00000000FFFFFFFF; rs2 = 64'd1;
+    #5; if (out !== 64'h000000007FFFFFFF) $error("SRLW zero-fill test failed");
+
+    rs1 = 64'd8; rs2 = 64'd32;
+    #5; if (out !== 64'd8) $error("SRLW shift-amount truncation failed");
+
+    rs1 = 64'hFFFFFFFF00000008; rs2 = 64'd1;
+    #5; if (out !== 64'd4) $error("SRLW lower-32-bit test failed");
+
+    alu_src = 0; rs1 = 64'h0000000080000000; rs2 = 64'd1; alu_op = 14;
+    #5; if (out !== 64'hFFFFFFFFC0000000) $error("SRAW arithmetic-shift test failed");
+
+    rs1 = 64'h00000000FFFFFFFF; rs2 = 64'd4;
+    #5; if (out !== 64'hFFFFFFFFFFFFFFFF) $error("SRAW negative-one test failed");
+
+    rs1 = 64'd16; rs2 = 64'd2;
+    #5; if (out !== 64'd4) $error("SRAW positive-value test failed");
+
+    rs1 = 64'd16; rs2 = 64'd32;
+    #5; if (out !== 64'd16) $error("SRAW shift-amount truncation failed");
+
+    alu_src = 1; rs1 = 64'h000000007FFFFFFF; imm = 64'd1; alu_op = 10;
+    #5; if (out !== 64'hFFFFFFFF80000000) $error("Word addition immediate-source test failed");
+
+    rs1 = 64'd1; imm = 64'd31; alu_op = 12;
+    #5; if (out !== 64'hFFFFFFFF80000000) $error("Word left-shift immediate-source test failed");
+
+    rs1 = 64'h0000000080000000; imm = 64'd1; alu_op = 13;
+    #5; if (out !== 64'h0000000040000000) $error("Word logical-right-shift immediate-source test failed");
+
+    rs1 = 64'h0000000080000000; imm = 64'd1; alu_op = 14;
+    #5; if (out !== 64'hFFFFFFFFC0000000) $error("Word arithmetic-right-shift immediate-source test failed");
+
+    $display("Simulation Complete!");
     $finish;
 
   end
