@@ -1,6 +1,6 @@
 `default_nettype none
 `include "rom.sv"
-`include "pc.sv"
+`include "pc.sv" 
 
 module IF #(
     parameter MSIZE = 1024,
