@@ -28,3 +28,13 @@ time = 26000 | instr = 800000ef | imm = fffffffffff00000
 time = 27000 | instr = 00c08167 | imm = 000000000000000c
 time = 28000 | instr = ff408167 | imm = fffffffffffffff4
 time = 29000 | instr = 00000000 | imm = 0000000000000000
+time = 30000 | instr = 0020813b | imm = 0000000000000000
+time = 31000 | instr = 4020813b | imm = 0000000000000000
+time = 32000 | instr = 0050811b | imm = 0000000000000005
+time = 33000 | instr = fff0811b | imm = ffffffffffffffff
+time = 34000 | instr = 0020913b | imm = 0000000000000000
+time = 35000 | instr = 0020d13b | imm = 0000000000000000
+time = 36000 | instr = 4020d13b | imm = 0000000000000000
+time = 37000 | instr = 0050911b | imm = 0000000000000005
+time = 38000 | instr = 0050d11b | imm = 0000000000000005
+time = 39000 | instr = 4050d11b | imm = 0000000000000005
