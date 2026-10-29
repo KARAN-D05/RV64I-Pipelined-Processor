@@ -1,10 +1,8 @@
-// RV64I 64-Bit ALU
 `default_nettype none
-`include "ksa.sv"
 
 module alu #(
     parameter W = 64,
-    parameter MOPS = 10
+    parameter MOPS = 15
 ) (
     input logic [W-1:0] rs1,
     input logic [W-1:0] rs2,
@@ -40,26 +38,50 @@ module alu #(
   localparam [$clog2(MOPS)-1:0] XOR = 7;
   localparam [$clog2(MOPS)-1:0] SLT = 8;
   localparam [$clog2(MOPS)-1:0] SLTU = 9;
+  localparam [$clog2(MOPS)-1:0] ADDW = 10;
+  localparam [$clog2(MOPS)-1:0] SUBW = 11;
+  localparam [$clog2(MOPS)-1:0] SLLW = 12;
+  localparam [$clog2(MOPS)-1:0] SRLW = 13;
+  localparam [$clog2(MOPS)-1:0] SRAW = 14;
 
-  logic [5:0] shamt;
-  assign shamt = op2[5:0];
+  logic [5:0] shamt1;
+  assign shamt1 = op2[5:0];
 
-  logic [W-1:0] sum;
-  logic cout;;
-  ksa dut (.a(rs1), .b(op2), .c_in(1'b0), .sum(sum), .c_out(cout));
+  logic [5:0] shamt2;
+  assign shamt2 = op2[4:0];
 
-  always_comb begin
+  logic [(W/2)-1:0] sum;
+  assign sum = rs1[(W/2)-1:0] + op2[(W/2)-1:0];
+
+  logic [(W/2)-1:0] diff;
+  assign diff = rs1[(W/2)-1:0] - op2[(W/2)-1:0];
+
+  logic [(W/2)-1:0] sl;
+  assign sl = rs1[(W/2)-1:0] << shamt2;
+
+  logic [(W/2)-1:0] sr;
+  assign sr = rs1[(W/2)-1:0] >> shamt2;
+
+  logic [(W/2)-1:0] sa;
+  assign sa = $signed(rs1[(W/2)-1:0]) >>> shamt2;
+
+  always @(*) begin
     case(alu_op)
-    ADD: out = sum;
+    ADD: out = rs1 + op2;
     SUB: out = rs1 - op2;
-    SLL: out = rs1 << shamt;
-    SRL: out = rs1 >> shamt;
-    SRA: out = $signed(rs1) >>> shamt;
+    SLL: out = rs1 << shamt1;
+    SRL: out = rs1 >> shamt1;
+    SRA: out = $signed(rs1) >>> shamt1;
     AND: out = rs1 & op2;
     OR: out = rs1 | op2;
     XOR: out = rs1 ^ op2;
-    SLT: out = ($signed(rs1) < $signed(op2)) ? {{W-1{1'b0}}, 1'b1} : W'(1'b0);
-    SLTU: out = (rs1 < op2) ? {{W-1{1'b0}}, 1'b1} : W'(1'b0);
+    SLT: out = ($signed(rs1) < $signed(op2)) ? {(W-1)'(1'b0), 1'b1} : W'(1'b0);
+    SLTU: out = (rs1 < op2) ? {(W-1)'(1'b0), 1'b1} : W'(1'b0);
+    ADDW: out = {{W/2{sum[(W/2)-1]}}, sum};
+    SUBW: out = {{W/2{diff[(W/2)-1]}}, diff};
+    SLLW: out = {{W/2{sl[(W/2)-1]}}, sl};
+    SRLW: out = {{W/2{sr[(W/2)-1]}}, sr};
+    SRAW: out = {{W/2{sa[(W/2)-1]}}, sa};
     default: out = W'(1'b0);
     endcase
   end
