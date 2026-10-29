@@ -7,9 +7,10 @@ The Sign Extender is a combinational RTL module that extracts and reconstructs i
 - Supports I, S, B, U, and J instruction formats.
 - Reconstructs immediate values from their encoded instruction bit positions.
 - Sign-extends immediates to 64 bits where required.
-- Zero-extends the 6-bit shift amount for SLLI, SRLI, and SRAI.
+- Zero-extends shift amounts for SLLI, SRLI, SRAI, SLLIW, SRLIW, and SRAIW (6-bit amounts for RV64I shifts and 5-bit amounts for word shifts).
+- Supports OP-IMM-32 decoding for ADDIW and immediate word shifts.
 - Outputs zero for unsupported instruction opcodes.
-- Verified using directed test cases covering positive and negative immediates, boundary values, and immediate-field reconstruction.
+- Verified using 40 directed test cases covering positive and negative immediates, boundary values, instruction formats, and word-immediate decoding.
 
 <p align="center">
   <img src="images/SE_Waveform.png" width="1000" alt="Sign Extender RTL Simulation Waveform">
