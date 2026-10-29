@@ -1,0 +1,25 @@
+VCD info: dumpfile Sim.vcd opened for output.
+time = 0 | pc_out = 0000000000000000 | instr_out = 00000000 | target = 0000000000000000 | stall = 0 | branch = 0 | rst = 1
+time = 11000 | pc_out = 0000000000000000 | instr_out = 00000000 | target = 0000000000000000 | stall = 0 | branch = 0 | rst = 0
+time = 15000 | pc_out = 0000000000000004 | instr_out = 00000000 | target = 0000000000000000 | stall = 0 | branch = 0 | rst = 0
+time = 25000 | pc_out = 0000000000000008 | instr_out = 00000000 | target = 0000000000000000 | stall = 0 | branch = 0 | rst = 0
+time = 35000 | pc_out = 000000000000000c | instr_out = 00000000 | target = 0000000000000000 | stall = 0 | branch = 0 | rst = 0
+time = 41000 | pc_out = 000000000000000c | instr_out = 00000000 | target = 0000000000000000 | stall = 1 | branch = 0 | rst = 0
+time = 61000 | pc_out = 000000000000000c | instr_out = 00000000 | target = 0000000000000100 | stall = 0 | branch = 1 | rst = 0
+time = 65000 | pc_out = 0000000000000100 | instr_out = 00000000 | target = 0000000000000100 | stall = 0 | branch = 1 | rst = 0
+time = 71000 | pc_out = 0000000000000100 | instr_out = 00000000 | target = 0000000000000200 | stall = 0 | branch = 1 | rst = 0
+time = 75000 | pc_out = 0000000000000200 | instr_out = 00000000 | target = 0000000000000200 | stall = 0 | branch = 1 | rst = 0
+time = 81000 | pc_out = 0000000000000200 | instr_out = 00000000 | target = 0000000000000300 | stall = 1 | branch = 1 | rst = 0
+time = 91000 | pc_out = 0000000000000200 | instr_out = 00000000 | target = 0000000000000300 | stall = 0 | branch = 0 | rst = 0
+time = 95000 | pc_out = 0000000000000204 | instr_out = 00000000 | target = 0000000000000300 | stall = 0 | branch = 0 | rst = 0
+time = 101000 | pc_out = 0000000000000000 | instr_out = 00000000 | target = 0000000000000300 | stall = 1 | branch = 0 | rst = 1
+time = 111000 | pc_out = 0000000000000000 | instr_out = 00000000 | target = 0000000000000300 | stall = 0 | branch = 1 | rst = 0
+time = 115000 | pc_out = 0000000000000300 | instr_out = 00000000 | target = 0000000000000300 | stall = 0 | branch = 1 | rst = 0
+time = 121000 | pc_out = 0000000000000300 | instr_out = 00000000 | target = 0000000000000000 | stall = 0 | branch = 1 | rst = 0
+time = 125000 | pc_out = 0000000000000000 | instr_out = 00000000 | target = 0000000000000000 | stall = 0 | branch = 1 | rst = 0
+time = 131000 | pc_out = 0000000000000000 | instr_out = 00000000 | target = 0000000000000ffc | stall = 0 | branch = 1 | rst = 0
+time = 135000 | pc_out = 0000000000000ffc | instr_out = 00000000 | target = 0000000000000ffc | stall = 0 | branch = 1 | rst = 0
+time = 141000 | pc_out = 0000000000000ffc | instr_out = 00000000 | target = 0000000000000ffc | stall = 0 | branch = 0 | rst = 0
+time = 145000 | pc_out = 0000000000001000 | instr_out = 00000000 | target = 0000000000000ffc | stall = 0 | branch = 0 | rst = 0
+Simulation Complete!
+if_tb.sv:104: $finish called at 151000 (1ps)
