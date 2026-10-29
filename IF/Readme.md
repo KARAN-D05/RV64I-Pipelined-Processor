@@ -15,7 +15,7 @@ The Instruction Fetch (IF) stage combines the Program Counter (PC) and Instructi
 <p align="center">
   <img src="images/IF_Waveform.png" width="1000"/>
   <br>
-  <sub>RV64I ALU Waveform</sub>
+  <sub>IF Stage</sub>
 </p>
 
 ## Interface
