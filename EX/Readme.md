@@ -1,6 +1,12 @@
 # Execution (EX) Stage
 The Execution (EX) stage integrates the Arithmetic Logic Unit (ALU) and Target Address Generator (TAG) to perform arithmetic, logical, shift, and comparison operations while generating branch and jump target addresses.
 
+<p align="center">
+  <img src="images/EX_Waveform.png" width="1000"/>
+  <br>
+  <sub>EX Stage</sub>
+</p>
+
 ## Features
 - Integrates the ALU and TAG as independent combinational modules operating in parallel.
 - Supports 64-bit arithmetic, logical, shift, and comparison operations.
@@ -46,17 +52,17 @@ The TAG operates in parallel with the ALU and generates the target and link addr
 `t_out = pc + imm`
 
 **JALR target:**
-
 `t_out = (rs1 + imm) & ~1`
+
 **Link address:**
 `r_out = pc + 4`
 
 ## Verification
 
-- **RTL simulation:** Directed test vectors covering ALU operations, word operations, immediate operand selection, branch conditions, and target address generation.
-- **Gate-level simulation:** Passed using the synthesized and technology-mapped netlist.
-- **Arithmetic operations:** Verified 64-bit arithmetic, logical operations, shifts, and signed and unsigned comparisons.
-- **Word operations:** Verified 32-bit arithmetic and shifts with sign-extension to 64 bits.
-- **Branch conditions:** Verified all six branch-condition outputs.
-- **Target generation:** Verified branch targets, JALR targets, bit-zero clearing, and link-address generation.
-- **Integrated verification:** Confirmed that the ALU and TAG produce the expected outputs when instantiated together in the EX stage.
+- RTL simulation: Directed test vectors covering ALU operations, word operations, immediate operand selection, branch conditions, and target address generation.
+- Gate-level simulation: Passed using the synthesized and technology-mapped netlist.
+- Arithmetic operations: Verified 64-bit arithmetic, logical operations, shifts, and signed and unsigned comparisons.
+- Word operations: Verified 32-bit arithmetic and shifts with sign-extension to 64 bits.
+- Branch conditions: Verified all six branch-condition outputs.
+- Target generation: Verified branch targets, JALR targets, bit-zero clearing, and link-address generation.
+- Integrated verification: Confirmed that the ALU and TAG produce the expected outputs when instantiated together in the EX stage.
