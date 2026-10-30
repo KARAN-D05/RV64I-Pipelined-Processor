@@ -14,7 +14,6 @@ The Target Address Generator is a combinational RTL module for calculating branc
 - Calculates `JALR` targets using `(rs1 + immediate) & ~64'd1`.
 - Selects between the PC and the `rs1` register value using the `is_jalr` control signal.
 - Generates the return address using `PC + 64'd4`.
-- Uses dedicated 64-bit Kogge-Stone adders for target-address and return-address calculations.
 
 ## Interface
 
@@ -31,6 +30,6 @@ The Target Address Generator is a combinational RTL module for calculating branc
 
 | Instruction          | Target Address           | Return Address |
 | -------------------- | ------------------------ | -------------- |
-| Conditional branches | `PC + B_imm`             | Not applicable |
-| `JAL`                | `PC + J_imm`             | `PC + 4`       |
+| Conditional branches | `PC + imm`               | Not applicable |
+| `JAL`                | `PC + imm`               | `PC + 4`       |
 | `JALR`               | `(rs1 + I_imm) & ~64'd1` | `PC + 4`       |
