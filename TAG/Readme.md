@@ -5,7 +5,7 @@ The Target Address Generator is a combinational RTL module for calculating branc
 <p align="center">
   <img src="images/TAG_Waveform.png" width="1000"/>
   <br>
-  <sub>TAG Synthesis</sub>
+  <sub>TAG Waveform</sub>
 </p>
 
 ## Features
