@@ -169,7 +169,7 @@ module testbench;
     pc = 64'h2000;
     #1;
 
-    $display("Simulation Complete!");
+    $display("Simulation Complete");
     $finish;
 
   end
