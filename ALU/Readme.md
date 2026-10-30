@@ -2,7 +2,6 @@
 
 - A parameterized 64-bit combinational Arithmetic Logic Unit implementing arithmetic, logical, shift, and comparison operations for the documented RV64I instruction subset.
 - Supports **64-bit operations and 32-bit word operations**, including ADDW, SUBW, SLLW, SRLW, and SRAW.
-- Uses behavioral addition and subtraction operators for arithmetic operations.
 - Supports register-register and register-immediate operations through an operand-selection input.
 - Generates six branch-condition signals for equality, signed comparisons, and unsigned comparisons.
 - Verified using directed RTL test vectors and gate-level simulation (GLS) after synthesis and technology mapping.
