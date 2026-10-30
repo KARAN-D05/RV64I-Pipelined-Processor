@@ -1,4 +1,3 @@
-VCD info: dumpfile Sim.vcd opened for output.
 time = 0 | pc = 0000000000001000 | rs1 = 0000000000000050 | rs2 = 0000000000000010 | imm = 0000000000000020 | alu_op = 0000 | alu_src = 0 | is_jalr = 0 | out = 0000000000000060 | beq = 0 | bne = 1 | blt = 0 | bge = 1 | bltu = 0 | bgeu = 1 | t_out = 0000000000001020 | r_out = 0000000000001004
 time = 1000 | pc = 0000000000001000 | rs1 = 0000000000000050 | rs2 = 0000000000000010 | imm = 0000000000000020 | alu_op = 0001 | alu_src = 0 | is_jalr = 0 | out = 0000000000000040 | beq = 0 | bne = 1 | blt = 0 | bge = 1 | bltu = 0 | bgeu = 1 | t_out = 0000000000001020 | r_out = 0000000000001004
 time = 2000 | pc = 0000000000001000 | rs1 = 0000000000000001 | rs2 = 0000000000000004 | imm = 0000000000000020 | alu_op = 0010 | alu_src = 0 | is_jalr = 0 | out = 0000000000000010 | beq = 0 | bne = 1 | blt = 1 | bge = 0 | bltu = 1 | bgeu = 0 | t_out = 0000000000001020 | r_out = 0000000000001004
@@ -23,5 +22,3 @@ time = 20000 | pc = 0000000000001000 | rs1 = fffffffffffffff0 | rs2 = 0000000000
 time = 21000 | pc = 0000000000001000 | rs1 = fffffffffffffff0 | rs2 = 0000000000000010 | imm = 0000000000000020 | alu_op = 0000 | alu_src = 0 | is_jalr = 0 | out = 0000000000000000 | beq = 0 | bne = 1 | blt = 1 | bge = 0 | bltu = 0 | bgeu = 1 | t_out = 0000000000001020 | r_out = 0000000000001004
 time = 22000 | pc = 0000000000001000 | rs1 = 0000000000001003 | rs2 = 0000000000000010 | imm = 0000000000000010 | alu_op = 0000 | alu_src = 0 | is_jalr = 1 | out = 0000000000001013 | beq = 0 | bne = 1 | blt = 0 | bge = 1 | bltu = 0 | bgeu = 1 | t_out = 0000000000001012 | r_out = 0000000000001004
 time = 23000 | pc = 0000000000002000 | rs1 = 0000000000001003 | rs2 = 0000000000000010 | imm = 0000000000000010 | alu_op = 0000 | alu_src = 0 | is_jalr = 1 | out = 0000000000001013 | beq = 0 | bne = 1 | blt = 0 | bge = 1 | bltu = 0 | bgeu = 1 | t_out = 0000000000001012 | r_out = 0000000000002004
-Simulation Complete!
-ex_tb.sv:190: $finish called at 24000 (1ps)
