@@ -23,6 +23,7 @@
 | IF | combines the PC and ROM to provide the current instruction and its address | ✅ |
 | ALU | Performs arithmetic, logical, shift operations and generates comparision signals | ✅ |
 | TAG | Calculates branch and jump targets and generates return addresses | ✅      |
+| EX | integrates the ALU and TAG to perform operations while generating target addresses | ✅ |
 
 ## 📜License
 - Source code and HDL files are licensed under the MIT License.
