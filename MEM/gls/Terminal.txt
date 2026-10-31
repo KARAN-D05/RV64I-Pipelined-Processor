@@ -1,4 +1,3 @@
-VCD info: dumpfile Sim.vcd opened for output.
 PASS | Addr = 100 | OP = 011 | Data = 0123456789abcdef
 PASS | Addr = 100 | OP = 000 | Data = ffffffffffffffef
 PASS | Addr = 100 | OP = 100 | Data = 00000000000000ef
@@ -30,5 +29,3 @@ PASS | Addr = 1a0 | OP = 001 | Data = 0000000000000000
 PASS | Addr = 1a0 | OP = 101 | Data = 0000000000000000
 PASS | Addr = 1a2 | OP = 001 | Data = ffffffffffffffff
 PASS | Addr = 1a2 | OP = 101 | Data = 000000000000ffff
-Simulation Complete
-mem_tb.sv:149: $finish called at 461000 (1ps)
