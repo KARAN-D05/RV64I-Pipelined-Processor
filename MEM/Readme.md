@@ -1,4 +1,4 @@
-# MEM (Memory) Stage
+# Memory (MEM) Stage
 A parameterized 1 KiB byte-addressable memory supporting 8-bit, 16-bit, 32-bit, and 64-bit accesses. It provides combinational reads and synchronous writes, with support for both aligned and misaligned accesses. The memory follows little-endian byte ordering and supports signed and unsigned load operations.
 
 <p align="center">
