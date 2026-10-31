@@ -154,8 +154,7 @@ module testbench;
     load_check(10'h1A2, H,  64'hFFFF_FFFF_FFFF_FFFF);
     load_check(10'h1A2, HU, 64'h0000_0000_0000_FFFF);
 
-
-    $display("Simulation Complete");
+    $display("Simulation Complete!");
     $finish;
 
   end
