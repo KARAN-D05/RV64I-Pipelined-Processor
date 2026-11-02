@@ -1,4 +1,4 @@
-# Instruction Set & Control Specification
+# Instruction Set Architecture
 This document defines the supported instructions, instruction encodings, ALU operation encoding, control word format, and instruction-to-control mapping for the processor.
 
 ## Supported Instructions
@@ -107,11 +107,11 @@ The processor uses the standard 32-bit RISC-V instruction formats.
 ### J-Type
 
 ```text
-+---------+-----------------+---------+---------+---------+
-| imm[20] |    imm[10:1]    | imm[11] | imm[19:12]|  rd   |
-+---------+-----------------+---------+---------+---------+
-| 1 bit   |     10 bits     | 1 bit   | 8 bits  | 5 bits  |
-+---------+-----------------+---------+---------+---------+
++---------+-----------------+---------+---------+-----------+
+| imm[20] |    imm[10:1]    | imm[11] | imm[19:12]|    rd   |
++---------+-----------------+---------+---------+-----------+
+| 1 bit   |     10 bits     | 1 bit   |  8 bits   | 5 bits  |
++---------+-----------------+---------+---------+-----------+
 ```
 
 ## Opcode Encoding
