@@ -4,7 +4,7 @@
 module testbench;
 
   parameter W = 64;
-  parameter MOPS = 15;
+  parameter MOPS = 16;
 
   logic [W-1:0] rs1;
   logic [W-1:0] rs2;
@@ -130,10 +130,21 @@ module testbench;
 
     alu_op = 14;
     #5; if (out !== 64'd0) $error("Invalid alu_op 14 failed");
+    
+    alu_src = 1; rs1 = 64'd0; rs2 = 64'd0;
+    imm = 64'h0000000000001000; alu_op = 15;
+    #5; if (out !== 64'h0000000000001000) $error("LUI positive immediate test failed");
 
-    alu_op = 15;
-    #5; if (out !== 64'd0) $error("Invalid alu_op 15 failed");
+    imm = 64'hFFFFFFFF80000000;
+    #5; if (out !== 64'hFFFFFFFF80000000) $error("LUI sign-extended immediate test failed");
 
+    imm = 64'h0000000000000000;
+    #5; if (out !== 64'h0000000000000000) $error("LUI zero immediate test failed");
+
+    imm = 64'hFFFFFFFFFFFFF000;
+    #5; if (out !== 64'hFFFFFFFFFFFFF000) $error("LUI negative immediate test failed");
+
+    alu_src = 0;
     rs1 = 64'd5; rs2 = 64'd5; alu_op = 0;
     #5;
     if (beq !== 1'b1) $error("BEQ equal test failed");
