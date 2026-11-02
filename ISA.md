@@ -282,8 +282,7 @@ The Control Unit generates a **14-bit control word**.
 Control word layout:
 
 ```text
-{branch, write(RF), alu_op[3:0], alu_src, is_jalr,
- op_width[2:0], write(RAM), res[1:0]}
+{branch, write(RF), alu_op[3:0], alu_src, is_jalr, op_width[2:0], write(RAM), res[1:0]}
 ```
 
 ## Control Word Table
