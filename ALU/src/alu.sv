@@ -2,7 +2,7 @@
 
 module alu #(
     parameter W = 64,
-    parameter MOPS = 15
+    parameter MOPS = 16
 ) (
     input logic [W-1:0] rs1,
     input logic [W-1:0] rs2,
@@ -43,6 +43,7 @@ module alu #(
   localparam [$clog2(MOPS)-1:0] SLLW = 12;
   localparam [$clog2(MOPS)-1:0] SRLW = 13;
   localparam [$clog2(MOPS)-1:0] SRAW = 14;
+  localparam [$clog2(MOPS)-1:0] LUI = 15;
 
   logic [5:0] shamt1;
   assign shamt1 = op2[5:0];
@@ -82,7 +83,7 @@ module alu #(
     SLLW: out = {{W/2{sl[(W/2)-1]}}, sl};
     SRLW: out = {{W/2{sr[(W/2)-1]}}, sr};
     SRAW: out = {{W/2{sa[(W/2)-1]}}, sa};
-    default: out = W'(1'b0);
+    LUI: out = op2 + W'(1'b0);
     endcase
   end
 
