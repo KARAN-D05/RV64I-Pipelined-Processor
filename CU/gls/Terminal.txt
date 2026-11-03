@@ -1,0 +1,76 @@
+VCD info: dumpfile sim.vcd opened for output.
+PASS: ADD
+PASS: SUB
+PASS: SLL
+PASS: SLT
+PASS: SLTU
+PASS: XOR
+PASS: SRL
+PASS: SRA
+PASS: OR
+PASS: AND
+PASS: ADDI
+PASS: SLTI
+PASS: SLTIU
+PASS: XORI
+PASS: ORI
+PASS: ANDI
+PASS: SLLI
+PASS: SRLI
+PASS: SRAI
+PASS: ADDW
+PASS: SUBW
+PASS: SLLW
+PASS: SRLW
+PASS: SRAW
+PASS: ADDIW
+PASS: SLLIW
+PASS: SRLIW
+PASS: SRAIW
+PASS: LB
+PASS: LH
+PASS: LW
+PASS: LD
+PASS: LBU
+PASS: LHU
+PASS: LWU
+PASS: SB
+PASS: SH
+PASS: SW
+PASS: SD
+PASS: BEQ taken
+PASS: BNE taken
+PASS: BLT taken
+PASS: BGE taken
+PASS: BLTU taken
+PASS: BGEU taken
+PASS: BEQ not taken
+PASS: BNE not taken
+PASS: BLT not taken
+PASS: BGE not taken
+PASS: BLTU not taken
+PASS: BGEU not taken
+PASS: AUIPC
+PASS: LUI
+PASS: JAL
+PASS: JALR
+PASS: Invalid opcode 0
+PASS: Invalid opcode FFFFFFFF
+PASS: Invalid opcode 7F
+PASS: Invalid ADD funct7
+PASS: Invalid SRL funct7
+PASS: Invalid SLL funct7
+PASS: Invalid SLLI
+PASS: Invalid SRLI/SRAI
+PASS: Invalid ADDW funct7
+PASS: Invalid SLLW funct7
+PASS: Invalid SLLIW
+PASS: Invalid LOAD funct3
+PASS: Invalid STORE funct3
+PASS: Invalid BRANCH funct3 010
+PASS: Invalid BRANCH funct3 011
+PASS: Invalid JALR funct3
+Passed : 71
+Failed : 0
+ALL TESTS PASSED
+cu_tb.sv:234: $finish called at 76000 (1ps)
