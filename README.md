@@ -19,7 +19,7 @@
 | ID    | Integrates RF, SE, and CU to read operands, generate immediates, and decode instructions | ✅     |
 | EX    | Integrates ALU and TAG to perform operations and calculate target addresses              | ✅     |
 | MEM   | Integrates the data memory for load/store operations                                     | ✅     |
-| WB    | Selects the appropriate result for register write-back                                   | 🔄     |
+| WB    | Selects the appropriate result for register write-back                                   | ✅     |
 
 ## ⚙️ Implemented Modules
 
