@@ -16,9 +16,9 @@
 | Stage | Description                                                                              | Status |
 | ----- | ---------------------------------------------------------------------------------------- | ------ |
 | IF    | Integrates PC and ROM to fetch instructions and their addresses                          | ✅     |
+| ID    | Integrates RF, SE, and CU to read operands, generate immediates, and decode instructions | 🔄     |
 | EX    | Integrates ALU and TAG to perform operations and calculate target addresses              | ✅     |
 | MEM   | Integrates the data memory for load/store operations                                     | ✅     |
-| ID    | Integrates RF, SE, and CU to read operands, generate immediates, and decode instructions | 🔄     |
 | WB    | Selects the appropriate result for register write-back                                   | 🔄     |
 
 ## ⚙️ Implemented Modules
