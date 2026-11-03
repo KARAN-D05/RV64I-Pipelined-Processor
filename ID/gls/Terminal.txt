@@ -1,4 +1,3 @@
-VCD info: dumpfile sim.vcd opened for output.
 PASS: RF read port 1
 PASS: RF read port 2
 PASS: ADD rs1 data
@@ -31,4 +30,3 @@ PASS: LUI alu_src
 Passed: 29
 Failed: 0
 ALL TESTS PASSED
-id_tb.sv:201: $finish called at 40000 (1ps)
