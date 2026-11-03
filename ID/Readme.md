@@ -88,5 +88,3 @@ The CU also receives branch-condition signals from the ALU to determine whether 
 - Instruction decoding: Verified representative R-type, I-type, LOAD, STORE, BRANCH, and U-type instructions.
 - Operand propagation: Verified source register data for arithmetic and store operations.
 - Control propagation: Verified ALU selection, register-file write control, memory write control, and result selection.
-
-All 29 integration test cases passed in both RTL and gate-level simulation.
