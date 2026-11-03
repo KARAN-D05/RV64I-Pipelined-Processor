@@ -1,0 +1,34 @@
+VCD info: dumpfile sim.vcd opened for output.
+PASS: RF read port 1
+PASS: RF read port 2
+PASS: ADD rs1 data
+PASS: ADD rs2 data
+PASS: ADD write_rf
+PASS: ADD alu_op
+PASS: ADD alu_src
+PASS: ADDI immediate
+PASS: ADDI rs1 data
+PASS: ADDI write_rf
+PASS: ADDI alu_src
+PASS: ADDI alu_op
+PASS: LW immediate
+PASS: LW alu_src
+PASS: LW write_rf
+PASS: LW op_width
+PASS: LW result selection
+PASS: SW immediate
+PASS: SW address operand
+PASS: SW store data
+PASS: SW write_ram
+PASS: SW write_rf
+PASS: SW alu_src
+PASS: SW op_width
+PASS: BEQ branch
+PASS: BEQ write_rf
+PASS: LUI write_rf
+PASS: LUI alu_op
+PASS: LUI alu_src
+Passed: 29
+Failed: 0
+ALL TESTS PASSED
+id_tb.sv:201: $finish called at 40000 (1ps)
