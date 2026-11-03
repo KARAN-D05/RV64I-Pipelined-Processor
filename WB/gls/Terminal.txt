@@ -1,0 +1,8 @@
+VCD info: dumpfile sim.vcd opened for output.
+PASS: ALU result
+PASS: Memory result
+PASS: TAG return address
+PASS: TAG target address
+Passed: 4
+Failed: 0
+wb_tb.sv:68: $finish called at 4000 (1ps)
