@@ -12,6 +12,15 @@
 - [Instruction Set Architecture](ISA.md)
 - [Computer Organization](Organization.md)
 
+## 🔄 Implemented Pipeline Stages
+| Stage | Description                                                                              | Status |
+| ----- | ---------------------------------------------------------------------------------------- | ------ |
+| IF    | Integrates PC and ROM to fetch instructions and their addresses                          | ✅     |
+| EX    | Integrates ALU and TAG to perform operations and calculate target addresses              | ✅     |
+| MEM   | Integrates the data memory for load/store operations                                     | ✅     |
+| ID    | Integrates RF, SE, and CU to read operands, generate immediates, and decode instructions | 🔄     |
+| WB    | Selects the appropriate result for register write-back                                   | 🔄     |
+
 ## ⚙️ Implemented Modules
 
 | Module               | Description                                                       | Status |
@@ -20,11 +29,9 @@
 | SE | Extracts, reconstructs, and extends RV64I instruction immediates to 64 bits | ✅      |
 | PC | Maintains the current address and selects sequential or branch addresses | ✅      |
 | ROM | Stores and fetches 32-bit instructions using the PC's byte address | ✅ |
-| IF | combines the PC and ROM to provide the current instruction and its address | ✅ |
 | ALU | Performs arithmetic, logical, shift operations and generates comparision signals | ✅ |
 | TAG | Calculates branch and jump targets and generates return addresses | ✅      |
-| EX | integrates the ALU and TAG to perform operations while generating target addresses | ✅ |
-| MEM | implements byte-addressable memory with support for aligned and misaligned accesses | ✅ |
+| RAM | implements byte-addressable memory with support for aligned and misaligned accesses | ✅ |
 | CU | decodes 49 RV64I instructions and generates datapath control signals | ✅ |
 
 ## 📜License
