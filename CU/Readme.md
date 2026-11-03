@@ -8,7 +8,6 @@ The CU supports 49 instructions across arithmetic, logical, memory, branch, and 
 
 ## Features
 
-- Supports 49 instructions from the RV64I base integer instruction set.
 - Decodes R-type, I-type, S-type, B-type, U-type, and J-type instruction formats.
 - Generates ALU operation selection and operand selection controls.
 - Generates register-file and data-memory write controls.
@@ -16,6 +15,12 @@ The CU supports 49 instructions across arithmetic, logical, memory, branch, and 
 - Evaluates conditional branch outcomes using ALU comparison flags.
 - Handles unconditional jumps (JAL and JALR).
 - Uses deterministic default control values for unsupported instructions and encodings.
+
+<p align="center">
+  <img src="images/CU_Waveform.png" width="1000"/>
+  <br>
+  <sub>Control Unit producing control words for corresponding Instruction</sub>
+</p>
 
 ## Supported Instructions
 
