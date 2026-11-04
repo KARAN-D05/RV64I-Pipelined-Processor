@@ -1,4 +1,4 @@
-# Instruction Set Architecture
+# Instruction Set Architecture & Control Specification
 This document defines the supported instructions, instruction encodings, ALU operation encoding, control word format, and instruction-to-control mapping for the processor.
 
 ## Supported Instructions
