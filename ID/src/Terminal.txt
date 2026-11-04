@@ -1,20 +1,26 @@
-﻿PASS: RF read port 1
+PASS: RF read port 1
 PASS: RF read port 2
 PASS: ADD rs1 data
 PASS: ADD rs2 data
 PASS: ADD write_rf
 PASS: ADD alu_op
 PASS: ADD alu_src
+PASS: ADD uses_rs1
+PASS: ADD uses_rs2
 PASS: ADDI immediate
 PASS: ADDI rs1 data
 PASS: ADDI write_rf
 PASS: ADDI alu_src
 PASS: ADDI alu_op
+PASS: ADDI uses_rs1
+PASS: ADDI uses_rs2
 PASS: LW immediate
 PASS: LW alu_src
 PASS: LW write_rf
 PASS: LW op_width
 PASS: LW result selection
+PASS: LW uses_rs1
+PASS: LW uses_rs2
 PASS: SW immediate
 PASS: SW address operand
 PASS: SW store data
@@ -22,11 +28,17 @@ PASS: SW write_ram
 PASS: SW write_rf
 PASS: SW alu_src
 PASS: SW op_width
+PASS: SW uses_rs1
+PASS: SW uses_rs2
 PASS: BEQ branch
 PASS: BEQ write_rf
+PASS: BEQ uses_rs1
+PASS: BEQ uses_rs2
 PASS: LUI write_rf
 PASS: LUI alu_op
 PASS: LUI alu_src
-Passed: 29
+PASS: LUI uses_rs1
+PASS: LUI uses_rs2
+Passed: 41
 Failed: 0
 ALL TESTS PASSED
