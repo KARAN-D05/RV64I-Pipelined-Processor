@@ -33,6 +33,7 @@
 | TAG | Calculates branch and jump targets and generates return addresses | ✅      |
 | RAM | implements byte-addressable memory with support for aligned and misaligned accesses | ✅ |
 | CU | decodes 49 RV64I instructions and generates datapath control signals | ✅ |
+| EEF | Detects EX/MEM-to-EX RAW dependencies and forwards results to ALU operands | ✅ |
 
 ## 📜License
 - Source code and HDL files are licensed under the MIT License.
