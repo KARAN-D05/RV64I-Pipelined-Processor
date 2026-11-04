@@ -33,7 +33,9 @@ module ID #(
     output logic [$clog2(WBS)-1:0] res,
     output logic [W-1:0] imm,
     output logic [W-1:0] data_out1,
-    output logic [W-1:0] data_out2
+    output logic [W-1:0] data_out2,
+    output logic uses_rs1,
+    output logic uses_rs2
 );
 
   RF #(
@@ -70,7 +72,9 @@ module ID #(
     .res(res),
     .op_width(op_width),
     .write_rf(write_rf),
-    .write_ram(write_ram)
+    .write_ram(write_ram),
+    .uses_rs1(uses_rs1),
+    .uses_rs2(uses_rs2)
   );
 
   se #(
@@ -82,4 +86,3 @@ module ID #(
   );
 
 endmodule
- 
