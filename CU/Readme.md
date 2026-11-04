@@ -14,6 +14,7 @@ The CU supports 49 instructions across arithmetic, logical, memory, branch, and 
 - Selects the appropriate write-back result source.
 - Evaluates conditional branch outcomes using ALU comparison flags.
 - Handles unconditional jumps (JAL and JALR).
+- Generates `uses_rs1` and `uses_rs2` metadata to identify source-register usage for forwarding and hazard detection.
 - Uses deterministic default control values for unsupported instructions and encodings.
 
 <p align="center">
@@ -53,16 +54,20 @@ The CU supports 49 instructions across arithmetic, logical, memory, branch, and 
 
 ### Outputs
 
-| Signal      |  Width | Description                                     |
-| ----------- | -----  | ----------------------------------------------- |
-| `branch`    |  1 bit | Indicates an effective PC redirect              |
-| `write_rf`  |  1 bit | Register-file write enable                      |
-| `alu_op`    | 4 bits | ALU operation selection                         |
-| `alu_src`   |  1 bit | Selects ALU operand 2: register or immediate    |
-| `is_jalr`   |  1 bit | Selects JALR target-address calculation         |
-| `op_width`  | 3 bits | Memory operation width and signedness selection |
-| `write_ram` |  1 bit | Data-memory write enable                        |
-| `res`       | 2 bits | Write-back result source selection              |
+| Signal       |  Width | Description                                     |
+| ------------ | -----  | ----------------------------------------------- |
+| `branch`     |  1 bit | Indicates an effective PC redirect              |
+| `write_rf`   |  1 bit | Register-file write enable                      |
+| `alu_op`     | 4 bits | ALU operation selection                         |
+| `alu_src`    |  1 bit | Selects ALU operand 2: register or immediate    |
+| `is_jalr`    |  1 bit | Selects JALR target-address calculation         |
+| `op_width`   | 3 bits | Memory operation width and signedness selection |
+| `write_ram`  |  1 bit | Data-memory write enable                        |
+| `res`        | 2 bits | Write-back result source selection              |
+| `uses_rs1`   |  1 bit | Indicates whether the instruction uses `rs1` (forwarding metadata) |
+| `uses_rs2`   |  1 bit | Indicates whether the instruction uses `rs2` (forwarding metadata) |
+
+`uses_rs1` and `uses_rs2` identify actual source-register usage independently of the instruction's execution outcome. These signals are used by forwarding and hazard-handling logic and do not directly control the datapath.
 
 ## Verification
 
@@ -75,7 +80,7 @@ The Control Unit was verified using a self-checking SystemVerilog testbench.
 - Representative invalid opcodes and unsupported instruction encodings.
 - Invalid `funct3` and `funct7` combinations.
 - Invalid shift-immediate encodings.
-- Individual verification of all output control signals.
+- Individual verification of all output control signals, including source-usage metadata.
 
 | Verification Stage          | Result     |
 | --------------------------- | ---------- |
