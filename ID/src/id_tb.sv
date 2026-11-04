@@ -5,17 +5,23 @@ module testbench;
 
     parameter W = 64;
     parameter IW = 32;
+
     logic [$clog2(IW)-1:0] Raddr1, Raddr2, Waddr;
     logic [W-1:0] data_in;
     logic write, clk;
     logic [IW-1:0] instr;
+
     logic beq, bne, blt, bge, bltu, bgeu;
+
     logic branch, write_rf;
     logic [3:0] alu_op;
     logic alu_src, is_jalr;
     logic [2:0] op_width;
     logic write_ram;
     logic [1:0] res;
+
+    logic uses_rs1, uses_rs2;
+
     logic [W-1:0] imm;
     logic [W-1:0] data_out1, data_out2;
 
@@ -39,12 +45,14 @@ module testbench;
         .write(write),
         .clk(clk),
         .instr(instr),
+
         .beq(beq),
         .bne(bne),
         .blt(blt),
         .bge(bge),
         .bltu(bltu),
         .bgeu(bgeu),
+
         .branch(branch),
         .write_rf(write_rf),
         .alu_op(alu_op),
@@ -53,6 +61,10 @@ module testbench;
         .op_width(op_width),
         .write_ram(write_ram),
         .res(res),
+
+        .uses_rs1(uses_rs1),
+        .uses_rs2(uses_rs2),
+
         .imm(imm),
         .data_out1(data_out1),
         .data_out2(data_out2)
@@ -103,6 +115,7 @@ module testbench;
         data_in = 0;
         write = 0;
         instr = 0;
+
         beq = 0;
         bne = 0;
         blt = 0;
@@ -114,14 +127,16 @@ module testbench;
 
         write_reg(5'd1, 64'd10);
         write_reg(5'd2, 64'd20);
+
         Raddr1 = 5'd1;
         Raddr2 = 5'd2;
 
         #2;
+
         check(data_out1 == 64'd10, "RF read port 1");
         check(data_out2 == 64'd20, "RF read port 2");
 
-        instr = 32'h002081B3; 
+        instr = 32'h002081B3;
 
         Raddr1 = 5'd1;
         Raddr2 = 5'd2;
@@ -134,9 +149,10 @@ module testbench;
         check(write_rf == 1'b1, "ADD write_rf");
         check(alu_op == 4'b0000, "ADD alu_op");
         check(alu_src == 1'b0, "ADD alu_src");
+        check(uses_rs1 == 1'b1, "ADD uses_rs1");
+        check(uses_rs2 == 1'b1, "ADD uses_rs2");
 
         instr = 32'h00508213;
-
         Raddr1 = 5'd1;
         Raddr2 = 5'd0;
 
@@ -144,25 +160,25 @@ module testbench;
 
         check(imm == 64'd5, "ADDI immediate");
         check(data_out1 == 64'd10, "ADDI rs1 data");
-
         check(write_rf == 1'b1, "ADDI write_rf");
         check(alu_src == 1'b1, "ADDI alu_src");
         check(alu_op == 4'b0000, "ADDI alu_op");
+        check(uses_rs1 == 1'b1, "ADDI uses_rs1");
+        check(uses_rs2 == 1'b0, "ADDI uses_rs2");
 
         instr = 32'h0080A283;
-
         Raddr1 = 5'd1;
 
         #2;
-
         check(imm == 64'd8, "LW immediate");
         check(alu_src == 1'b1, "LW alu_src");
         check(write_rf == 1'b1, "LW write_rf");
         check(op_width == 3'b010, "LW op_width");
         check(res == 2'b01, "LW result selection");
+        check(uses_rs1 == 1'b1, "LW uses_rs1");
+        check(uses_rs2 == 1'b0, "LW uses_rs2");
 
         instr = 32'h0020A623;
-
         Raddr1 = 5'd1;
         Raddr2 = 5'd2;
 
@@ -176,6 +192,8 @@ module testbench;
         check(write_rf == 1'b0, "SW write_rf");
         check(alu_src == 1'b1, "SW alu_src");
         check(op_width == 3'b010, "SW op_width");
+        check(uses_rs1 == 1'b1, "SW uses_rs1");
+        check(uses_rs2 == 1'b1, "SW uses_rs2");
 
         instr = 32'h00208463;
 
@@ -188,6 +206,8 @@ module testbench;
 
         check(branch == 1'b1, "BEQ branch");
         check(write_rf == 1'b0, "BEQ write_rf");
+        check(uses_rs1 == 1'b1, "BEQ uses_rs1");
+        check(uses_rs2 == 1'b1, "BEQ uses_rs2");
 
         beq = 1'b0;
 
@@ -198,6 +218,8 @@ module testbench;
         check(write_rf == 1'b1, "LUI write_rf");
         check(alu_op == 4'b1111, "LUI alu_op");
         check(alu_src == 1'b1, "LUI alu_src");
+        check(uses_rs1 == 1'b0, "LUI uses_rs1");
+        check(uses_rs2 == 1'b0, "LUI uses_rs2");
 
         $display("Passed: %0d", passed);
         $display("Failed: %0d", failed);
@@ -211,4 +233,4 @@ module testbench;
 
     end
 
-endmodule 
+endmodule
