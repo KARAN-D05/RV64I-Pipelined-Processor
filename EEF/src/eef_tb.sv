@@ -125,7 +125,7 @@ module testbench;
     ex_mem_result = 64'hCCCC3333;
     #1;
 
-    $display("Simulation Complete");
+    $display("Simulation Complete!");
     $finish;
 
   end
