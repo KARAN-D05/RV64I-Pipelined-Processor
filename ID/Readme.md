@@ -91,8 +91,6 @@ The ID stage provides two metadata signals:
 
 These signals identify actual source-register dependencies independently of immediate operand selection or branch outcome. They are intended for forwarding and hazard-detection logic in subsequent pipeline stages.
 
-For example, a STORE instruction uses both `rs1` and `rs2`: `rs1` supplies the memory address operand, while `rs2` supplies the data to be written to memory.
-
 ## Verification
 
 - RTL simulation: 41/41 directed integration tests passed.
