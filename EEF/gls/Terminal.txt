@@ -1,0 +1,13 @@
+VCD info: dumpfile Sim.vcd opened for output.
+time = 0 | rs1 = 1 | rs2 = 2 | rd = 2 | uses_rs1 = 1 | uses_rs2 = 1 | write_rf = 1 | data1 = 0000000000001111 | data2 = 0000000000002222 | forwarded = 000000000000aaaa | operand_a = 0000000000001111 | operand_b = 000000000000aaaa
+time = 1000 | rs1 = 3 | rs2 = 4 | rd = 3 | uses_rs1 = 1 | uses_rs2 = 1 | write_rf = 1 | data1 = 0000000000003333 | data2 = 0000000000004444 | forwarded = 000000000000bbbb | operand_a = 000000000000bbbb | operand_b = 0000000000004444
+time = 2000 | rs1 = 5 | rs2 = 6 | rd = 6 | uses_rs1 = 1 | uses_rs2 = 1 | write_rf = 1 | data1 = 0000000000005555 | data2 = 0000000000006666 | forwarded = 000000000000cccc | operand_a = 0000000000005555 | operand_b = 000000000000cccc
+time = 3000 | rs1 = 1 | rs2 = 2 | rd = 7 | uses_rs1 = 1 | uses_rs2 = 1 | write_rf = 1 | data1 = 0000000000005555 | data2 = 0000000000006666 | forwarded = 000000000000dddd | operand_a = 0000000000005555 | operand_b = 0000000000006666
+time = 4000 | rs1 = 3 | rs2 = 4 | rd = 3 | uses_rs1 = 0 | uses_rs2 = 1 | write_rf = 1 | data1 = 0000000000005555 | data2 = 0000000000006666 | forwarded = 000000000000eeee | operand_a = 0000000000005555 | operand_b = 0000000000006666
+time = 5000 | rs1 = 5 | rs2 = 6 | rd = 6 | uses_rs1 = 1 | uses_rs2 = 0 | write_rf = 1 | data1 = 0000000000005555 | data2 = 0000000000006666 | forwarded = 000000000000ffff | operand_a = 0000000000005555 | operand_b = 0000000000006666
+time = 6000 | rs1 = 0 | rs2 = 0 | rd = 0 | uses_rs1 = 1 | uses_rs2 = 1 | write_rf = 1 | data1 = 0000000000005555 | data2 = 0000000000006666 | forwarded = 0000000000001234 | operand_a = 0000000000005555 | operand_b = 0000000000006666
+time = 7000 | rs1 = 8 | rs2 = 9 | rd = 8 | uses_rs1 = 1 | uses_rs2 = 1 | write_rf = 0 | data1 = 0000000000005555 | data2 = 0000000000006666 | forwarded = 0000000000005678 | operand_a = 0000000000005555 | operand_b = 0000000000006666
+time = 8000 | rs1 = 10 | rs2 = 10 | rd = 10 | uses_rs1 = 1 | uses_rs2 = 1 | write_rf = 1 | data1 = 0000000000005555 | data2 = 0000000000006666 | forwarded = 000000000000abcd | operand_a = 000000000000abcd | operand_b = 000000000000abcd
+time = 9000 | rs1 = 11 | rs2 = 12 | rd = 13 | uses_rs1 = 1 | uses_rs2 = 1 | write_rf = 1 | data1 = 00000000aaaa1111 | data2 = 00000000bbbb2222 | forwarded = 00000000cccc3333 | operand_a = 00000000aaaa1111 | operand_b = 00000000bbbb2222
+Simulation Complete
+eef_tb.sv:132: $finish called at 10000 (1ps)
