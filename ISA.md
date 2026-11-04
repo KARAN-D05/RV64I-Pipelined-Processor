@@ -1,4 +1,4 @@
-# Instruction Set Architecture & Control Specification
+# Instruction Set Specification
 This document defines the supported instructions, instruction encodings, ALU operation encoding, control word format, and instruction-to-control mapping for the processor.
 
 ## Supported Instructions
@@ -293,9 +293,9 @@ Control word layout:
 
 | Instruction | branch | write(RF) | alu_op[3:0] | alu_src | is_jalr | op_width[2:0] | write(RAM) | res[1:0] |
 | ----------- | -----  | --------  | ----------  | ------  | ------  | ------------  | ---------  | -------  |
-| ADD         |      0 |         1 |      `0000` |       0 |       0 |         `000` |          0 |     `00` |
-| SUB         |      0 |         1 |      `0001` |       0 |       0 |         `000` |          0 |     `00` |
-| SLL         |      0 |         1 |      `0010` |       0 |       0 |         `000` |          0 |     `00` |
+| ADD         |      0 |         1 |        0000 |       0 |       0 |         `000` |          0 |     `00` |
+| SUB         |      0 |         1 |        0001 |       0 |       0 |         `000` |          0 |     `00` |
+| SLL         |      0 |         1 |        0010 |       0 |       0 |         `000` |          0 |     `00` |
 | SRL         |      0 |         1 |      `0011` |       0 |       0 |         `000` |          0 |     `00` |
 | SRA         |      0 |         1 |      `0100` |       0 |       0 |         `000` |          0 |     `00` |
 | AND         |      0 |         1 |      `0101` |       0 |       0 |         `000` |          0 |     `00` |
