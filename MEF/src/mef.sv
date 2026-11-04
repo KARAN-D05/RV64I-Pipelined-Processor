@@ -25,5 +25,4 @@ module MEF #(
   assign alu_operand_a = forward1 ? mem_wb_result : id_ex_data1;
   assign alu_operand_b = forward2 ? mem_wb_result : id_ex_data2;
 
-
 endmodule
