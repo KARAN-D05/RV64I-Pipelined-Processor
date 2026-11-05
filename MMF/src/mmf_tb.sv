@@ -113,7 +113,7 @@ module testbench;
     uses_rs2 = 1'b1;
     #1;
 
-    $display("Simulation Complete!");
+    $display("Simulation Complete");
     $finish;
 
   end
