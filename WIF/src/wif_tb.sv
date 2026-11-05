@@ -142,7 +142,7 @@ module testbench;
     mem_wb_result = 64'hBBBBBBBB;
     #1;
 
-    $display("Simulation Complete!");
+    $display("Simulation Complete");
     $finish;
 
   end
