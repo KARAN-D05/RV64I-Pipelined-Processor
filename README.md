@@ -35,6 +35,7 @@
 | [CU](CU) | decodes 49 RV64I instructions and generates datapath control signals | ✅ |
 | [EEF](EEF) | Detects EX/MEM-to-EX RAW dependencies and forwards results to ALU operands | ✅ |
 | [MEF](MEF) | Detects MEM/WB-to-EX RAW dependencies and forwards results to ALU operands | ✅ |
+| V | EFU | Integrates EEF and MEF, selecting forwarded ALU operands with EX/MEM priority over MEM/WB | ✅ |
 
 ## 📜License
 - Source code and HDL files are licensed under the MIT License.
