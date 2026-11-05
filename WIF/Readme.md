@@ -2,7 +2,7 @@
 
 The WB-to-ID Forwarding (WIF) unit resolves Read-After-Write (RAW) data dependencies between instructions in the WB and ID stages of the five-stage pipeline.
 
-It handles dependencies where an instruction in ID requires a register value that is being written back by an older instruction in WB during the same cycle. WIF detects these dependencies by comparing the source-register indices of the instruction in IF/ID against the destination register in MEM/WB.
+It handles dependencies where an instruction in ID requires a register value that is being written back by an older instruction in WB during the same cycle. The WIF unit independently checks the rs1 and rs2 fields extracted from the instruction currently being decoded against the destination register in MEM/WB.
 
 When a dependency is detected, WIF forwards the MEM/WB result directly to the corresponding ID-stage operand input, avoiding reliance on register-file read-during-write behavior.
 
@@ -30,8 +30,8 @@ When a dependency is detected, WIF forwards the MEM/WB result directly to the co
 |---|---|---|---|
 | `if_id_data1` | Input | 64 bits | Original first operand from the register file |
 | `if_id_data2` | Input | 64 bits | Original second operand from the register file |
-| `rs1` | Input | 5 bits | First source-register index from IF/ID |
-| `rs2` | Input | 5 bits | Second source-register index from IF/ID |
+| `rs1` | Input | 5 bits | First source-register index from instruction |
+| `rs2` | Input | 5 bits | Second source-register index from instruction |
 | `mem_wb_rd` | Input | 5 bits | Destination-register index from MEM/WB |
 | `uses_rs1` | Input | 1 bit | Indicates whether the current instruction uses rs1 |
 | `uses_rs2` | Input | 1 bit | Indicates whether the current instruction uses rs2 |
