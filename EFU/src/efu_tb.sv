@@ -187,7 +187,7 @@ module testbench;
     id_ex_data2 = 64'h33334444;
     #1;
 
-    $display("Simulation Complete!");
+    $display("Simulation Complete");
     $finish;
 
   end
