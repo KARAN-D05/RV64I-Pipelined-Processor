@@ -18,4 +18,4 @@ module MMF #(
 
   assign data_out = forward ? mem_wb_result : ex_mem_data_in;
 
-endmodule
+endmodule 
