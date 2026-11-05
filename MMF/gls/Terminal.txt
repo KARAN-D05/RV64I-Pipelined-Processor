@@ -1,0 +1,13 @@
+VCD info: dumpfile Sim.vcd opened for output.
+time=0 | ex_mem_rs2=3 | mem_wb_rd=3 | uses_rs2=1 | mem_wb_write_rf=1 | original_store_data=0000000000001111 | mem_wb_result=000000000000aaaa | forward=z | data_out=000000000000aaaa
+time=1000 | ex_mem_rs2=4 | mem_wb_rd=5 | uses_rs2=1 | mem_wb_write_rf=1 | original_store_data=0000000000002222 | mem_wb_result=000000000000bbbb | forward=z | data_out=0000000000002222
+time=2000 | ex_mem_rs2=6 | mem_wb_rd=6 | uses_rs2=0 | mem_wb_write_rf=1 | original_store_data=0000000000003333 | mem_wb_result=000000000000cccc | forward=z | data_out=0000000000003333
+time=3000 | ex_mem_rs2=7 | mem_wb_rd=7 | uses_rs2=1 | mem_wb_write_rf=0 | original_store_data=0000000000004444 | mem_wb_result=000000000000dddd | forward=z | data_out=0000000000004444
+time=4000 | ex_mem_rs2=0 | mem_wb_rd=0 | uses_rs2=1 | mem_wb_write_rf=1 | original_store_data=0000000000005555 | mem_wb_result=000000000000eeee | forward=z | data_out=0000000000005555
+time=5000 | ex_mem_rs2=8 | mem_wb_rd=8 | uses_rs2=1 | mem_wb_write_rf=1 | original_store_data=0000000000006666 | mem_wb_result=000000000000ffff | forward=z | data_out=000000000000ffff
+time=6000 | ex_mem_rs2=9 | mem_wb_rd=9 | uses_rs2=1 | mem_wb_write_rf=1 | original_store_data=0000000000007777 | mem_wb_result=0000000000001234 | forward=z | data_out=0000000000001234
+time=7000 | ex_mem_rs2=10 | mem_wb_rd=11 | uses_rs2=1 | mem_wb_write_rf=1 | original_store_data=0000000000008888 | mem_wb_result=0000000000005678 | forward=z | data_out=0000000000008888
+time=8000 | ex_mem_rs2=12 | mem_wb_rd=12 | uses_rs2=1 | mem_wb_write_rf=1 | original_store_data=0000000000009999 | mem_wb_result=000000000000abcd | forward=z | data_out=000000000000abcd
+time=9000 | ex_mem_rs2=13 | mem_wb_rd=13 | uses_rs2=1 | mem_wb_write_rf=1 | original_store_data=00000000aaaa1111 | mem_wb_result=00000000bbbb2222 | forward=z | data_out=00000000bbbb2222
+Simulation Complete!
+mmf_tb.sv:110: $finish called at 10000 (1ps)
