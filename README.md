@@ -12,15 +12,6 @@
 - [Instruction Set Architecture](ISA.md)
 - [Computer Organization](Organization.md)
 
-## 🔄 Implemented Pipeline Stages
-| Stage | Description                                                                              | Status |
-| ----- | ---------------------------------------------------------------------------------------- | ------ |
-| [IF](IF)    | Integrates PC and ROM to fetch instructions and their addresses                          | ✅     |
-| [ID](ID)    | Integrates RF, SE, and CU to read operands, generate immediates, and decode instructions | ✅     |
-| [EX](EX)    | Integrates ALU and TAG to perform operations and calculate target addresses              | ✅     |
-| [MEM](MEM)   | Integrates the data memory for load/store operations                                     | ✅     |
-| [WB](WB)    | Selects the appropriate result for register write-back                                   | ✅     |
-
 ## ⚙️ Implemented Modules
 
 | Module               | Description                                                       | Status |
@@ -36,6 +27,16 @@
 | [EEF](EEF) | Detects EX/MEM-to-EX RAW dependencies and forwards results to ALU operands | ✅ |
 | [MEF](MEF) | Detects MEM/WB-to-EX RAW dependencies and forwards results to ALU operands | ✅ |
 | [EFU](EFU) | Integrates EEF and MEF, forwarding ALU operands with EX/MEM priority over MEM/WB | ✅ |
+| [MMF](MMF) | Detects MEM/WB-to-MEM RAW dependencies and forwards results to RAM write-data input | ✅ |
+
+## 🔄 Implemented Pipeline Stages
+| Stage | Description                                                                              | Status |
+| ----- | ---------------------------------------------------------------------------------------- | ------ |
+| [IF](IF)    | Integrates PC and ROM to fetch instructions and their addresses                          | ✅     |
+| [ID](ID)    | Integrates RF, SE, and CU to read operands, generate immediates, and decode instructions | ✅     |
+| [EX](EX)    | Integrates ALU and TAG to perform operations and calculate target addresses              | ✅     |
+| [MEM](MEM)   | Integrates the data memory for load/store operations                                     | ✅     |
+| [WB](WB)    | Selects the appropriate result for register write-back                                   | ✅     |
 
 ## 📜License
 - Source code and HDL files are licensed under the MIT License.
