@@ -15,26 +15,26 @@
 ## 🔄 Implemented Pipeline Stages
 | Stage | Description                                                                              | Status |
 | ----- | ---------------------------------------------------------------------------------------- | ------ |
-| IF    | Integrates PC and ROM to fetch instructions and their addresses                          | ✅     |
-| ID    | Integrates RF, SE, and CU to read operands, generate immediates, and decode instructions | ✅     |
-| EX    | Integrates ALU and TAG to perform operations and calculate target addresses              | ✅     |
-| MEM   | Integrates the data memory for load/store operations                                     | ✅     |
-| WB    | Selects the appropriate result for register write-back                                   | ✅     |
+| [IF](IF)    | Integrates PC and ROM to fetch instructions and their addresses                          | ✅     |
+| [ID](ID)    | Integrates RF, SE, and CU to read operands, generate immediates, and decode instructions | ✅     |
+| [EX](EX)    | Integrates ALU and TAG to perform operations and calculate target addresses              | ✅     |
+| [MEM](MEM)   | Integrates the data memory for load/store operations                                     | ✅     |
+| [WB](WB)    | Selects the appropriate result for register write-back                                   | ✅     |
 
 ## ⚙️ Implemented Modules
 
 | Module               | Description                                                       | Status |
 | -------------------- | ------------------------------------------------------------------| ------ |
-| RF | Stores operands and intermediate results during program execution | ✅     |
-| SE | Extracts, reconstructs, and extends RV64I instruction immediates to 64 bits | ✅      |
-| PC | Maintains the current address and selects sequential or branch addresses | ✅      |
-| ROM | Stores and fetches 32-bit instructions using the PC's byte address | ✅ |
-| ALU | Performs arithmetic, logical, shift operations and generates comparision signals | ✅ |
-| TAG | Calculates branch and jump targets and generates return addresses | ✅      |
-| RAM | implements byte-addressable memory with support for aligned and misaligned accesses | ✅ |
-| CU | decodes 49 RV64I instructions and generates datapath control signals | ✅ |
-| EEF | Detects EX/MEM-to-EX RAW dependencies and forwards results to ALU operands | ✅ |
-| MEF | Detects MEM/WB-to-EX RAW dependencies and forwards results to ALU operands | ✅ |
+| [RF](RF) | Stores operands and intermediate results during program execution | ✅     |
+| [SE](SE) | Extracts, reconstructs, and extends RV64I instruction immediates to 64 bits | ✅      |
+| [PC](PC) | Maintains the current address and selects sequential or branch addresses | ✅      |
+| [ROM](ROM) | Stores and fetches 32-bit instructions using the PC's byte address | ✅ |
+| [ALU](ALU) | Performs arithmetic, logical, shift operations and generates comparision signals | ✅ |
+| [TAG](TAG) | Calculates branch and jump targets and generates return addresses | ✅      |
+| [RAM](RAM) | implements byte-addressable memory with support for aligned and misaligned accesses | ✅ |
+| [CU](CU) | decodes 49 RV64I instructions and generates datapath control signals | ✅ |
+| [EEF](EEF) | Detects EX/MEM-to-EX RAW dependencies and forwards results to ALU operands | ✅ |
+| [MEF](MEF) | Detects MEM/WB-to-EX RAW dependencies and forwards results to ALU operands | ✅ |
 
 ## 📜License
 - Source code and HDL files are licensed under the MIT License.
