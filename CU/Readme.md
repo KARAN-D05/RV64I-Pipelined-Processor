@@ -21,7 +21,7 @@ The CU supports 49 instructions across arithmetic, logical, memory, branch, and 
 <p align="center">
   <img src="images/CU_Waveform.png" width="1000"/>
   <br>
-  <sub>Control Unit producing control words for corresponding Instruction</sub>
+  <sub>Control Unit producing control words for corresponding Instructions</sub>
 </p>
 
 ## Supported Instructions
