@@ -22,7 +22,8 @@ module cu #(
     output logic write_ram,
     output logic [$clog2(WBS)-1:0] res,
     output logic uses_rs1,
-    output logic uses_rs2
+    output logic uses_rs2,
+    output logic is_load
 );
 
   localparam OP = 7'b0110011;
@@ -49,6 +50,7 @@ module cu #(
     res = 2'b0;
     uses_rs1 = 1'b0;
     uses_rs2 = 1'b0;
+    is_load = 1'b0;
 
     case(instr[6:0])
 
@@ -234,6 +236,7 @@ module cu #(
             alu_op = 4'b0000;
             uses_rs1 = 1'b1;
             uses_rs2 = 1'b0;
+            is_load = 1'b1;
         end else if (instr[14:12] == 3'b001) begin
             write_rf = 1'b1;
             alu_src = 1'b1;
@@ -242,6 +245,7 @@ module cu #(
             alu_op = 4'b0000;
             uses_rs1 = 1'b1;
             uses_rs2 = 1'b0;
+            is_load = 1'b1;
         end else if (instr[14:12] == 3'b010) begin
             write_rf = 1'b1;
             alu_src = 1'b1;
@@ -250,6 +254,7 @@ module cu #(
             alu_op = 4'b0000;
             uses_rs1 = 1'b1;
             uses_rs2 = 1'b0;
+            is_load = 1'b1;
         end else if (instr[14:12] == 3'b011) begin
             write_rf = 1'b1;
             alu_src = 1'b1;
@@ -258,6 +263,7 @@ module cu #(
             alu_op = 4'b0000;
             uses_rs1 = 1'b1;
             uses_rs2 = 1'b0;
+            is_load = 1'b1;
         end else if (instr[14:12] == 3'b100) begin
             write_rf = 1'b1;
             alu_src = 1'b1;
@@ -266,6 +272,7 @@ module cu #(
             alu_op = 4'b0000;
             uses_rs1 = 1'b1;
             uses_rs2 = 1'b0;
+            is_load = 1'b1;
         end else if (instr[14:12] == 3'b101) begin
             write_rf = 1'b1;
             alu_src = 1'b1;
@@ -274,6 +281,7 @@ module cu #(
             alu_op = 4'b0000;
             uses_rs1 = 1'b1;
             uses_rs2 = 1'b0;
+            is_load = 1'b1;
         end else if (instr[14:12] == 3'b110) begin
             write_rf = 1'b1;
             alu_src = 1'b1;
@@ -282,6 +290,7 @@ module cu #(
             alu_op = 4'b0000;
             uses_rs1 = 1'b1;
             uses_rs2 = 1'b0;
+            is_load = 1'b1;
         end
     end
 
