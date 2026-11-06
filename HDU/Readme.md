@@ -7,7 +7,7 @@ It compares the destination register of the instruction currently in the ID/EX p
 The HDU simultaneously forces the control word to zero, inserting a bubble into ID/EX while allowing the load instruction to continue through the pipeline.
 
 <p align="center">
-  <img src="images/HDU_Waveform.png" width="1000"/>
+  <img src="images/HDU_Waveform.png" width="800"/>
   <br>
   <sub>Hazard Detection Unit</sub>
 </p>
