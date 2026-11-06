@@ -15,6 +15,7 @@ The CU supports 49 instructions across arithmetic, logical, memory, branch, and 
 - Evaluates conditional branch outcomes using ALU comparison flags.
 - Handles unconditional jumps (JAL and JALR).
 - Generates `uses_rs1` and `uses_rs2` metadata to identify source-register usage for forwarding and hazard detection.
+- Generates `is_load` to identify load instructions for load-use hazard detection.
 - Uses deterministic default control values for unsupported instructions and encodings.
 
 <p align="center">
@@ -63,11 +64,22 @@ The CU supports 49 instructions across arithmetic, logical, memory, branch, and 
 | `is_jalr`    |  1 bit | Selects JALR target-address calculation         |
 | `op_width`   | 3 bits | Memory operation width and signedness selection |
 | `write_ram`  |  1 bit | Data-memory write enable                        |
+| `is_load`    |  1 bit | Identifies a load instruction for hazard detection |
 | `res`        | 2 bits | Write-back result source selection              |
 | `uses_rs1`   |  1 bit | Indicates whether the instruction uses `rs1` (forwarding metadata) |
 | `uses_rs2`   |  1 bit | Indicates whether the instruction uses `rs2` (forwarding metadata) |
 
 `uses_rs1` and `uses_rs2` identify actual source-register usage independently of the instruction's execution outcome. These signals are used by forwarding and hazard-handling logic and do not directly control the datapath.
+
+`is_load` identifies valid load instructions (LB, LH, LW, LD, LBU, LHU, and LWU). It is used by the Hazard Detection Unit to detect load-use dependencies.
+
+## Control Word Format
+
+The CU generates a **17-bit control word**:
+
+```text
+{uses_rs1, uses_rs2, branch, write_rf, alu_op[3:0], alu_src, is_jalr, op_width[2:0], write_ram, is_load, res[1:0]}
+```
 
 ## Verification
 
@@ -80,7 +92,7 @@ The Control Unit was verified using a self-checking SystemVerilog testbench.
 - Representative invalid opcodes and unsupported instruction encodings.
 - Invalid `funct3` and `funct7` combinations.
 - Invalid shift-immediate encodings.
-- Individual verification of all output control signals, including source-usage metadata.
+- Individual verification of all output control signals, including source-usage metadata and `is_load`.
 
 | Verification Stage          | Result     |
 | --------------------------- | ---------- |
