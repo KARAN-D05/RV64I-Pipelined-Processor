@@ -30,4 +30,4 @@ module HDU #(
 
   assign c_word = stall ? NCS'(1'b0) : {uses_rs1, uses_rs2, branch, write_rf, alu_op[$clog2(MOPS)-1:0], alu_src, is_jalr, op_width[$clog2(MMOPS)-1:0], write_ram, is_load, res[$clog2(WBS)-1:0]};
 
-endmodule
+endmodule 
