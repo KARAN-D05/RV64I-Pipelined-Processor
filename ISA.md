@@ -270,19 +270,20 @@ The processor uses the standard 32-bit RISC-V instruction formats.
 
 ## Control Word Format
 
-The Control Unit generates a **16-bit control word**, including two source-usage metadata bits for forwarding and hazard handling.
+The Control Unit generates a **17-bit control word**, including source-usage metadata bits for forwarding and hazard handling.
 
-|  Bit | Control Signal | Description                             |
-| ---  | -------------- | --------------------------------------- |
-|   15 | uses_rs1       | Indicates whether the instruction uses rs1 (forwarding metadata) |
-|   14 | uses_rs2       | Indicates whether the instruction uses rs2 (forwarding metadata) |
-|   13 | branch         | PC redirect control                     |
-|   12 | write(RF)      | Register File write enable              |
-| 11:8 | alu_op[3:0]    | ALU operation select                    |
-|    7 | alu_src        | Selects immediate or rs2 as ALU operand |
-|    6 | is_jalr        | Selects JALR target calculation         |
-|  5:3 | op_width[2:0]  | Memory access width                     |
-|    2 | write(RAM)     | RAM write enable                        |
+|  Bit  | Control Signal | Description                             |
+| ---- | -------------- | --------------------------------------- |
+|   16 | uses_rs1       | Indicates whether the instruction uses rs1 (forwarding metadata) |
+|   15 | uses_rs2       | Indicates whether the instruction uses rs2 (forwarding metadata) |
+|   14 | branch         | PC redirect control                     |
+|   13 | write(RF)      | Register File write enable              |
+| 12:9 | alu_op[3:0]    | ALU operation select                    |
+|    8 | alu_src        | Selects immediate or rs2 as ALU operand |
+|    7 | is_jalr        | Selects JALR target calculation         |
+|  6:4 | op_width[2:0]  | Memory access width                     |
+|    3 | write(RAM)     | RAM write enable                        |
+|    2 | is_load        | Indicates a load instruction for hazard detection |
 |  1:0 | res[1:0]       | Write-back result selection             |
 
 The `uses_rs1` and `uses_rs2` bits identify source-register usage for forwarding and hazard handling. They are metadata and do not control the datapath directly.
@@ -290,62 +291,62 @@ The `uses_rs1` and `uses_rs2` bits identify source-register usage for forwarding
 Control word layout:
 
 ```text
-{uses_rs1, uses_rs2, branch, write(RF), alu_op[3:0], alu_src, is_jalr, op_width[2:0], write(RAM), res[1:0]}
+{uses_rs1, uses_rs2, branch, write(RF), alu_op[3:0], alu_src, is_jalr, op_width[2:0], write(RAM), is_load, res[1:0]}
 ```
 
 ## Control Word Table
 
-| Instruction | uses_rs1 | uses_rs2 | branch | write(RF) | alu_op[3:0] | alu_src | is_jalr | op_width[2:0] | write(RAM) | res[1:0] |
-| ----------- | -------- | -------- | -----  | --------  | ----------  | ------  | ------  | ------------  | ---------  | -------  |
-| ADD         |      1 |        1 |      0 |         1 |      `0000` |       0 |       0 |         `000` |          0 |     `00` |
-| SUB         |      1 |        1 |      0 |         1 |      `0001` |       0 |       0 |         `000` |          0 |     `00` |
-| SLL         |      1 |        1 |      0 |         1 |      `0010` |       0 |       0 |         `000` |          0 |     `00` |
-| SRL         |      1 |        1 |      0 |         1 |      `0011` |       0 |       0 |         `000` |          0 |     `00` |
-| SRA         |      1 |        1 |      0 |         1 |      `0100` |       0 |       0 |         `000` |          0 |     `00` |
-| AND         |      1 |        1 |      0 |         1 |      `0101` |       0 |       0 |         `000` |          0 |     `00` |
-| OR          |      1 |        1 |      0 |         1 |      `0110` |       0 |       0 |         `000` |          0 |     `00` |
-| XOR         |      1 |        1 |      0 |         1 |      `0111` |       0 |       0 |         `000` |          0 |     `00` |
-| SLT         |      1 |        1 |      0 |         1 |      `1000` |       0 |       0 |         `000` |          0 |     `00` |
-| SLTU        |      1 |        1 |      0 |         1 |      `1001` |       0 |       0 |         `000` |          0 |     `00` |
-| ADDI        |      1 |        0 |      0 |         1 |      `0000` |       1 |       0 |         `000` |          0 |     `00` |
-| SLTI        |      1 |        0 |      0 |         1 |      `1000` |       1 |       0 |         `000` |          0 |     `00` |
-| SLTIU       |      1 |        0 |      0 |         1 |      `1001` |       1 |       0 |         `000` |          0 |     `00` |
-| XORI        |      1 |        0 |      0 |         1 |      `0111` |       1 |       0 |         `000` |          0 |     `00` |
-| ORI         |      1 |        0 |      0 |         1 |      `0110` |       1 |       0 |         `000` |          0 |     `00` |
-| ANDI        |      1 |        0 |      0 |         1 |      `0101` |       1 |       0 |         `000` |          0 |     `00` |
-| SLLI        |      1 |        0 |      0 |         1 |      `0010` |       1 |       0 |         `000` |          0 |     `00` |
-| SRLI        |      1 |        0 |      0 |         1 |      `0011` |       1 |       0 |         `000` |          0 |     `00` |
-| SRAI        |      1 |        0 |      0 |         1 |      `0100` |       1 |       0 |         `000` |          0 |     `00` |
-| ADDW        |      1 |        1 |      0 |         1 |      `1010` |       0 |       0 |         `000` |          0 |     `00` |
-| SUBW        |      1 |        1 |      0 |         1 |      `1011` |       0 |       0 |         `000` |          0 |     `00` |
-| SLLW        |      1 |        1 |      0 |         1 |      `1100` |       0 |       0 |         `000` |          0 |     `00` |
-| SRLW        |      1 |        1 |      0 |         1 |      `1101` |       0 |       0 |         `000` |          0 |     `00` |
-| SRAW        |      1 |        1 |      0 |         1 |      `1110` |       0 |       0 |         `000` |          0 |     `00` |
-| ADDIW       |      1 |        0 |      0 |         1 |      `1010` |       1 |       0 |         `000` |          0 |     `00` |
-| SLLIW       |      1 |        0 |      0 |         1 |      `1100` |       1 |       0 |         `000` |          0 |     `00` |
-| SRLIW       |      1 |        0 |      0 |         1 |      `1101` |       1 |       0 |         `000` |          0 |     `00` |
-| SRAIW       |      1 |        0 |      0 |         1 |      `1110` |       1 |       0 |         `000` |          0 |     `00` |
-| LB          |      1 |        0 |      0 |         1 |      `0000` |       1 |       0 |         `000` |          0 |     `01` |
-| LH          |      1 |        0 |      0 |         1 |      `0000` |       1 |       0 |         `001` |          0 |     `01` |
-| LW          |      1 |        0 |      0 |         1 |      `0000` |       1 |       0 |         `010` |          0 |     `01` |
-| LD          |      1 |        0 |      0 |         1 |      `0000` |       1 |       0 |         `011` |          0 |     `01` |
-| LBU         |      1 |        0 |      0 |         1 |      `0000` |       1 |       0 |         `100` |          0 |     `01` |
-| LHU         |      1 |        0 |      0 |         1 |      `0000` |       1 |       0 |         `101` |          0 |     `01` |
-| LWU         |      1 |        0 |      0 |         1 |      `0000` |       1 |       0 |         `110` |          0 |     `01` |
-| SB          |      1 |        1 |      0 |         0 |      `0000` |       1 |       0 |         `000` |          1 |     `00` |
-| SH          |      1 |        1 |      0 |         0 |      `0000` |       1 |       0 |         `001` |          1 |     `00` |
-| SW          |      1 |        1 |      0 |         0 |      `0000` |       1 |       0 |         `010` |          1 |     `00` |
-| SD          |      1 |        1 |      0 |         0 |      `0000` |       1 |       0 |         `011` |          1 |     `00` |
-| BEQ         |      1 |        1 |      1 |         0 |      `0000` |       0 |       0 |         `000` |          0 |     `00` |
-| BNE         |      1 |        1 |      1 |         0 |      `0000` |       0 |       0 |         `000` |          0 |     `00` |
-| BLT         |      1 |        1 |      1 |         0 |      `0000` |       0 |       0 |         `000` |          0 |     `00` |
-| BGE         |      1 |        1 |      1 |         0 |      `0000` |       0 |       0 |         `000` |          0 |     `00` |
-| BLTU        |      1 |        1 |      1 |         0 |      `0000` |       0 |       0 |         `000` |          0 |     `00` |
-| BGEU        |      1 |        1 |      1 |         0 |      `0000` |       0 |       0 |         `000` |          0 |     `00` |
-| JAL         |      0 |        0 |      1 |         1 |      `0000` |       0 |       0 |         `000` |          0 |     `10` |
-| JALR        |      1 |        0 |      1 |         1 |      `0000` |       0 |       1 |         `000` |          0 |     `10` |
-| LUI         |      0 |        0 |      0 |         1 |      `1111` |       1 |       0 |         `000` |          0 |     `00` |
-| AUIPC       |      0 |        0 |      0 |         1 |      `0000` |       0 |       0 |         `000` |          0 |     `11` |
+| Instruction | uses_rs1 | uses_rs2 | branch | write(RF) | alu_op[3:0] | alu_src | is_jalr | op_width[2:0] | write(RAM) | is_load | res[1:0] |
+| ----------- | -------- | -------- | -----  | --------  | ----------  | ------  | ------  | ------------  | ---------  | ------- | -------  |
+| ADD         |      1 |        1 |      0 |         1 |      `0000` |       0 |       0 |         `000` |          0 | 0 |     `00` |
+| SUB         |      1 |        1 |      0 |         1 |      `0001` |       0 |       0 |         `000` |          0 | 0 |     `00` |
+| SLL         |      1 |        1 |      0 |         1 |      `0010` |       0 |       0 |         `000` |          0 | 0 |     `00` |
+| SRL         |      1 |        1 |      0 |         1 |      `0011` |       0 |       0 |         `000` |          0 | 0 |     `00` |
+| SRA         |      1 |        1 |      0 |         1 |      `0100` |       0 |       0 |         `000` |          0 | 0 |     `00` |
+| AND         |      1 |        1 |      0 |         1 |      `0101` |       0 |       0 |         `000` |          0 | 0 |     `00` |
+| OR          |      1 |        1 |      0 |         1 |      `0110` |       0 |       0 |         `000` |          0 | 0 |     `00` |
+| XOR         |      1 |        1 |      0 |         1 |      `0111` |       0 |       0 |         `000` |          0 | 0 |     `00` |
+| SLT         |      1 |        1 |      0 |         1 |      `1000` |       0 |       0 |         `000` |          0 | 0 |     `00` |
+| SLTU        |      1 |        1 |      0 |         1 |      `1001` |       0 |       0 |         `000` |          0 | 0 |     `00` |
+| ADDI        |      1 |        0 |      0 |         1 |      `0000` |       1 |       0 |         `000` |          0 | 0 |     `00` |
+| SLTI        |      1 |        0 |      0 |         1 |      `1000` |       1 |       0 |         `000` |          0 | 0 |     `00` |
+| SLTIU       |      1 |        0 |      0 |         1 |      `1001` |       1 |       0 |         `000` |          0 | 0 |     `00` |
+| XORI        |      1 |        0 |      0 |         1 |      `0111` |       1 |       0 |         `000` |          0 | 0 |     `00` |
+| ORI         |      1 |        0 |      0 |         1 |      `0110` |       1 |       0 |         `000` |          0 | 0 |     `00` |
+| ANDI        |      1 |        0 |      0 |         1 |      `0101` |       1 |       0 |         `000` |          0 | 0 |     `00` |
+| SLLI        |      1 |        0 |      0 |         1 |      `0010` |       1 |       0 |         `000` |          0 | 0 |     `00` |
+| SRLI        |      1 |        0 |      0 |         1 |      `0011` |       1 |       0 |         `000` |          0 | 0 |     `00` |
+| SRAI        |      1 |        0 |      0 |         1 |      `0100` |       1 |       0 |         `000` |          0 | 0 |     `00` |
+| ADDW        |      1 |        1 |      0 |         1 |      `1010` |       0 |       0 |         `000` |          0 | 0 |     `00` |
+| SUBW        |      1 |        1 |      0 |         1 |      `1011` |       0 |       0 |         `000` |          0 | 0 |     `00` |
+| SLLW        |      1 |        1 |      0 |         1 |      `1100` |       0 |       0 |         `000` |          0 | 0 |     `00` |
+| SRLW        |      1 |        1 |      0 |         1 |      `1101` |       0 |       0 |         `000` |          0 | 0 |     `00` |
+| SRAW        |      1 |        1 |      0 |         1 |      `1110` |       0 |       0 |         `000` |          0 | 0 |     `00` |
+| ADDIW       |      1 |        0 |      0 |         1 |      `1010` |       1 |       0 |         `000` |          0 | 0 |     `00` |
+| SLLIW       |      1 |        0 |      0 |         1 |      `1100` |       1 |       0 |         `000` |          0 | 0 |     `00` |
+| SRLIW       |      1 |        0 |      0 |         1 |      `1101` |       1 |       0 |         `000` |          0 | 0 |     `00` |
+| SRAIW       |      1 |        0 |      0 |         1 |      `1110` |       1 |       0 |         `000` |          0 | 0 |     `00` |
+| LB          |      1 |        0 |      0 |         1 |      `0000` |       1 |       0 |         `000` |          0 | 1 |     `01` |
+| LH          |      1 |        0 |      0 |         1 |      `0000` |       1 |       0 |         `001` |          0 | 1 |     `01` |
+| LW          |      1 |        0 |      0 |         1 |      `0000` |       1 |       0 |         `010` |          0 | 1 |     `01` |
+| LD          |      1 |        0 |      0 |         1 |      `0000` |       1 |       0 |         `011` |          0 | 1 |     `01` |
+| LBU         |      1 |        0 |      0 |         1 |      `0000` |       1 |       0 |         `100` |          0 | 1 |     `01` |
+| LHU         |      1 |        0 |      0 |         1 |      `0000` |       1 |       0 |         `101` |          0 | 1 |     `01` |
+| LWU         |      1 |        0 |      0 |         1 |      `0000` |       1 |       0 |         `110` |          0 | 1 |     `01` |
+| SB          |      1 |        1 |      0 |         0 |      `0000` |       1 |       0 |         `000` |          1 | 0 |     `00` |
+| SH          |      1 |        1 |      0 |         0 |      `0000` |       1 |       0 |         `001` |          1 | 0 |     `00` |
+| SW          |      1 |        1 |      0 |         0 |      `0000` |       1 |       0 |         `010` |          1 | 0 |     `00` |
+| SD          |      1 |        1 |      0 |         0 |      `0000` |       1 |       0 |         `011` |          1 | 0 |     `00` |
+| BEQ         |      1 |        1 |      1 |         0 |      `0000` |       0 |       0 |         `000` |          0 | 0 |     `00` |
+| BNE         |      1 |        1 |      1 |         0 |      `0000` |       0 |       0 |         `000` |          0 | 0 |     `00` |
+| BLT         |      1 |        1 |      1 |         0 |      `0000` |       0 |       0 |         `000` |          0 | 0 |     `00` |
+| BGE         |      1 |        1 |      1 |         0 |      `0000` |       0 |       0 |         `000` |          0 | 0 |     `00` |
+| BLTU        |      1 |        1 |      1 |         0 |      `0000` |       0 |       0 |         `000` |          0 | 0 |     `00` |
+| BGEU        |      1 |        1 |      1 |         0 |      `0000` |       0 |       0 |         `000` |          0 | 0 |     `00` |
+| JAL         |      0 |        0 |      1 |         1 |      `0000` |       0 |       0 |         `000` |          0 | 0 |     `10` |
+| JALR        |      1 |        0 |      1 |         1 |      `0000` |       0 |       1 |         `000` |          0 | 0 |     `10` |
+| LUI         |      0 |        0 |      0 |         1 |      `1111` |       1 |       0 |         `000` |          0 | 0 |     `00` |
+| AUIPC       |      0 |        0 |      0 |         1 |      `0000` |       0 |       0 |         `000` |          0 | 0 |     `11` |
 ### Branch Condition Encoding
 
 | Instruction | ALU Condition |
