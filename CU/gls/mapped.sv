@@ -2,209 +2,209 @@
 
 (* dynports =  1  *)
 (* top =  1  *)
-(* src = "cu.sv:3.1-398.10" *)
-module cu(instr, beq, bne, blt, bge, bltu, bgeu, branch, write_rf, alu_op, alu_src, is_jalr, op_width, write_ram, res, uses_rs1, uses_rs2);
-  (* src = "cu.sv:40.3-396.6" *)
+(* src = "cu.sv:3.1-407.10" *)
+module cu(instr, beq, bne, blt, bge, bltu, bgeu, branch, write_rf, alu_op, alu_src, is_jalr, op_width, write_ram, res, uses_rs1, uses_rs2, is_load);
+  (* src = "cu.sv:41.3-405.6" *)
   wire [3:0] _000_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire _001_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire _002_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire [2:0] _003_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire _004_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire [3:0] _005_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire _006_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire _007_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire [2:0] _008_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire _009_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire [3:0] _010_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire _011_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire _012_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire [2:0] _013_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire _014_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire [3:0] _015_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire _016_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire _017_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire _018_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire [3:0] _019_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire _020_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire _021_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire _022_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire [3:0] _023_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire _024_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire _025_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire [3:0] _026_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire _027_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire _028_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire [3:0] _029_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire _030_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire _031_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire [3:0] _032_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire _033_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire _034_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire [3:0] _035_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire _036_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire _037_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire [3:0] _038_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire _039_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire _040_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire [3:0] _041_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire _042_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire _043_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire [3:0] _044_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire _045_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire [3:0] _046_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire _047_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire _048_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire [3:0] _049_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire _050_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire _051_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire [3:0] _052_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire _053_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire [3:0] _054_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire [3:0] _055_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire [3:0] _056_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire [3:0] _057_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire _058_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire [2:0] _059_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire [1:0] _060_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire _061_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire [3:0] _062_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire _063_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire [2:0] _064_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire [1:0] _065_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire _066_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire _067_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire _068_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire _069_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire _070_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire _071_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire [3:0] _072_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire _073_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire [2:0] _074_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire [1:0] _075_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire [3:0] _076_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire _077_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire [2:0] _078_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire [1:0] _079_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire _080_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire [3:0] _081_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire _082_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire [2:0] _083_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire [1:0] _084_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire _085_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire [3:0] _086_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire _087_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire [2:0] _088_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire [1:0] _089_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire _090_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire [3:0] _091_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire _092_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire [2:0] _093_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire [1:0] _094_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire _095_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire [3:0] _096_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire _097_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire [2:0] _098_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire [1:0] _099_;
-  (* src = "cu.sv:40.3-396.6" *)
+  (* src = "cu.sv:41.3-405.6" *)
   wire _100_;
   (* src = "cu.sv:10.17-10.20" *)
   wire _101_;
@@ -254,6 +254,7 @@ module cu(instr, beq, bne, blt, bge, bltu, bgeu, branch, write_rf, alu_op, alu_s
   wire _123_;
   (* src = "cu.sv:20.18-20.25" *)
   wire _124_;
+  (* src = "cu.sv:26.18-26.25" *)
   wire _125_;
   wire _126_;
   wire _127_;
@@ -339,43 +340,43 @@ module cu(instr, beq, bne, blt, bge, bltu, bgeu, branch, write_rf, alu_op, alu_s
   wire _207_;
   wire _208_;
   wire _209_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:597.13-597.25" *)
   wire _210_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:597.13-597.25" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:597.13-597.25" *)
   wire _211_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:597.13-597.25" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:597.13-597.25" *)
   wire _212_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:597.13-597.25" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:597.13-597.25" *)
   wire _213_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:597.13-597.25" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:597.13-597.25" *)
   wire _214_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:597.13-597.25" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:597.13-597.25" *)
   wire _215_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:597.13-597.25" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:597.13-597.25" *)
   wire _216_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:597.13-597.25" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:597.13-597.25" *)
   wire _217_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:597.13-597.25" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:597.13-597.25" *)
   wire _218_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:597.13-597.25" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:597.13-597.25" *)
   wire _219_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:597.13-597.25" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:597.13-597.25" *)
   wire _220_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:597.13-597.25" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:597.13-597.25" *)
   wire _221_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:597.13-597.25" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:597.13-597.25" *)
   wire _222_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:597.13-597.25" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:597.13-597.25" *)
   wire _223_;
-  (* src = "cu.sv:22.18-22.27" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:597.13-597.25" *)
   wire _224_;
+  (* src = "cu.sv:22.18-22.27" *)
   wire _225_;
-  wire [2:0] _226_;
-  wire _227_;
+  wire _226_;
+  wire [2:0] _227_;
   wire _228_;
-  wire [2:0] _229_;
-  wire [1:0] _230_;
-  wire _231_;
+  wire _229_;
+  wire [2:0] _230_;
+  wire [1:0] _231_;
   wire _232_;
   wire _233_;
   wire _234_;
@@ -392,108 +393,108 @@ module cu(instr, beq, bne, blt, bge, bltu, bgeu, branch, write_rf, alu_op, alu_s
   wire _245_;
   wire _246_;
   wire _247_;
-  wire [2:0] _248_;
-  wire [1:0] _249_;
-  wire _250_;
-  wire [2:0] _251_;
-  wire [1:0] _252_;
-  wire _253_;
-  wire [2:0] _254_;
-  wire [1:0] _255_;
-  wire _256_;
-  wire [2:0] _257_;
-  wire [1:0] _258_;
-  wire _259_;
-  wire [2:0] _260_;
-  wire [1:0] _261_;
-  wire _262_;
-  wire [2:0] _263_;
-  wire [1:0] _264_;
-  wire _265_;
-  wire [2:0] _266_;
-  wire [1:0] _267_;
-  wire _268_;
-  wire [2:0] _269_;
-  wire [1:0] _270_;
-  wire _271_;
-  wire [2:0] _272_;
-  wire [1:0] _273_;
-  wire _274_;
-  wire [2:0] _275_;
-  wire [1:0] _276_;
-  wire _277_;
-  wire [2:0] _278_;
-  wire [1:0] _279_;
-  wire _280_;
+  wire _248_;
+  wire [2:0] _249_;
+  wire [1:0] _250_;
+  wire _251_;
+  wire [2:0] _252_;
+  wire [1:0] _253_;
+  wire _254_;
+  wire [2:0] _255_;
+  wire [1:0] _256_;
+  wire _257_;
+  wire [2:0] _258_;
+  wire [1:0] _259_;
+  wire _260_;
+  wire [2:0] _261_;
+  wire [1:0] _262_;
+  wire _263_;
+  wire [2:0] _264_;
+  wire [1:0] _265_;
+  wire _266_;
+  wire [2:0] _267_;
+  wire [1:0] _268_;
+  wire _269_;
+  wire [2:0] _270_;
+  wire [1:0] _271_;
+  wire _272_;
+  wire [2:0] _273_;
+  wire [1:0] _274_;
+  wire _275_;
+  wire [2:0] _276_;
+  wire [1:0] _277_;
+  wire _278_;
+  wire [2:0] _279_;
+  wire [1:0] _280_;
   wire _281_;
   wire _282_;
   wire _283_;
   wire _284_;
-  wire [1:0] _285_;
-  wire _286_;
+  wire _285_;
+  wire [1:0] _286_;
   wire _287_;
-  wire [1:0] _288_;
-  wire _289_;
+  wire _288_;
+  wire [1:0] _289_;
   wire _290_;
   wire _291_;
   wire _292_;
   wire _293_;
   wire _294_;
-  wire [1:0] _295_;
-  wire _296_;
-  wire [1:0] _297_;
-  wire _298_;
-  wire [1:0] _299_;
-  wire _300_;
-  wire [2:0] _301_;
-  wire [1:0] _302_;
-  wire _303_;
-  wire [2:0] _304_;
-  wire [1:0] _305_;
-  wire _306_;
-  wire [1:0] _307_;
-  wire _308_;
+  wire _295_;
+  wire [1:0] _296_;
+  wire _297_;
+  wire [1:0] _298_;
+  wire _299_;
+  wire [1:0] _300_;
+  wire _301_;
+  wire [2:0] _302_;
+  wire [1:0] _303_;
+  wire _304_;
+  wire [2:0] _305_;
+  wire [1:0] _306_;
+  wire _307_;
+  wire [1:0] _308_;
   wire _309_;
-  wire [1:0] _310_;
-  wire _311_;
+  wire _310_;
+  wire [1:0] _311_;
   wire _312_;
-  wire [1:0] _313_;
-  wire _314_;
+  wire _313_;
+  wire [1:0] _314_;
   wire _315_;
-  wire [1:0] _316_;
-  wire _317_;
+  wire _316_;
+  wire [1:0] _317_;
   wire _318_;
-  wire [1:0] _319_;
-  wire _320_;
+  wire _319_;
+  wire [1:0] _320_;
   wire _321_;
-  wire [3:0] _322_;
-  wire [1:0] _323_;
-  wire _324_;
-  wire [3:0] _325_;
-  wire [1:0] _326_;
-  wire _327_;
-  wire [1:0] _328_;
-  wire _329_;
-  wire [1:0] _330_;
-  wire _331_;
-  wire [2:0] _332_;
-  wire _333_;
+  wire _322_;
+  wire [3:0] _323_;
+  wire [1:0] _324_;
+  wire _325_;
+  wire [3:0] _326_;
+  wire [1:0] _327_;
+  wire _328_;
+  wire [1:0] _329_;
+  wire _330_;
+  wire [1:0] _331_;
+  wire _332_;
+  wire [2:0] _333_;
   wire _334_;
-  wire [2:0] _335_;
-  wire [1:0] _336_;
-  wire _337_;
+  wire _335_;
+  wire [2:0] _336_;
+  wire [1:0] _337_;
   wire _338_;
   wire _339_;
-  wire [5:0] _340_;
-  wire [6:0] _341_;
-  wire [2:0] _342_;
+  wire _340_;
+  wire [5:0] _341_;
+  wire [6:0] _342_;
   wire [2:0] _343_;
   wire [2:0] _344_;
   wire [2:0] _345_;
   wire [2:0] _346_;
   wire [2:0] _347_;
   wire [2:0] _348_;
-  wire [6:0] _349_;
+  wire [2:0] _349_;
   wire [6:0] _350_;
   wire [6:0] _351_;
   wire [6:0] _352_;
@@ -504,7 +505,7 @@ module cu(instr, beq, bne, blt, bge, bltu, bgeu, branch, write_rf, alu_op, alu_s
   wire [6:0] _357_;
   wire [6:0] _358_;
   wire [6:0] _359_;
-  wire _360_;
+  wire [6:0] _360_;
   wire _361_;
   wire _362_;
   wire _363_;
@@ -524,56 +525,56 @@ module cu(instr, beq, bne, blt, bge, bltu, bgeu, branch, write_rf, alu_op, alu_s
   wire _377_;
   wire _378_;
   wire _379_;
-  (* src = "cu.sv:100.22-100.44" *)
   wire _380_;
-  (* src = "cu.sv:100.48-100.74" *)
+  (* src = "cu.sv:102.22-102.44" *)
   wire _381_;
-  (* src = "cu.sv:105.22-105.44" *)
+  (* src = "cu.sv:102.48-102.74" *)
   wire _382_;
-  (* src = "cu.sv:114.13-114.35" *)
+  (* src = "cu.sv:107.22-107.44" *)
   wire _383_;
-  (* src = "cu.sv:120.22-120.44" *)
+  (* src = "cu.sv:116.13-116.35" *)
   wire _384_;
-  (* src = "cu.sv:126.22-126.44" *)
+  (* src = "cu.sv:122.22-122.44" *)
   wire _385_;
-  (* src = "cu.sv:132.22-132.44" *)
+  (* src = "cu.sv:128.22-128.44" *)
   wire _386_;
-  (* src = "cu.sv:150.22-150.44" *)
+  (* src = "cu.sv:134.22-134.44" *)
   wire _387_;
-  (* src = "cu.sv:150.48-150.73" *)
+  (* src = "cu.sv:152.22-152.44" *)
   wire _388_;
-  (* src = "cu.sv:156.22-156.44" *)
+  (* src = "cu.sv:152.48-152.73" *)
   wire _389_;
-  (* src = "cu.sv:162.48-162.73" *)
+  (* src = "cu.sv:158.22-158.44" *)
   wire _390_;
-  (* src = "cu.sv:177.48-177.74" *)
+  (* src = "cu.sv:164.48-164.73" *)
   wire _391_;
-  (* src = "cu.sv:100.22-100.74" *)
+  (* src = "cu.sv:179.48-179.74" *)
   wire _392_;
-  (* src = "cu.sv:105.22-105.74" *)
+  (* src = "cu.sv:102.22-102.74" *)
   wire _393_;
-  (* src = "cu.sv:150.22-150.73" *)
+  (* src = "cu.sv:107.22-107.74" *)
   wire _394_;
-  (* src = "cu.sv:156.22-156.73" *)
+  (* src = "cu.sv:152.22-152.73" *)
   wire _395_;
-  (* src = "cu.sv:162.22-162.73" *)
+  (* src = "cu.sv:158.22-158.73" *)
   wire _396_;
-  (* src = "cu.sv:172.13-172.65" *)
+  (* src = "cu.sv:164.22-164.73" *)
   wire _397_;
-  (* src = "cu.sv:177.22-177.74" *)
+  (* src = "cu.sv:174.13-174.65" *)
   wire _398_;
-  (* src = "cu.sv:182.22-182.74" *)
+  (* src = "cu.sv:179.22-179.74" *)
   wire _399_;
-  (* src = "cu.sv:187.22-187.74" *)
+  (* src = "cu.sv:184.22-184.74" *)
   wire _400_;
-  (* src = "cu.sv:192.22-192.74" *)
+  (* src = "cu.sv:189.22-189.74" *)
   wire _401_;
-  (* src = "cu.sv:73.22-73.74" *)
+  (* src = "cu.sv:194.22-194.74" *)
   wire _402_;
-  (* src = "cu.sv:78.22-78.74" *)
+  (* src = "cu.sv:75.22-75.74" *)
   wire _403_;
-  (* src = "cu.sv:83.22-83.74" *)
+  (* src = "cu.sv:80.22-80.74" *)
   wire _404_;
+  (* src = "cu.sv:85.22-85.74" *)
   wire _405_;
   wire _406_;
   wire _407_;
@@ -581,332 +582,333 @@ module cu(instr, beq, bne, blt, bge, bltu, bgeu, branch, write_rf, alu_op, alu_s
   wire _409_;
   wire _410_;
   wire _411_;
-  (* force_downto = 32'd1 *)
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:569.20-569.21" *)
   wire _412_;
   (* force_downto = 32'd1 *)
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:571.28-571.29" *)
-  wire [3:0] _413_;
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:569.20-569.21" *)
+  wire _413_;
   (* force_downto = 32'd1 *)
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:583.28-583.35" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:571.28-571.29" *)
   wire [3:0] _414_;
   (* force_downto = 32'd1 *)
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:589.23-589.33" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:583.28-583.35" *)
   wire [3:0] _415_;
   (* force_downto = 32'd1 *)
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:573.22-573.23" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:589.23-589.33" *)
   wire [3:0] _416_;
   (* force_downto = 32'd1 *)
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:575.21-575.22" *)
-  wire _417_;
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:573.22-573.23" *)
+  wire [3:0] _417_;
   (* force_downto = 32'd1 *)
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:578.19-578.22" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:575.21-575.22" *)
   wire _418_;
-  wire _419_;
   (* force_downto = 32'd1 *)
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:569.20-569.21" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:578.19-578.22" *)
+  wire _419_;
   wire _420_;
   (* force_downto = 32'd1 *)
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:571.28-571.29" *)
-  wire [7:0] _421_;
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:569.20-569.21" *)
+  wire _421_;
   (* force_downto = 32'd1 *)
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:583.28-583.35" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:571.28-571.29" *)
   wire [7:0] _422_;
   (* force_downto = 32'd1 *)
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:589.23-589.33" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:583.28-583.35" *)
   wire [7:0] _423_;
   (* force_downto = 32'd1 *)
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:573.22-573.23" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:589.23-589.33" *)
   wire [7:0] _424_;
   (* force_downto = 32'd1 *)
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:575.21-575.22" *)
-  wire _425_;
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:573.22-573.23" *)
+  wire [7:0] _425_;
   (* force_downto = 32'd1 *)
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:578.19-578.22" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:575.21-575.22" *)
   wire _426_;
   (* force_downto = 32'd1 *)
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:569.20-569.21" *)
-  wire [3:0] _427_;
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:578.19-578.22" *)
+  wire _427_;
   (* force_downto = 32'd1 *)
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:571.28-571.29" *)
-  wire [19:0] _428_;
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:569.20-569.21" *)
+  wire [3:0] _428_;
   (* force_downto = 32'd1 *)
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:583.28-583.35" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:571.28-571.29" *)
   wire [19:0] _429_;
   (* force_downto = 32'd1 *)
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:589.23-589.33" *)
-  wire [4:0] _430_;
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:583.28-583.35" *)
+  wire [19:0] _430_;
   (* force_downto = 32'd1 *)
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:589.23-589.33" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:589.23-589.33" *)
   wire [4:0] _431_;
   (* force_downto = 32'd1 *)
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:589.23-589.33" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:589.23-589.33" *)
   wire [4:0] _432_;
   (* force_downto = 32'd1 *)
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:589.23-589.33" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:589.23-589.33" *)
   wire [4:0] _433_;
   (* force_downto = 32'd1 *)
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:573.22-573.23" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:589.23-589.33" *)
   wire [4:0] _434_;
   (* force_downto = 32'd1 *)
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:575.21-575.22" *)
-  wire [3:0] _435_;
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:573.22-573.23" *)
+  wire [4:0] _435_;
   (* force_downto = 32'd1 *)
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:578.19-578.22" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:575.21-575.22" *)
   wire [3:0] _436_;
-  wire _437_;
   (* force_downto = 32'd1 *)
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:569.20-569.21" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:578.19-578.22" *)
+  wire [3:0] _437_;
   wire _438_;
   (* force_downto = 32'd1 *)
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:571.28-571.29" *)
-  wire [6:0] _439_;
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:569.20-569.21" *)
+  wire _439_;
   (* force_downto = 32'd1 *)
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:583.28-583.35" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:571.28-571.29" *)
   wire [6:0] _440_;
   (* force_downto = 32'd1 *)
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:589.23-589.33" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:583.28-583.35" *)
   wire [6:0] _441_;
   (* force_downto = 32'd1 *)
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:573.22-573.23" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:589.23-589.33" *)
   wire [6:0] _442_;
   (* force_downto = 32'd1 *)
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:575.21-575.22" *)
-  wire _443_;
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:573.22-573.23" *)
+  wire [6:0] _443_;
   (* force_downto = 32'd1 *)
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:578.19-578.22" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:575.21-575.22" *)
   wire _444_;
+  (* force_downto = 32'd1 *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:578.19-578.22" *)
   wire _445_;
   wire _446_;
+  wire _447_;
   (* force_downto = 32'd1 *)
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:569.20-569.21" *)
-  wire [1:0] _447_;
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:569.20-569.21" *)
+  wire [1:0] _448_;
   (* force_downto = 32'd1 *)
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:571.28-571.29" *)
-  wire [7:0] _448_;
-  (* force_downto = 32'd1 *)
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:583.28-583.35" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:571.28-571.29" *)
   wire [7:0] _449_;
   (* force_downto = 32'd1 *)
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:589.23-589.33" *)
-  wire [3:0] _450_;
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:583.28-583.35" *)
+  wire [7:0] _450_;
   (* force_downto = 32'd1 *)
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:589.23-589.33" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:589.23-589.33" *)
   wire [3:0] _451_;
   (* force_downto = 32'd1 *)
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:573.22-573.23" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:589.23-589.33" *)
   wire [3:0] _452_;
   (* force_downto = 32'd1 *)
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:575.21-575.22" *)
-  wire [1:0] _453_;
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:573.22-573.23" *)
+  wire [3:0] _453_;
   (* force_downto = 32'd1 *)
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:578.19-578.22" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:575.21-575.22" *)
   wire [1:0] _454_;
   (* force_downto = 32'd1 *)
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:569.20-569.21" *)
-  wire [2:0] _455_;
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:578.19-578.22" *)
+  wire [1:0] _455_;
   (* force_downto = 32'd1 *)
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:571.28-571.29" *)
-  wire [5:0] _456_;
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:569.20-569.21" *)
+  wire [2:0] _456_;
   (* force_downto = 32'd1 *)
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:583.28-583.35" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:571.28-571.29" *)
   wire [5:0] _457_;
   (* force_downto = 32'd1 *)
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:589.23-589.33" *)
-  wire [1:0] _458_;
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:583.28-583.35" *)
+  wire [5:0] _458_;
   (* force_downto = 32'd1 *)
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:589.23-589.33" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:589.23-589.33" *)
   wire [1:0] _459_;
   (* force_downto = 32'd1 *)
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:589.23-589.33" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:589.23-589.33" *)
   wire [1:0] _460_;
   (* force_downto = 32'd1 *)
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:573.22-573.23" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:589.23-589.33" *)
   wire [1:0] _461_;
   (* force_downto = 32'd1 *)
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:575.21-575.22" *)
-  wire [2:0] _462_;
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:573.22-573.23" *)
+  wire [1:0] _462_;
   (* force_downto = 32'd1 *)
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:578.19-578.22" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:575.21-575.22" *)
   wire [2:0] _463_;
   (* force_downto = 32'd1 *)
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:569.20-569.21" *)
-  wire _464_;
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:578.19-578.22" *)
+  wire [2:0] _464_;
   (* force_downto = 32'd1 *)
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:571.28-571.29" *)
-  wire [4:0] _465_;
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:569.20-569.21" *)
+  wire _465_;
   (* force_downto = 32'd1 *)
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:583.28-583.35" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:571.28-571.29" *)
   wire [4:0] _466_;
   (* force_downto = 32'd1 *)
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:589.23-589.33" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:583.28-583.35" *)
   wire [4:0] _467_;
   (* force_downto = 32'd1 *)
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:573.22-573.23" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:589.23-589.33" *)
   wire [4:0] _468_;
   (* force_downto = 32'd1 *)
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:575.21-575.22" *)
-  wire _469_;
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:573.22-573.23" *)
+  wire [4:0] _469_;
   (* force_downto = 32'd1 *)
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:578.19-578.22" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:575.21-575.22" *)
   wire _470_;
   (* force_downto = 32'd1 *)
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:569.20-569.21" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:578.19-578.22" *)
   wire _471_;
   (* force_downto = 32'd1 *)
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:571.28-571.29" *)
-  wire [2:0] _472_;
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:569.20-569.21" *)
+  wire _472_;
   (* force_downto = 32'd1 *)
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:583.28-583.35" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:571.28-571.29" *)
   wire [2:0] _473_;
   (* force_downto = 32'd1 *)
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:589.23-589.33" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:583.28-583.35" *)
   wire [2:0] _474_;
   (* force_downto = 32'd1 *)
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:573.22-573.23" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:589.23-589.33" *)
   wire [2:0] _475_;
   (* force_downto = 32'd1 *)
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:575.21-575.22" *)
-  wire _476_;
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:573.22-573.23" *)
+  wire [2:0] _476_;
   (* force_downto = 32'd1 *)
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:578.19-578.22" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:575.21-575.22" *)
   wire _477_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)
+  (* force_downto = 32'd1 *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:578.19-578.22" *)
   wire _478_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)
   wire _479_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)
   wire _480_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)
   wire _481_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:593.20-593.31" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)
   wire _482_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:597.13-597.15" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:593.20-593.31" *)
   wire _483_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:597.13-597.25" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:597.13-597.15" *)
   wire _484_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:597.13-597.25" *)
   wire _485_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)
   wire _486_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)
   wire _487_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)
   wire _488_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)
   wire _489_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)
   wire _490_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)
   wire _491_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)
   wire _492_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:593.20-593.31" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)
   wire _493_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:597.13-597.15" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:593.20-593.31" *)
   wire _494_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:597.13-597.25" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:597.13-597.15" *)
   wire _495_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)
-  wire [3:0] _496_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:597.13-597.25" *)
+  wire _496_;
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)
   wire [3:0] _497_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)
   wire [3:0] _498_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)
   wire [3:0] _499_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)
   wire [3:0] _500_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:593.20-593.31" *)
-  wire _501_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:593.20-593.31" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)
+  wire [3:0] _501_;
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:593.20-593.31" *)
   wire _502_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:593.20-593.31" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:593.20-593.31" *)
   wire _503_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:593.20-593.31" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:593.20-593.31" *)
   wire _504_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:597.13-597.15" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:593.20-593.31" *)
   wire _505_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:597.13-597.25" *)
-  wire [3:0] _506_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)
-  wire _507_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:597.13-597.15" *)
+  wire _506_;
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:597.13-597.25" *)
+  wire [3:0] _507_;
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)
   wire _508_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)
   wire _509_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)
   wire _510_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)
   wire _511_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)
   wire _512_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)
   wire _513_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:593.20-593.31" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)
   wire _514_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:597.13-597.15" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:593.20-593.31" *)
   wire _515_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:597.13-597.25" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:597.13-597.15" *)
   wire _516_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)
-  wire [1:0] _517_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:597.13-597.25" *)
+  wire _517_;
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)
   wire [1:0] _518_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)
   wire [1:0] _519_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)
   wire [1:0] _520_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:593.20-593.31" *)
-  wire _521_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:593.20-593.31" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)
+  wire [1:0] _521_;
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:593.20-593.31" *)
   wire _522_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:597.13-597.15" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:593.20-593.31" *)
   wire _523_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:597.13-597.25" *)
-  wire [1:0] _524_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)
-  wire [2:0] _525_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:597.13-597.15" *)
+  wire _524_;
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:597.13-597.25" *)
+  wire [1:0] _525_;
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)
   wire [2:0] _526_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:593.20-593.31" *)
-  wire _527_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:593.20-593.31" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)
+  wire [2:0] _527_;
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:593.20-593.31" *)
   wire _528_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:593.20-593.31" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:593.20-593.31" *)
   wire _529_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:597.13-597.15" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:593.20-593.31" *)
   wire _530_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:597.13-597.25" *)
-  wire [2:0] _531_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)
-  wire _532_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:597.13-597.15" *)
+  wire _531_;
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:597.13-597.25" *)
+  wire [2:0] _532_;
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)
   wire _533_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)
   wire _534_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)
   wire _535_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)
   wire _536_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:593.20-593.31" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)
   wire _537_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:597.13-597.15" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:593.20-593.31" *)
   wire _538_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:597.13-597.25" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:597.13-597.15" *)
   wire _539_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:597.13-597.25" *)
   wire _540_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)
   wire _541_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)
   wire _542_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:593.20-593.31" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:585.44-585.84" *)
   wire _543_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:597.13-597.15" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:593.20-593.31" *)
   wire _544_;
-  (* src = "cu.sv:0.0-0.0|cu.sv:53.5-394.11|/usr/bin/../share/yosys/techmap.v:597.13-597.25" *)
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:597.13-597.15" *)
   wire _545_;
+  (* src = "cu.sv:0.0-0.0|cu.sv:55.5-403.11|/usr/bin/../share/yosys/techmap.v:597.13-597.25" *)
+  wire _546_;
   (* src = "cu.sv:18.37-18.43" *)
   output [3:0] alu_op;
   wire [3:0] alu_op;
@@ -940,6 +942,9 @@ module cu(instr, beq, bne, blt, bge, bltu, bgeu, branch, write_rf, alu_op, alu_s
   (* src = "cu.sv:20.18-20.25" *)
   output is_jalr;
   wire is_jalr;
+  (* src = "cu.sv:26.18-26.25" *)
+  output is_load;
+  wire is_load;
   (* src = "cu.sv:21.38-21.46" *)
   output [2:0] op_width;
   wire [2:0] op_width;
@@ -958,769 +963,771 @@ module cu(instr, beq, bne, blt, bge, bltu, bgeu, branch, write_rf, alu_op, alu_s
   (* src = "cu.sv:17.18-17.26" *)
   output write_rf;
   wire write_rf;
-  sky130_fd_sc_hd__clkinv_1 _546_ (
-    .A(_120_),
-    .Y(_153_)
-  );
   sky130_fd_sc_hd__clkinv_1 _547_ (
-    .A(_117_),
-    .Y(_154_)
-  );
-  sky130_fd_sc_hd__clkinv_1 _548_ (
-    .A(_103_),
+    .A(_120_),
     .Y(_155_)
   );
-  sky130_fd_sc_hd__lpflow_isobufsrc_1 _549_ (
-    .A(_108_),
-    .SLEEP(_109_),
-    .X(_156_)
+  sky130_fd_sc_hd__clkinv_1 _548_ (
+    .A(_117_),
+    .Y(_156_)
   );
-  sky130_fd_sc_hd__nand2b_1 _550_ (
-    .A_N(_109_),
-    .B(_108_),
+  sky130_fd_sc_hd__clkinv_1 _549_ (
+    .A(_103_),
     .Y(_157_)
   );
-  sky130_fd_sc_hd__nand3b_1 _551_ (
+  sky130_fd_sc_hd__lpflow_isobufsrc_1 _550_ (
+    .A(_108_),
+    .SLEEP(_109_),
+    .X(_158_)
+  );
+  sky130_fd_sc_hd__nand2b_1 _551_ (
+    .A_N(_109_),
+    .B(_108_),
+    .Y(_159_)
+  );
+  sky130_fd_sc_hd__nand3b_1 _552_ (
     .A_N(_109_),
     .B(_108_),
     .C(_110_),
-    .Y(_158_)
+    .Y(_160_)
   );
-  sky130_fd_sc_hd__lpflow_isobufsrc_1 _552_ (
+  sky130_fd_sc_hd__lpflow_isobufsrc_1 _553_ (
     .A(_118_),
     .SLEEP(_119_),
-    .X(_159_)
+    .X(_161_)
   );
-  sky130_fd_sc_hd__nor4_1 _553_ (
+  sky130_fd_sc_hd__nor4_1 _554_ (
     .A(_116_),
     .B(_115_),
     .C(_114_),
     .D(_113_),
-    .Y(_160_)
-  );
-  sky130_fd_sc_hd__nand3b_1 _554_ (
-    .A_N(_112_),
-    .B(_159_),
-    .C(_160_),
-    .Y(_161_)
-  );
-  sky130_fd_sc_hd__nand4bb_1 _555_ (
-    .A_N(_112_),
-    .B_N(_158_),
-    .C(_159_),
-    .D(_160_),
     .Y(_162_)
   );
-  sky130_fd_sc_hd__nor2_1 _556_ (
-    .A(_118_),
-    .B(_119_),
+  sky130_fd_sc_hd__nand3b_1 _555_ (
+    .A_N(_112_),
+    .B(_161_),
+    .C(_162_),
     .Y(_163_)
   );
-  sky130_fd_sc_hd__nand3b_1 _557_ (
+  sky130_fd_sc_hd__nand4bb_1 _556_ (
     .A_N(_112_),
-    .B(_160_),
-    .C(_163_),
+    .B_N(_160_),
+    .C(_161_),
+    .D(_162_),
     .Y(_164_)
   );
-  sky130_fd_sc_hd__clkinv_1 _558_ (
-    .A(_164_),
+  sky130_fd_sc_hd__nor2_1 _557_ (
+    .A(_118_),
+    .B(_119_),
     .Y(_165_)
   );
-  sky130_fd_sc_hd__nand2_1 _559_ (
-    .A(_110_),
-    .B(_157_),
+  sky130_fd_sc_hd__nand3b_1 _558_ (
+    .A_N(_112_),
+    .B(_162_),
+    .C(_165_),
     .Y(_166_)
   );
-  sky130_fd_sc_hd__o21ai_0 _560_ (
-    .A1(_164_),
-    .A2(_166_),
-    .B1(_162_),
+  sky130_fd_sc_hd__clkinv_1 _559_ (
+    .A(_166_),
     .Y(_167_)
   );
-  sky130_fd_sc_hd__nand2b_1 _561_ (
-    .A_N(_123_),
-    .B(_122_),
+  sky130_fd_sc_hd__nand2_1 _560_ (
+    .A(_110_),
+    .B(_159_),
     .Y(_168_)
   );
-  sky130_fd_sc_hd__nand3b_1 _562_ (
+  sky130_fd_sc_hd__o21ai_0 _561_ (
+    .A1(_166_),
+    .A2(_168_),
+    .B1(_164_),
+    .Y(_169_)
+  );
+  sky130_fd_sc_hd__nand2b_1 _562_ (
+    .A_N(_123_),
+    .B(_122_),
+    .Y(_170_)
+  );
+  sky130_fd_sc_hd__nand3b_1 _563_ (
     .A_N(_123_),
     .B(_121_),
     .C(_122_),
-    .Y(_169_)
+    .Y(_171_)
   );
-  sky130_fd_sc_hd__nand2_1 _563_ (
+  sky130_fd_sc_hd__nand2_1 _564_ (
     .A(_111_),
     .B(_107_),
-    .Y(_170_)
+    .Y(_172_)
   );
-  sky130_fd_sc_hd__nand4bb_1 _564_ (
+  sky130_fd_sc_hd__nand4bb_1 _565_ (
     .A_N(_120_),
     .B_N(_117_),
     .C(_111_),
     .D(_107_),
-    .Y(_171_)
-  );
-  sky130_fd_sc_hd__nor2_1 _565_ (
-    .A(_169_),
-    .B(_171_),
-    .Y(_172_)
-  );
-  sky130_fd_sc_hd__nand4b_1 _566_ (
-    .A_N(_112_),
-    .B(_156_),
-    .C(_160_),
-    .D(_163_),
     .Y(_173_)
   );
-  sky130_fd_sc_hd__nand2_1 _567_ (
-    .A(_162_),
+  sky130_fd_sc_hd__nor2_1 _566_ (
+    .A(_171_),
     .B(_173_),
     .Y(_174_)
   );
-  sky130_fd_sc_hd__or3b_1 _568_ (
+  sky130_fd_sc_hd__nand4b_1 _567_ (
+    .A_N(_112_),
+    .B(_158_),
+    .C(_162_),
+    .D(_165_),
+    .Y(_175_)
+  );
+  sky130_fd_sc_hd__nand2_1 _568_ (
+    .A(_164_),
+    .B(_175_),
+    .Y(_176_)
+  );
+  sky130_fd_sc_hd__or3b_1 _569_ (
     .A(_122_),
     .B(_123_),
     .C_N(_121_),
-    .X(_175_)
+    .X(_177_)
   );
-  sky130_fd_sc_hd__nand3_1 _569_ (
+  sky130_fd_sc_hd__nand3_1 _570_ (
     .A(_120_),
     .B(_111_),
     .C(_107_),
-    .Y(_176_)
+    .Y(_178_)
   );
-  sky130_fd_sc_hd__nor3_1 _570_ (
+  sky130_fd_sc_hd__nor3_1 _571_ (
     .A(_117_),
-    .B(_175_),
-    .C(_176_),
-    .Y(_177_)
-  );
-  sky130_fd_sc_hd__or3_1 _571_ (
-    .A(_117_),
-    .B(_175_),
-    .C(_176_),
-    .X(_178_)
+    .B(_177_),
+    .C(_178_),
+    .Y(_179_)
   );
   sky130_fd_sc_hd__or3_1 _572_ (
     .A(_117_),
-    .B(_169_),
-    .C(_176_),
-    .X(_179_)
+    .B(_177_),
+    .C(_178_),
+    .X(_180_)
   );
-  sky130_fd_sc_hd__nand2_1 _573_ (
-    .A(_178_),
-    .B(_179_),
-    .Y(_180_)
+  sky130_fd_sc_hd__or3_1 _573_ (
+    .A(_117_),
+    .B(_171_),
+    .C(_178_),
+    .X(_181_)
   );
-  sky130_fd_sc_hd__nand4b_1 _574_ (
+  sky130_fd_sc_hd__nand2_1 _574_ (
+    .A(_180_),
+    .B(_181_),
+    .Y(_182_)
+  );
+  sky130_fd_sc_hd__nand4b_1 _575_ (
     .A_N(_120_),
     .B(_117_),
     .C(_111_),
     .D(_107_),
-    .Y(_181_)
+    .Y(_183_)
   );
-  sky130_fd_sc_hd__nor2_1 _575_ (
-    .A(_169_),
-    .B(_181_),
-    .Y(_182_)
-  );
-  sky130_fd_sc_hd__lpflow_inputiso1p_1 _576_ (
-    .A(_169_),
-    .SLEEP(_181_),
-    .X(_183_)
-  );
-  sky130_fd_sc_hd__nand4_1 _577_ (
-    .A(_110_),
-    .B(_156_),
-    .C(_159_),
-    .D(_160_),
+  sky130_fd_sc_hd__nor2_1 _576_ (
+    .A(_171_),
+    .B(_183_),
     .Y(_184_)
   );
-  sky130_fd_sc_hd__lpflow_inputiso1p_1 _578_ (
+  sky130_fd_sc_hd__lpflow_inputiso1p_1 _577_ (
     .A(_171_),
-    .SLEEP(_175_),
+    .SLEEP(_183_),
     .X(_185_)
   );
-  sky130_fd_sc_hd__a21oi_1 _579_ (
-    .A1(_166_),
-    .A2(_184_),
-    .B1(_185_),
+  sky130_fd_sc_hd__nand4_1 _578_ (
+    .A(_110_),
+    .B(_158_),
+    .C(_161_),
+    .D(_162_),
     .Y(_186_)
   );
-  sky130_fd_sc_hd__a221oi_1 _580_ (
-    .A1(_167_),
-    .A2(_172_),
-    .B1(_174_),
-    .B2(_180_),
-    .C1(_186_),
-    .Y(_187_)
+  sky130_fd_sc_hd__lpflow_inputiso1p_1 _579_ (
+    .A(_173_),
+    .SLEEP(_177_),
+    .X(_187_)
   );
-  sky130_fd_sc_hd__nand2_1 _581_ (
-    .A(_183_),
-    .B(_187_),
-    .Y(_214_)
-  );
-  sky130_fd_sc_hd__nor2_1 _582_ (
-    .A(_108_),
-    .B(_109_),
+  sky130_fd_sc_hd__a21oi_1 _580_ (
+    .A1(_168_),
+    .A2(_186_),
+    .B1(_187_),
     .Y(_188_)
   );
-  sky130_fd_sc_hd__nor3_1 _583_ (
-    .A(_110_),
-    .B(_108_),
-    .C(_109_),
+  sky130_fd_sc_hd__a221oi_1 _581_ (
+    .A1(_169_),
+    .A2(_174_),
+    .B1(_176_),
+    .B2(_182_),
+    .C1(_188_),
     .Y(_189_)
+  );
+  sky130_fd_sc_hd__nand2_1 _582_ (
+    .A(_185_),
+    .B(_189_),
+    .Y(_215_)
+  );
+  sky130_fd_sc_hd__nor2_1 _583_ (
+    .A(_108_),
+    .B(_109_),
+    .Y(_190_)
   );
   sky130_fd_sc_hd__or3_1 _584_ (
     .A(_110_),
     .B(_108_),
     .C(_109_),
-    .X(_190_)
+    .X(_191_)
   );
   sky130_fd_sc_hd__nand2_1 _585_ (
-    .A(_162_),
-    .B(_190_),
-    .Y(_191_)
-  );
-  sky130_fd_sc_hd__a21oi_1 _586_ (
-    .A1(_161_),
-    .A2(_164_),
-    .B1(_179_),
+    .A(_164_),
+    .B(_191_),
     .Y(_192_)
   );
-  sky130_fd_sc_hd__o21ai_0 _587_ (
-    .A1(_177_),
-    .A2(_192_),
-    .B1(_191_),
+  sky130_fd_sc_hd__a21oi_1 _586_ (
+    .A1(_163_),
+    .A2(_166_),
+    .B1(_181_),
     .Y(_193_)
+  );
+  sky130_fd_sc_hd__o21ai_0 _587_ (
+    .A1(_179_),
+    .A2(_193_),
+    .B1(_192_),
+    .Y(_194_)
   );
   sky130_fd_sc_hd__lpflow_isobufsrc_1 _588_ (
     .A(_110_),
     .SLEEP(_108_),
-    .X(_194_)
+    .X(_195_)
   );
   sky130_fd_sc_hd__o211ai_1 _589_ (
-    .A1(_156_),
-    .A2(_194_),
-    .B1(_172_),
-    .C1(_165_),
-    .Y(_195_)
-  );
-  sky130_fd_sc_hd__a31oi_1 _590_ (
-    .A1(_156_),
-    .A2(_160_),
-    .A3(_163_),
-    .B1(_194_),
+    .A1(_158_),
+    .A2(_195_),
+    .B1(_174_),
+    .C1(_167_),
     .Y(_196_)
   );
-  sky130_fd_sc_hd__o2111ai_1 _591_ (
-    .A1(_185_),
-    .A2(_196_),
-    .B1(_193_),
-    .C1(_183_),
-    .D1(_195_),
-    .Y(_213_)
-  );
-  sky130_fd_sc_hd__nor2_1 _592_ (
-    .A(_161_),
-    .B(_190_),
+  sky130_fd_sc_hd__a31oi_1 _590_ (
+    .A1(_158_),
+    .A2(_162_),
+    .A3(_165_),
+    .B1(_195_),
     .Y(_197_)
   );
-  sky130_fd_sc_hd__o32ai_1 _593_ (
-    .A1(_161_),
-    .A2(_179_),
-    .A3(_190_),
-    .B1(_164_),
-    .B2(_158_),
+  sky130_fd_sc_hd__o2111ai_1 _591_ (
+    .A1(_187_),
+    .A2(_197_),
+    .B1(_194_),
+    .C1(_185_),
+    .D1(_196_),
+    .Y(_214_)
+  );
+  sky130_fd_sc_hd__nor2_1 _592_ (
+    .A(_163_),
+    .B(_191_),
     .Y(_198_)
+  );
+  sky130_fd_sc_hd__o32ai_1 _593_ (
+    .A1(_163_),
+    .A2(_181_),
+    .A3(_191_),
+    .B1(_166_),
+    .B2(_160_),
+    .Y(_199_)
   );
   sky130_fd_sc_hd__nand2_1 _594_ (
     .A(_108_),
     .B(_109_),
-    .Y(_199_)
+    .Y(_200_)
   );
   sky130_fd_sc_hd__nand2_1 _595_ (
     .A(_110_),
-    .B(_188_),
-    .Y(_200_)
-  );
-  sky130_fd_sc_hd__a31oi_1 _596_ (
-    .A1(_158_),
-    .A2(_199_),
-    .A3(_200_),
-    .B1(_164_),
+    .B(_190_),
     .Y(_201_)
   );
-  sky130_fd_sc_hd__o21ai_0 _597_ (
-    .A1(_197_),
-    .A2(_201_),
-    .B1(_172_),
+  sky130_fd_sc_hd__a31oi_1 _596_ (
+    .A1(_160_),
+    .A2(_200_),
+    .A3(_201_),
+    .B1(_166_),
     .Y(_202_)
+  );
+  sky130_fd_sc_hd__o21ai_0 _597_ (
+    .A1(_198_),
+    .A2(_202_),
+    .B1(_174_),
+    .Y(_203_)
   );
   sky130_fd_sc_hd__nand4_1 _598_ (
     .A(_110_),
-    .B(_156_),
-    .C(_160_),
-    .D(_163_),
-    .Y(_203_)
-  );
-  sky130_fd_sc_hd__a31oi_1 _599_ (
-    .A1(_199_),
-    .A2(_200_),
-    .A3(_203_),
-    .B1(_185_),
+    .B(_158_),
+    .C(_162_),
+    .D(_165_),
     .Y(_204_)
   );
-  sky130_fd_sc_hd__a21oi_1 _600_ (
-    .A1(_180_),
-    .A2(_198_),
-    .B1(_204_),
+  sky130_fd_sc_hd__a31oi_1 _599_ (
+    .A1(_200_),
+    .A2(_201_),
+    .A3(_204_),
+    .B1(_187_),
     .Y(_205_)
   );
+  sky130_fd_sc_hd__a21oi_1 _600_ (
+    .A1(_182_),
+    .A2(_199_),
+    .B1(_205_),
+    .Y(_206_)
+  );
   sky130_fd_sc_hd__nand3_1 _601_ (
-    .A(_183_),
-    .B(_202_),
-    .C(_205_),
-    .Y(_212_)
+    .A(_185_),
+    .B(_203_),
+    .C(_206_),
+    .Y(_213_)
   );
   sky130_fd_sc_hd__lpflow_inputiso1p_1 _602_ (
-    .A(_175_),
-    .SLEEP(_181_),
-    .X(_206_)
+    .A(_177_),
+    .SLEEP(_183_),
+    .X(_207_)
   );
   sky130_fd_sc_hd__nand3_1 _603_ (
     .A(_110_),
     .B(_108_),
     .C(_109_),
-    .Y(_207_)
+    .Y(_208_)
   );
   sky130_fd_sc_hd__nor4_1 _604_ (
     .A(_122_),
     .B(_121_),
     .C(_123_),
-    .D(_171_),
-    .Y(_208_)
-  );
-  sky130_fd_sc_hd__nand2_1 _605_ (
-    .A(_207_),
-    .B(_208_),
+    .D(_173_),
     .Y(_209_)
   );
-  sky130_fd_sc_hd__nand2_1 _606_ (
-    .A(_206_),
+  sky130_fd_sc_hd__nand2_1 _605_ (
+    .A(_208_),
     .B(_209_),
-    .Y(_217_)
+    .Y(_210_)
   );
-  sky130_fd_sc_hd__nand4b_1 _607_ (
-    .A_N(_108_),
-    .B(_109_),
-    .C(_208_),
-    .D(_110_),
+  sky130_fd_sc_hd__clkinv_1 _606_ (
+    .A(_210_),
     .Y(_125_)
   );
-  sky130_fd_sc_hd__nand2b_1 _608_ (
-    .A_N(_110_),
+  sky130_fd_sc_hd__nand2_1 _607_ (
+    .A(_207_),
+    .B(_210_),
+    .Y(_218_)
+  );
+  sky130_fd_sc_hd__nand4b_1 _608_ (
+    .A_N(_108_),
     .B(_109_),
+    .C(_209_),
+    .D(_110_),
     .Y(_126_)
   );
-  sky130_fd_sc_hd__a2111oi_0 _609_ (
-    .A1(_125_),
-    .A2(_126_),
-    .B1(_121_),
-    .C1(_123_),
-    .D1(_171_),
-    .Y(_220_)
-  );
-  sky130_fd_sc_hd__nor4_1 _610_ (
-    .A(_121_),
-    .B(_110_),
-    .C(_168_),
-    .D(_171_),
-    .Y(_224_)
-  );
-  sky130_fd_sc_hd__o21ai_0 _611_ (
-    .A1(_110_),
-    .A2(_199_),
-    .B1(_157_),
+  sky130_fd_sc_hd__nand2b_1 _609_ (
+    .A_N(_110_),
+    .B(_109_),
     .Y(_127_)
   );
-  sky130_fd_sc_hd__a22o_1 _612_ (
-    .A1(_108_),
-    .A2(_224_),
-    .B1(_127_),
-    .B2(_208_),
-    .X(_219_)
+  sky130_fd_sc_hd__a2111oi_0 _610_ (
+    .A1(_126_),
+    .A2(_127_),
+    .B1(_121_),
+    .C1(_123_),
+    .D1(_173_),
+    .Y(_221_)
   );
-  sky130_fd_sc_hd__nand3b_1 _613_ (
+  sky130_fd_sc_hd__nor4_1 _611_ (
+    .A(_121_),
+    .B(_110_),
+    .C(_170_),
+    .D(_173_),
+    .Y(_225_)
+  );
+  sky130_fd_sc_hd__o21ai_0 _612_ (
+    .A1(_110_),
+    .A2(_200_),
+    .B1(_159_),
+    .Y(_128_)
+  );
+  sky130_fd_sc_hd__a22o_1 _613_ (
+    .A1(_108_),
+    .A2(_225_),
+    .B1(_128_),
+    .B2(_209_),
+    .X(_220_)
+  );
+  sky130_fd_sc_hd__nand3b_1 _614_ (
     .A_N(_121_),
     .B(_123_),
     .C(_122_),
-    .Y(_128_)
+    .Y(_129_)
   );
-  sky130_fd_sc_hd__nor3_1 _614_ (
-    .A(_181_),
-    .B(_190_),
-    .C(_128_),
+  sky130_fd_sc_hd__nor3_1 _615_ (
+    .A(_183_),
+    .B(_191_),
+    .C(_129_),
     .Y(_124_)
   );
-  sky130_fd_sc_hd__a2111o_1 _615_ (
-    .A1(_153_),
-    .A2(_190_),
-    .B1(_128_),
-    .C1(_154_),
-    .D1(_170_),
-    .X(_129_)
+  sky130_fd_sc_hd__a2111o_1 _616_ (
+    .A1(_155_),
+    .A2(_191_),
+    .B1(_129_),
+    .C1(_156_),
+    .D1(_172_),
+    .X(_130_)
   );
-  sky130_fd_sc_hd__nand3b_1 _616_ (
+  sky130_fd_sc_hd__nand3b_1 _617_ (
     .A_N(_110_),
     .B(_106_),
-    .C(_156_),
-    .Y(_130_)
+    .C(_158_),
+    .Y(_131_)
   );
-  sky130_fd_sc_hd__nand4b_1 _617_ (
+  sky130_fd_sc_hd__nand4b_1 _618_ (
     .A_N(_108_),
     .B(_109_),
     .C(_105_),
     .D(_110_),
-    .Y(_131_)
-  );
-  sky130_fd_sc_hd__nand3_1 _618_ (
-    .A(_110_),
-    .B(_102_),
-    .C(_156_),
     .Y(_132_)
   );
   sky130_fd_sc_hd__nand3_1 _619_ (
     .A(_110_),
-    .B(_104_),
-    .C(_188_),
+    .B(_102_),
+    .C(_158_),
     .Y(_133_)
   );
-  sky130_fd_sc_hd__o21ai_0 _620_ (
-    .A1(_155_),
-    .A2(_207_),
-    .B1(_131_),
-    .Y(_134_)
+  sky130_fd_sc_hd__lpflow_isobufsrc_1 _620_ (
+    .A(_101_),
+    .SLEEP(_191_),
+    .X(_134_)
   );
   sky130_fd_sc_hd__nand3_1 _621_ (
-    .A(_130_),
-    .B(_132_),
-    .C(_133_),
+    .A(_110_),
+    .B(_104_),
+    .C(_190_),
     .Y(_135_)
   );
-  sky130_fd_sc_hd__a211oi_1 _622_ (
-    .A1(_101_),
-    .A2(_189_),
-    .B1(_134_),
-    .C1(_135_),
+  sky130_fd_sc_hd__o21ai_0 _622_ (
+    .A1(_157_),
+    .A2(_208_),
+    .B1(_132_),
     .Y(_136_)
   );
-  sky130_fd_sc_hd__nor2_1 _623_ (
-    .A(_171_),
-    .B(_128_),
+  sky130_fd_sc_hd__nand3_1 _623_ (
+    .A(_131_),
+    .B(_133_),
+    .C(_135_),
     .Y(_137_)
   );
-  sky130_fd_sc_hd__o31ai_1 _624_ (
-    .A1(_171_),
-    .A2(_128_),
-    .A3(_136_),
-    .B1(_129_),
-    .Y(_223_)
-  );
-  sky130_fd_sc_hd__a31oi_1 _625_ (
-    .A1(_162_),
-    .A2(_173_),
-    .A3(_190_),
-    .B1(_178_),
+  sky130_fd_sc_hd__nor3_1 _624_ (
+    .A(_134_),
+    .B(_136_),
+    .C(_137_),
     .Y(_138_)
   );
-  sky130_fd_sc_hd__nor2_1 _626_ (
-    .A(_182_),
-    .B(_138_),
+  sky130_fd_sc_hd__nor2_1 _625_ (
+    .A(_173_),
+    .B(_129_),
     .Y(_139_)
   );
+  sky130_fd_sc_hd__o31ai_1 _626_ (
+    .A1(_173_),
+    .A2(_129_),
+    .A3(_138_),
+    .B1(_130_),
+    .Y(_224_)
+  );
   sky130_fd_sc_hd__a31oi_1 _627_ (
-    .A1(_156_),
-    .A2(_184_),
-    .A3(_196_),
-    .B1(_185_),
+    .A1(_164_),
+    .A2(_175_),
+    .A3(_191_),
+    .B1(_180_),
     .Y(_140_)
   );
-  sky130_fd_sc_hd__a21o_1 _628_ (
-    .A1(_207_),
-    .A2(_208_),
-    .B1(_224_),
-    .X(_141_)
+  sky130_fd_sc_hd__nor2_1 _628_ (
+    .A(_184_),
+    .B(_140_),
+    .Y(_141_)
   );
-  sky130_fd_sc_hd__nor2_1 _629_ (
-    .A(_140_),
-    .B(_141_),
+  sky130_fd_sc_hd__a31oi_1 _629_ (
+    .A1(_158_),
+    .A2(_186_),
+    .A3(_197_),
+    .B1(_187_),
     .Y(_142_)
   );
-  sky130_fd_sc_hd__nand2_1 _630_ (
-    .A(_139_),
-    .B(_142_),
-    .Y(_222_)
-  );
-  sky130_fd_sc_hd__and3_1 _631_ (
-    .A(_110_),
-    .B(_199_),
-    .C(_208_),
-    .X(_221_)
-  );
-  sky130_fd_sc_hd__nand2_1 _632_ (
-    .A(_206_),
-    .B(_129_),
-    .Y(_218_)
-  );
-  sky130_fd_sc_hd__or4b_1 _633_ (
-    .A(_112_),
-    .B(_190_),
-    .C(_119_),
-    .D_N(_160_),
+  sky130_fd_sc_hd__a21o_1 _630_ (
+    .A1(_208_),
+    .A2(_209_),
+    .B1(_225_),
     .X(_143_)
   );
-  sky130_fd_sc_hd__nor2_1 _634_ (
-    .A(_164_),
-    .B(_126_),
+  sky130_fd_sc_hd__nor2_1 _631_ (
+    .A(_142_),
+    .B(_143_),
     .Y(_144_)
   );
-  sky130_fd_sc_hd__nand2_1 _635_ (
-    .A(_173_),
-    .B(_143_),
-    .Y(_145_)
+  sky130_fd_sc_hd__nand2_1 _632_ (
+    .A(_141_),
+    .B(_144_),
+    .Y(_223_)
   );
-  sky130_fd_sc_hd__o31ai_1 _636_ (
-    .A1(_167_),
-    .A2(_144_),
-    .A3(_145_),
-    .B1(_172_),
+  sky130_fd_sc_hd__and3_1 _633_ (
+    .A(_110_),
+    .B(_200_),
+    .C(_209_),
+    .X(_222_)
+  );
+  sky130_fd_sc_hd__nand2_1 _634_ (
+    .A(_207_),
+    .B(_130_),
+    .Y(_219_)
+  );
+  sky130_fd_sc_hd__or4b_1 _635_ (
+    .A(_112_),
+    .B(_191_),
+    .C(_119_),
+    .D_N(_162_),
+    .X(_145_)
+  );
+  sky130_fd_sc_hd__nor2_1 _636_ (
+    .A(_166_),
+    .B(_127_),
     .Y(_146_)
   );
-  sky130_fd_sc_hd__a31o_1 _637_ (
-    .A1(_162_),
-    .A2(_173_),
-    .A3(_143_),
-    .B1(_179_),
-    .X(_147_)
+  sky130_fd_sc_hd__nand2_1 _637_ (
+    .A(_175_),
+    .B(_145_),
+    .Y(_147_)
   );
-  sky130_fd_sc_hd__nor2b_1 _638_ (
-    .A(_140_),
-    .B_N(_147_),
+  sky130_fd_sc_hd__o31ai_1 _638_ (
+    .A1(_169_),
+    .A2(_146_),
+    .A3(_147_),
+    .B1(_174_),
     .Y(_148_)
   );
-  sky130_fd_sc_hd__a2111oi_0 _639_ (
-    .A1(_207_),
-    .A2(_208_),
-    .B1(_138_),
-    .C1(_218_),
-    .D1(_182_),
-    .Y(_149_)
+  sky130_fd_sc_hd__a31o_1 _639_ (
+    .A1(_164_),
+    .A2(_175_),
+    .A3(_145_),
+    .B1(_181_),
+    .X(_149_)
   );
-  sky130_fd_sc_hd__nand3_1 _640_ (
-    .A(_146_),
-    .B(_148_),
-    .C(_149_),
-    .Y(_216_)
-  );
-  sky130_fd_sc_hd__nand2_1 _641_ (
-    .A(_172_),
-    .B(_144_),
+  sky130_fd_sc_hd__nor2b_1 _640_ (
+    .A(_142_),
+    .B_N(_149_),
     .Y(_150_)
   );
-  sky130_fd_sc_hd__o2111ai_1 _642_ (
-    .A1(_185_),
-    .A2(_126_),
-    .B1(_139_),
-    .C1(_147_),
-    .D1(_150_),
-    .Y(_215_)
-  );
-  sky130_fd_sc_hd__nand2_1 _643_ (
-    .A(_126_),
-    .B(_137_),
+  sky130_fd_sc_hd__nor4_1 _641_ (
+    .A(_184_),
+    .B(_125_),
+    .C(_140_),
+    .D(_219_),
     .Y(_151_)
   );
-  sky130_fd_sc_hd__nor4b_1 _644_ (
-    .A(_124_),
-    .B(_138_),
-    .C(_141_),
-    .D_N(_151_),
+  sky130_fd_sc_hd__nand3_1 _642_ (
+    .A(_148_),
+    .B(_150_),
+    .C(_151_),
+    .Y(_217_)
+  );
+  sky130_fd_sc_hd__nand2_1 _643_ (
+    .A(_174_),
+    .B(_146_),
     .Y(_152_)
   );
-  sky130_fd_sc_hd__nand3_1 _645_ (
-    .A(_146_),
-    .B(_148_),
-    .C(_152_),
+  sky130_fd_sc_hd__o2111ai_1 _644_ (
+    .A1(_187_),
+    .A2(_127_),
+    .B1(_141_),
+    .C1(_149_),
+    .D1(_152_),
+    .Y(_216_)
+  );
+  sky130_fd_sc_hd__a2111oi_0 _645_ (
+    .A1(_127_),
+    .A2(_139_),
+    .B1(_140_),
+    .C1(_143_),
+    .D1(_124_),
+    .Y(_153_)
+  );
+  sky130_fd_sc_hd__nand3_1 _646_ (
+    .A(_148_),
+    .B(_150_),
+    .C(_153_),
+    .Y(_212_)
+  );
+  sky130_fd_sc_hd__a21oi_1 _647_ (
+    .A1(_127_),
+    .A2(_139_),
+    .B1(_225_),
+    .Y(_154_)
+  );
+  sky130_fd_sc_hd__nand3_1 _648_ (
+    .A(_148_),
+    .B(_149_),
+    .C(_154_),
     .Y(_211_)
   );
-  sky130_fd_sc_hd__nand4b_1 _646_ (
-    .A_N(_224_),
-    .B(_146_),
-    .C(_147_),
-    .D(_151_),
-    .Y(_210_)
-  );
-  assign _412_ = 1'h0;
-  assign _413_ = { _061_, _048_, _045_, _066_ };
-  assign _416_ = { _411_, _409_, _419_, _407_ };
-  assign _417_ = uses_rs2;
-  assign uses_rs2 = _484_;
-  assign _414_[0] = _478_;
-  assign _414_[1] = _479_;
-  assign _414_[2] = _480_;
-  assign _414_[3] = _481_;
-  assign _415_[0] = _414_[0];
-  assign _415_[1] = _414_[1];
-  assign _415_[2] = _414_[2];
-  assign _415_[3] = _414_[3];
-  assign _418_ = _482_;
-  assign _420_ = 1'h0;
-  assign _421_ = { _061_, _022_, _048_, _006_, _024_, _045_, _066_, _021_ };
-  assign _424_ = { _411_, _410_, _409_, _408_, _405_, _419_, _407_, _406_ };
-  assign _425_ = uses_rs1;
-  assign uses_rs1 = _495_;
-  assign _422_[0] = _485_;
-  assign _422_[1] = _486_;
-  assign _422_[2] = _487_;
-  assign _422_[3] = _488_;
-  assign _422_[4] = _489_;
-  assign _422_[5] = _490_;
-  assign _422_[6] = _491_;
-  assign _422_[7] = _492_;
-  assign _423_[0] = _422_[0];
-  assign _423_[1] = _422_[1];
-  assign _423_[2] = _422_[2];
-  assign _423_[3] = _422_[3];
-  assign _423_[4] = _422_[4];
-  assign _423_[5] = _422_[5];
-  assign _423_[6] = _422_[6];
-  assign _423_[7] = _422_[7];
-  assign _426_ = _493_;
-  assign _427_ = 4'h0;
-  assign _428_ = { _057_, _019_, _046_, _056_, 4'hf };
-  assign _434_ = { _411_, _410_, _409_, _408_, _437_ };
-  assign _435_ = alu_op;
-  assign alu_op = _506_;
-  assign _429_[3:0] = _496_;
-  assign _429_[7:4] = _497_;
-  assign _429_[11:8] = _498_;
-  assign _429_[15:12] = _499_;
-  assign _429_[19:16] = _500_;
-  assign _430_[0] = _429_[0];
-  assign _430_[1] = _429_[4];
-  assign _430_[2] = _429_[8];
-  assign _430_[3] = _429_[12];
-  assign _430_[4] = _429_[16];
-  assign _436_[0] = _501_;
-  assign _431_[0] = _429_[1];
-  assign _431_[1] = _429_[5];
-  assign _431_[2] = _429_[9];
-  assign _431_[3] = _429_[13];
-  assign _431_[4] = _429_[17];
-  assign _436_[1] = _502_;
-  assign _432_[0] = _429_[2];
-  assign _432_[1] = _429_[6];
-  assign _432_[2] = _429_[10];
-  assign _432_[3] = _429_[14];
-  assign _432_[4] = _429_[18];
-  assign _436_[2] = _503_;
-  assign _433_[0] = _429_[3];
-  assign _433_[1] = _429_[7];
-  assign _433_[2] = _429_[11];
-  assign _433_[3] = _429_[15];
-  assign _433_[4] = _429_[19];
-  assign _436_[3] = _504_;
-  assign _438_ = 1'h0;
-  assign _439_ = { _061_, _022_, _048_, _006_, _024_, _021_, 1'h1 };
-  assign _442_ = { _411_, _410_, _409_, _408_, _405_, _406_, _225_ };
-  assign _443_ = write_rf;
-  assign write_rf = _516_;
-  assign _440_[0] = _507_;
-  assign _440_[1] = _508_;
-  assign _440_[2] = _509_;
-  assign _440_[3] = _510_;
-  assign _440_[4] = _511_;
-  assign _440_[5] = _512_;
-  assign _440_[6] = _513_;
-  assign _441_[0] = _440_[0];
-  assign _441_[1] = _440_[1];
-  assign _441_[2] = _440_[2];
-  assign _441_[3] = _440_[3];
-  assign _441_[4] = _440_[4];
-  assign _441_[5] = _440_[5];
-  assign _441_[6] = _440_[6];
-  assign _444_ = _514_;
-  assign _447_ = 2'h0;
-  assign _448_ = { _060_, 2'h3, _099_, 2'h2 };
-  assign _452_ = { _405_, _446_, _406_, _445_ };
-  assign _453_ = res;
-  assign res = _524_;
-  assign _449_[1:0] = _517_;
-  assign _449_[3:2] = _518_;
-  assign _449_[5:4] = _519_;
-  assign _449_[7:6] = _520_;
-  assign _450_[0] = _449_[0];
-  assign _450_[1] = _449_[2];
-  assign _450_[2] = _449_[4];
-  assign _450_[3] = _449_[6];
-  assign _454_[0] = _521_;
-  assign _451_[0] = _449_[1];
-  assign _451_[1] = _449_[3];
-  assign _451_[2] = _449_[5];
-  assign _451_[3] = _449_[7];
-  assign _454_[1] = _522_;
-  assign _455_ = 3'h0;
-  assign _456_ = { _059_, _098_ };
-  assign _461_ = { _405_, _419_ };
-  assign _462_ = op_width;
-  assign op_width = _531_;
-  assign _457_[2:0] = _525_;
-  assign _457_[5:3] = _526_;
-  assign _458_[0] = _457_[0];
-  assign _458_[1] = _457_[3];
-  assign _463_[0] = _527_;
-  assign _459_[0] = _457_[1];
-  assign _459_[1] = _457_[4];
-  assign _463_[1] = _528_;
-  assign _460_[0] = _457_[2];
-  assign _460_[1] = _457_[5];
-  assign _463_[2] = _529_;
-  assign _464_ = 1'h0;
-  assign _465_ = { _022_, _006_, _024_, _045_, 1'h1 };
-  assign _468_ = { _410_, _408_, _405_, _419_, _437_ };
-  assign _469_ = alu_src;
-  assign alu_src = _539_;
-  assign _466_[0] = _532_;
-  assign _466_[1] = _533_;
-  assign _466_[2] = _534_;
-  assign _466_[3] = _535_;
-  assign _466_[4] = _536_;
-  assign _467_[0] = _466_[0];
-  assign _467_[1] = _466_[1];
-  assign _467_[2] = _466_[2];
-  assign _467_[3] = _466_[3];
-  assign _467_[4] = _466_[4];
-  assign _470_ = _537_;
-  assign _471_ = 1'h0;
-  assign _472_ = { _058_, _021_, 1'h1 };
-  assign _475_ = { _407_, _406_, _445_ };
-  assign _476_ = branch;
-  assign branch = _545_;
-  assign _473_[0] = _540_;
-  assign _473_[1] = _541_;
-  assign _473_[2] = _542_;
-  assign _474_[0] = _473_[0];
-  assign _474_[1] = _473_[1];
-  assign _474_[2] = _473_[2];
-  assign _477_ = _543_;
-  assign _506_[2] = _214_;
-  assign _506_[1] = _213_;
-  assign _506_[0] = _212_;
-  assign _524_[0] = _217_;
-  assign _531_[1] = _220_;
-  assign _531_[0] = _219_;
-  assign _545_ = _223_;
+  assign _413_ = 1'h0;
+  assign _414_ = { _061_, _048_, _045_, _066_ };
+  assign _417_ = { _412_, _410_, _420_, _408_ };
+  assign _418_ = uses_rs2;
+  assign uses_rs2 = _485_;
+  assign _415_[0] = _479_;
+  assign _415_[1] = _480_;
+  assign _415_[2] = _481_;
+  assign _415_[3] = _482_;
+  assign _416_[0] = _415_[0];
+  assign _416_[1] = _415_[1];
+  assign _416_[2] = _415_[2];
+  assign _416_[3] = _415_[3];
+  assign _419_ = _483_;
+  assign _421_ = 1'h0;
+  assign _422_ = { _061_, _022_, _048_, _006_, _024_, _045_, _066_, _021_ };
+  assign _425_ = { _412_, _411_, _410_, _409_, _406_, _420_, _408_, _407_ };
+  assign _426_ = uses_rs1;
+  assign uses_rs1 = _496_;
+  assign _423_[0] = _486_;
+  assign _423_[1] = _487_;
+  assign _423_[2] = _488_;
+  assign _423_[3] = _489_;
+  assign _423_[4] = _490_;
+  assign _423_[5] = _491_;
+  assign _423_[6] = _492_;
+  assign _423_[7] = _493_;
+  assign _424_[0] = _423_[0];
+  assign _424_[1] = _423_[1];
+  assign _424_[2] = _423_[2];
+  assign _424_[3] = _423_[3];
+  assign _424_[4] = _423_[4];
+  assign _424_[5] = _423_[5];
+  assign _424_[6] = _423_[6];
+  assign _424_[7] = _423_[7];
+  assign _427_ = _494_;
+  assign _428_ = 4'h0;
+  assign _429_ = { _057_, _019_, _046_, _056_, 4'hf };
+  assign _435_ = { _412_, _411_, _410_, _409_, _438_ };
+  assign _436_ = alu_op;
+  assign alu_op = _507_;
+  assign _430_[3:0] = _497_;
+  assign _430_[7:4] = _498_;
+  assign _430_[11:8] = _499_;
+  assign _430_[15:12] = _500_;
+  assign _430_[19:16] = _501_;
+  assign _431_[0] = _430_[0];
+  assign _431_[1] = _430_[4];
+  assign _431_[2] = _430_[8];
+  assign _431_[3] = _430_[12];
+  assign _431_[4] = _430_[16];
+  assign _437_[0] = _502_;
+  assign _432_[0] = _430_[1];
+  assign _432_[1] = _430_[5];
+  assign _432_[2] = _430_[9];
+  assign _432_[3] = _430_[13];
+  assign _432_[4] = _430_[17];
+  assign _437_[1] = _503_;
+  assign _433_[0] = _430_[2];
+  assign _433_[1] = _430_[6];
+  assign _433_[2] = _430_[10];
+  assign _433_[3] = _430_[14];
+  assign _433_[4] = _430_[18];
+  assign _437_[2] = _504_;
+  assign _434_[0] = _430_[3];
+  assign _434_[1] = _430_[7];
+  assign _434_[2] = _430_[11];
+  assign _434_[3] = _430_[15];
+  assign _434_[4] = _430_[19];
+  assign _437_[3] = _505_;
+  assign _439_ = 1'h0;
+  assign _440_ = { _061_, _022_, _048_, _006_, _024_, _021_, 1'h1 };
+  assign _443_ = { _412_, _411_, _410_, _409_, _406_, _407_, _226_ };
+  assign _444_ = write_rf;
+  assign write_rf = _517_;
+  assign _441_[0] = _508_;
+  assign _441_[1] = _509_;
+  assign _441_[2] = _510_;
+  assign _441_[3] = _511_;
+  assign _441_[4] = _512_;
+  assign _441_[5] = _513_;
+  assign _441_[6] = _514_;
+  assign _442_[0] = _441_[0];
+  assign _442_[1] = _441_[1];
+  assign _442_[2] = _441_[2];
+  assign _442_[3] = _441_[3];
+  assign _442_[4] = _441_[4];
+  assign _442_[5] = _441_[5];
+  assign _442_[6] = _441_[6];
+  assign _445_ = _515_;
+  assign _448_ = 2'h0;
+  assign _449_ = { _060_, 2'h3, _099_, 2'h2 };
+  assign _453_ = { _406_, _447_, _407_, _446_ };
+  assign _454_ = res;
+  assign res = _525_;
+  assign _450_[1:0] = _518_;
+  assign _450_[3:2] = _519_;
+  assign _450_[5:4] = _520_;
+  assign _450_[7:6] = _521_;
+  assign _451_[0] = _450_[0];
+  assign _451_[1] = _450_[2];
+  assign _451_[2] = _450_[4];
+  assign _451_[3] = _450_[6];
+  assign _455_[0] = _522_;
+  assign _452_[0] = _450_[1];
+  assign _452_[1] = _450_[3];
+  assign _452_[2] = _450_[5];
+  assign _452_[3] = _450_[7];
+  assign _455_[1] = _523_;
+  assign _456_ = 3'h0;
+  assign _457_ = { _059_, _098_ };
+  assign _462_ = { _406_, _420_ };
+  assign _463_ = op_width;
+  assign op_width = _532_;
+  assign _458_[2:0] = _526_;
+  assign _458_[5:3] = _527_;
+  assign _459_[0] = _458_[0];
+  assign _459_[1] = _458_[3];
+  assign _464_[0] = _528_;
+  assign _460_[0] = _458_[1];
+  assign _460_[1] = _458_[4];
+  assign _464_[1] = _529_;
+  assign _461_[0] = _458_[2];
+  assign _461_[1] = _458_[5];
+  assign _464_[2] = _530_;
+  assign _465_ = 1'h0;
+  assign _466_ = { _022_, _006_, _024_, _045_, 1'h1 };
+  assign _469_ = { _411_, _409_, _406_, _420_, _438_ };
+  assign _470_ = alu_src;
+  assign alu_src = _540_;
+  assign _467_[0] = _533_;
+  assign _467_[1] = _534_;
+  assign _467_[2] = _535_;
+  assign _467_[3] = _536_;
+  assign _467_[4] = _537_;
+  assign _468_[0] = _467_[0];
+  assign _468_[1] = _467_[1];
+  assign _468_[2] = _467_[2];
+  assign _468_[3] = _467_[3];
+  assign _468_[4] = _467_[4];
+  assign _471_ = _538_;
+  assign _472_ = 1'h0;
+  assign _473_ = { _058_, _021_, 1'h1 };
+  assign _476_ = { _408_, _407_, _446_ };
+  assign _477_ = branch;
+  assign branch = _546_;
+  assign _474_[0] = _541_;
+  assign _474_[1] = _542_;
+  assign _474_[2] = _543_;
+  assign _475_[0] = _474_[0];
+  assign _475_[1] = _474_[1];
+  assign _475_[2] = _474_[2];
+  assign _478_ = _544_;
+  assign _507_[2] = _215_;
+  assign _507_[1] = _214_;
+  assign _507_[0] = _213_;
+  assign _525_[0] = _218_;
+  assign _532_[1] = _221_;
+  assign _532_[0] = _220_;
+  assign _546_ = _224_;
   assign _122_ = instr[5];
   assign _121_ = instr[4];
   assign _120_ = instr[3];
@@ -1728,13 +1735,13 @@ module cu(instr, beq, bne, blt, bge, bltu, bgeu, branch, write_rf, alu_op, alu_s
   assign _111_ = instr[1];
   assign _107_ = instr[0];
   assign _123_ = instr[6];
-  assign _539_ = _222_;
-  assign _531_[2] = _221_;
-  assign _524_[1] = _218_;
-  assign _516_ = _216_;
-  assign _506_[3] = _215_;
-  assign _495_ = _211_;
-  assign _484_ = _210_;
+  assign _540_ = _223_;
+  assign _532_[2] = _222_;
+  assign _525_[1] = _219_;
+  assign _517_ = _217_;
+  assign _507_[3] = _216_;
+  assign _496_ = _212_;
+  assign _485_ = _211_;
   assign _110_ = instr[14];
   assign _108_ = instr[12];
   assign _109_ = instr[13];
@@ -1750,7 +1757,8 @@ module cu(instr, beq, bne, blt, bge, bltu, bgeu, branch, write_rf, alu_op, alu_s
   assign _102_ = bge;
   assign _104_ = blt;
   assign _106_ = bne;
-  assign write_ram = _224_;
-  assign is_jalr = _124_;
   assign _101_ = beq;
+  assign is_load = _125_;
+  assign write_ram = _225_;
+  assign is_jalr = _124_;
 endmodule
