@@ -143,7 +143,7 @@ module testbench;
     id_ex_rd = 5'd23;
     #1;
 
-    $display("Simulation Complete!");
+    $display("Simulation Complete");
     $finish;
 
   end
