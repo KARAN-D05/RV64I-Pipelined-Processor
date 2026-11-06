@@ -6,6 +6,12 @@ It operates in the Instruction Decode (ID) stage of the 5-stage pipeline. Based 
 
 The CU supports 49 instructions across arithmetic, logical, memory, branch, and control-transfer operations.
 
+<p align="center">
+  <img src="images/CU_Waveform.png" width="1000"/>
+  <br>
+  <sub>Control Unit producing control words for corresponding Instructions</sub>
+</p>
+
 ## Features
 
 - Decodes R-type, I-type, S-type, B-type, U-type, and J-type instruction formats.
@@ -17,12 +23,6 @@ The CU supports 49 instructions across arithmetic, logical, memory, branch, and 
 - Generates `uses_rs1` and `uses_rs2` metadata to identify source-register usage for forwarding and hazard detection.
 - Generates `is_load` to identify load instructions for load-use hazard detection.
 - Uses deterministic default control values for unsupported instructions and encodings.
-
-<p align="center">
-  <img src="images/CU_Waveform.png" width="1000"/>
-  <br>
-  <sub>Control Unit producing control words for corresponding Instructions</sub>
-</p>
 
 ## Supported Instructions
 
