@@ -32,7 +32,7 @@
 | [HDU](HDU) | Detects load-use RAW hazards, stalls the pipeline, and inserts bubbles | ✅ |
 | [BCU](BCU) | Determines whether branches and unconditional jumps should redirect program execution | ✅ |
 | [BHU](BHU) | Handles pipeline flushing by injecting NOPs when branches or jumps are taken | ✅ |
-| [HHU](HHU) | Integrates HDU and BHU to handle load-use and control hazards through stalling and flushing | ✅ |
+| [HHU](HHU) | Integrates HDU and BHU to handle load-use and control hazards through stalls and flushes | ✅ |
 
 ## 🔄 Implemented Pipeline Stages
 | Stage | Description                                                                              | Status |
@@ -40,7 +40,7 @@
 | [IF](IF)    | Integrates PC and ROM to fetch instructions and their addresses                          | ✅     |
 | [ID](ID)    | Integrates RF, SE, and CU to read operands, generate immediates, and decode instructions | ✅     |
 | [EX](EX)    | Integrates ALU and TAG to perform operations and calculate target addresses              | ✅     |
-| [MEM](MEM)   | Integrates the data memory for load/store operations                                     | ✅     |
+| [MEM](MEM)  | Integrates the data memory for load/store operations                                     | ✅     |
 | [WB](WB)    | Selects the appropriate result for register write-back                                   | ✅     |
 
 ## 📜License
