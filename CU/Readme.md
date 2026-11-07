@@ -94,7 +94,7 @@ The CU generates a **20-bit control word**:
 
 The control word contains two categories of information:
 
-**Datapath control — 13 bits**
+**Datapath control - 13 bits**
 
 - `write_rf`
 - `alu_op[3:0]`
@@ -106,7 +106,7 @@ The control word contains two categories of information:
 
 These signals directly control datapath operations, operand selection, memory access, and write-back selection.
 
-**Pipeline and module metadata — 7 bits**
+**Pipeline and module metadata - 7 bits**
 
 - `uses_rs1`
 - `uses_rs2`
