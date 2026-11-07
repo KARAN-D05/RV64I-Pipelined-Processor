@@ -24,7 +24,6 @@ The HDU simultaneously forces the control word to zero, inserting a bubble into 
 - Asserts `stall` to hold the PC and IF/ID pipeline register.
 - Forces the 20-bit control word to zero to insert a bubble into ID/EX.
 - Allows EX/MEM and MEM/WB pipeline registers to continue advancing.
-- Implements combinational hazard detection without additional pipeline latency.
 
 ## Interface
 
