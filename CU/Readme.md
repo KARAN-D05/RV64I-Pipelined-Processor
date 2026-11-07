@@ -1,8 +1,8 @@
-# Control Unit (CU)
+  # Control Unit (CU)
 
 The Control Unit (CU) is a combinational instruction decoder responsible for generating the control signals required to execute supported RV64I instructions.
 
-It operates in the Instruction Decode (ID) stage of the 5-stage pipeline. Based on the instruction opcode, `funct3`, and `funct7` fields, it generates the appropriate datapath control signals.
+It operates in the Instruction Decode (ID) stage of the 5-stage pipeline. Based on the instruction opcode, `funct3`, and `funct7` fields, it generates the appropriate control signals.
 
 For conditional branches, the CU identifies valid branch instructions and asserts `branch`. It also outputs the corresponding `funct3` field for branch-condition selection in the EX stage. **Branch resolution is handled separately by the Branch Control Unit (BCU)**, keeping instruction decoding independent of branch execution.
 
@@ -54,7 +54,6 @@ The CU supports 49 instructions across arithmetic, logical, memory, branch, and 
 
 | Signal | Width | Description |
 | ------ | ----- | ----------- |
-| `branch` | 1 bit | Identifies a valid conditional branch instruction |
 | `write_rf` | 1 bit | Register-file write enable |
 | `alu_op` | 4 bits | ALU operation selection |
 | `alu_src` | 1 bit | Selects ALU operand 2: register or immediate |
@@ -62,12 +61,13 @@ The CU supports 49 instructions across arithmetic, logical, memory, branch, and 
 | `op_width` | 3 bits | Memory operation width and signedness selection |
 | `write_ram` | 1 bit | Data-memory write enable |
 | `res` | 2 bits | Write-back result source selection |
-| `uses_rs1` | 1 bit | Indicates whether the instruction uses `rs1` (forwarding metadata) |
-| `uses_rs2` | 1 bit | Indicates whether the instruction uses `rs2` (forwarding metadata) |
+| `branch` | 1 bit | Identifies a valid conditional branch instruction |
+| `uses_rs1` | 1 bit | Indicates whether the instruction uses `rs1` |
+| `uses_rs2` | 1 bit | Indicates whether the instruction uses `rs2` |
 | `is_load` | 1 bit | Identifies a load instruction for hazard detection |
 | `funct3` | 3 bits | Branch-condition encoding passed to the EX stage |
 
-### Branch Decoding
+## Branch Decoding
 
 The CU asserts `branch` only when the opcode identifies a conditional branch and `funct3` contains a supported branch encoding.
 
@@ -84,19 +84,44 @@ For valid branch instructions, `funct3` is passed to the output. For non-branch 
 
 The `branch` signal indicates that the instruction is a valid conditional branch; it does **not** indicate whether the branch is taken. The BCU uses the registered branch information and comparison results in EX to determine `branch_taken`.
 
-`uses_rs1` and `uses_rs2` identify actual source-register usage independently of the instruction's execution outcome. These signals are used by forwarding and hazard-handling logic and do not directly control the datapath.
-
-`is_load` identifies valid load instructions (LB, LH, LW, LD, LBU, LHU, and LWU). It is used by the Hazard Detection Unit to detect load-use dependencies.
-
 ## Control Word Format
 
-The CU generates a **17-bit control word**:
+The CU generates a **20-bit control word**:
 
 ```text
-{uses_rs1, uses_rs2, branch, write_rf, alu_op[3:0], alu_src, is_jalr, op_width[2:0], write_ram, is_load, res[1:0]}
+{uses_rs1, uses_rs2, branch, write_rf, alu_op[3:0], alu_src, is_jalr, op_width[2:0], write_ram, is_load, res[1:0], funct3[2:0]}
 ```
 
-The 3-bit `funct3` output is separate from the control word and is carried through the ID/EX pipeline register for branch resolution in EX.
+The control word contains two categories of information:
+
+**Datapath control — 13 bits**
+
+- `write_rf`
+- `alu_op[3:0]`
+- `alu_src`
+- `is_jalr`
+- `op_width[2:0]`
+- `write_ram`
+- `res[1:0]`
+
+These signals directly control datapath operations, operand selection, memory access, and write-back selection.
+
+**Pipeline and module metadata — 7 bits**
+
+- `uses_rs1`
+- `uses_rs2`
+- `branch`
+- `is_load`
+- `funct3[2:0]`
+
+These signals are consumed by other processor units:
+
+- `uses_rs1` and `uses_rs2` support forwarding and hazard detection.
+- `branch` identifies branch instructions for branch resolution.
+- `is_load` supports load-use hazard detection.
+- `funct3` identifies the branch condition for the BCU.
+
+The complete 20-bit control word is carried through the pipeline as required by the individual stages and modules.
 
 ## Verification
 
