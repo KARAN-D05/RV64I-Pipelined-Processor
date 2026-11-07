@@ -289,13 +289,13 @@ The Control Unit generates a **20-bit control word**. It combines datapath contr
 
 The control word contains two categories of information:
 
-**Datapath control — 13 bits**
+**Datapath control - 13 bits**
 
 `write_rf`, `alu_op[3:0]`, `alu_src`, `is_jalr`, `op_width[2:0]`, `write_ram`, and `res[1:0]`.
 
 These signals directly control datapath operations, operand selection, memory access, and write-back selection.
 
-**Pipeline and module metadata — 7 bits**
+**Pipeline and module metadata - 7 bits**
 
 `uses_rs1`, `uses_rs2`, `branch`, `is_load`, and `funct3[2:0]`.
 
