@@ -22,31 +22,33 @@ The HDU simultaneously forces the control word to zero, inserting a bubble into 
 - Handles load-to-store dependencies selectively.
 - Avoids unnecessary stalls for load-to-store `rs2` dependencies, which are handled by MMF.
 - Asserts `stall` to hold the PC and IF/ID pipeline register.
-- Forces the 17-bit control word to zero to insert a bubble into ID/EX.
+- Forces the 20-bit control word to zero to insert a bubble into ID/EX.
+- Preserves `funct3` as part of the control word when no stall is detected.
 - Allows EX/MEM and MEM/WB pipeline registers to continue advancing.
 - Implements combinational hazard detection without additional pipeline latency.
 
 ## Interface
 
-| Signal       | Direction | Width   | Description |
-| ------------ | --------- | ------- | ----------- |
-| `branch`     | Input     | 1 bit   | Branch control from the current CU instruction |
-| `write_rf`   | Input     | 1 bit   | Register-file write control from CU |
-| `alu_op`     | Input     | 4 bits  | ALU operation selection from CU |
-| `alu_src`    | Input     | 1 bit   | ALU operand selection from CU |
-| `is_jalr`    | Input     | 1 bit   | JALR target calculation control from CU |
-| `op_width`   | Input     | 3 bits  | Memory operation width from CU |
-| `write_ram`  | Input     | 1 bit   | Data-memory write control; identifies store instructions |
-| `res`        | Input     | 2 bits  | Write-back result selection from CU |
-| `uses_rs1`   | Input     | 1 bit   | Indicates whether the IF/ID instruction uses `rs1` |
-| `uses_rs2`   | Input     | 1 bit   | Indicates whether the IF/ID instruction uses `rs2` |
-| `is_load`    | Input     | 1 bit   | Load identification from the current CU instruction |
-| `id_ex_is_load` | Input  | 1 bit   | Identifies whether the ID/EX instruction is a load |
-| `if_id_rs1`  | Input     | 5 bits  | First source-register index from IF/ID |
-| `if_id_rs2`  | Input     | 5 bits  | Second source-register index from IF/ID |
-| `id_ex_rd`   | Input     | 5 bits  | Destination-register index from ID/EX |
-| `stall`      | Output    | 1 bit   | Indicates a detected load-use hazard |
-| `c_word`     | Output    | 17 bits | Gated control word passed towards ID/EX |
+| Signal | Direction | Width | Description |
+|---|---|---|---|
+| `branch` | Input | 1 bit | Branch/jump control from the current CU instruction |
+| `write_rf` | Input | 1 bit | Register-file write control from CU |
+| `alu_op` | Input | 4 bits | ALU operation selection from CU |
+| `alu_src` | Input | 1 bit | ALU operand selection from CU |
+| `is_jalr` | Input | 1 bit | JALR target calculation control from CU |
+| `op_width` | Input | 3 bits | Memory operation width from CU |
+| `write_ram` | Input | 1 bit | Data-memory write control; identifies store instructions |
+| `res` | Input | 2 bits | Write-back result selection from CU |
+| `uses_rs1` | Input | 1 bit | Indicates whether the IF/ID instruction uses `rs1` |
+| `uses_rs2` | Input | 1 bit | Indicates whether the IF/ID instruction uses `rs2` |
+| `is_load` | Input | 1 bit | Load identification from the current CU instruction |
+| `id_ex_is_load` | Input | 1 bit | Identifies whether the ID/EX instruction is a load |
+| `if_id_rs1` | Input | 5 bits | First source-register index from IF/ID |
+| `if_id_rs2` | Input | 5 bits | Second source-register index from IF/ID |
+| `id_ex_rd` | Input | 5 bits | Destination-register index from ID/EX |
+| `funct3` | Input | 3 bits | Instruction function field carried in the control word |
+| `stall` | Output | 1 bit | Indicates a detected load-use hazard |
+| `c_word` | Output | 20 bits | Gated 20-bit control word passed towards ID/EX |
 
 ## Hazard Detection Logic
 
@@ -91,14 +93,15 @@ This avoids unnecessary pipeline stalls while preserving correct data dependenci
 When `stall` is asserted, the HDU forces the outgoing control word to zero:
 
 ```systemverilog
-c_word = stall ? 17'b0 : control_word;
+c_word = stall ? 20'b0 : control_word;
 ```
 
-The control word contains the CU-generated controls:
+The 20-bit control word contains the CU-generated controls and instruction metadata:
 
 ```systemverilog
 {uses_rs1, uses_rs2, branch, write_rf, alu_op[3:0],
- alu_src, is_jalr, op_width[2:0], write_ram, is_load, res[1:0]}
+ alu_src, is_jalr, op_width[2:0], write_ram, is_load,
+ res[1:0], funct3[2:0]}
 ```
 
 The zero control word inserts a bubble into ID/EX, preventing unintended register-file writes, memory writes, or other control actions.
@@ -121,5 +124,5 @@ During the stall:
 - Zero-register handling: Verified that dependencies involving destination `x0` do not trigger a stall.
 - Source qualification: Verified that unused source registers do not trigger false hazards.
 - Load qualification: Verified that non-load instructions in ID/EX do not trigger stalls.
-- Bubble insertion: Verified that the control word is zeroed when a stall is asserted.
-- Control pass-through: Verified that the original CU control word passes through when no stall is detected.
+- Bubble insertion: Verified that the entire 20-bit control word is zeroed when a stall is asserted.
+- Control pass-through: Verified that the original CU control word, including `funct3`, passes through when no stall is detected.
