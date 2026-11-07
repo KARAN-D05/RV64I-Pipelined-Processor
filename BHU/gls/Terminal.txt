@@ -1,9 +1,6 @@
-VCD info: dumpfile Sim.vcd opened for output.
 time=0 | branch=0 branch_taken=0 | uses_rs1=1 uses_rs2=1 | write_rf=1 alu_op=0000 alu_src=1 is_jalr=0 op_width=000 write_ram=0 is_load=0 res=00 funct3=000 | instr=00510093 | id_ex_c_word=d0800 | if_id_out=00510093
 time=1000 | branch=1 branch_taken=1 | uses_rs1=1 uses_rs2=1 | write_rf=1 alu_op=0000 alu_src=1 is_jalr=0 op_width=000 write_ram=0 is_load=0 res=00 funct3=000 | instr=00208463 | id_ex_c_word=00000 | if_id_out=00000013
 time=2000 | branch=0 branch_taken=0 | uses_rs1=1 uses_rs2=0 | write_rf=1 alu_op=0001 alu_src=0 is_jalr=1 op_width=001 write_ram=0 is_load=1 res=01 funct3=001 | instr=00010067 | id_ex_c_word=914a9 | if_id_out=00010067
 time=3000 | branch=1 branch_taken=1 | uses_rs1=1 uses_rs2=0 | write_rf=1 alu_op=0001 alu_src=0 is_jalr=1 op_width=001 write_ram=0 is_load=1 res=01 funct3=001 | instr=00000013 | id_ex_c_word=00000 | if_id_out=00000013
 time=4000 | branch=0 branch_taken=0 | uses_rs1=1 uses_rs2=1 | write_rf=0 alu_op=1010 alu_src=1 is_jalr=0 op_width=010 write_ram=1 is_load=0 res=00 funct3=010 | instr=00312023 | id_ex_c_word=ca942 | if_id_out=00312023
 time=5000 | branch=1 branch_taken=1 | uses_rs1=1 uses_rs2=1 | write_rf=0 alu_op=1010 alu_src=1 is_jalr=0 op_width=010 write_ram=1 is_load=0 res=00 funct3=010 | instr=00000000 | id_ex_c_word=00000 | if_id_out=00000013
-Simulation Complete
-bhu_tb.sv:125: $finish called at 6000 (1ps)
