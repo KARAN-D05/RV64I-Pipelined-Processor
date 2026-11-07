@@ -4,15 +4,10 @@ module cu #(
     parameter IWIDTH = 32,
     parameter MOPS = 16,
     parameter MMOPS = 7,
-    parameter WBS = 4
+    parameter WBS = 4,
+    parameter FB = 3
 ) (
     input logic [IWIDTH-1:0] instr,
-    input logic beq,
-    input logic bne,
-    input logic blt,
-    input logic bge,
-    input logic bltu,
-    input logic bgeu,
     output logic branch,
     output logic write_rf,
     output logic [$clog2(MOPS)-1:0] alu_op,
@@ -23,7 +18,8 @@ module cu #(
     output logic [$clog2(WBS)-1:0] res,
     output logic uses_rs1,
     output logic uses_rs2,
-    output logic is_load
+    output logic is_load,
+    output logic [FB-1:0] funct3
 );
 
   localparam OP = 7'b0110011;
@@ -51,6 +47,8 @@ module cu #(
     uses_rs1 = 1'b0;
     uses_rs2 = 1'b0;
     is_load = 1'b0;
+    funct3 = 3'b000;
+
 
     case(instr[6:0])
 
@@ -330,39 +328,33 @@ module cu #(
         if (instr[14:12] == 3'b000) begin
             uses_rs1 = 1'b1;
             uses_rs2 = 1'b1;
-            if (beq == 1'b1) begin
-                branch = 1'b1;
-            end
+            branch = 1'b1;
+            funct3 = instr[14:12];
         end else if (instr[14:12] == 3'b001) begin
             uses_rs1 = 1'b1;
             uses_rs2 = 1'b1;
-            if (bne == 1'b1) begin
-                branch = 1'b1;
-            end
+            branch = 1'b1;
+            funct3 = instr[14:12];
         end else if (instr[14:12] == 3'b100) begin
             uses_rs1 = 1'b1;
             uses_rs2 = 1'b1;
-            if (blt == 1'b1) begin
-                branch = 1'b1;
-            end
+            branch = 1'b1;
+            funct3 = instr[14:12];
         end else if (instr[14:12] == 3'b101) begin
             uses_rs1 = 1'b1;
             uses_rs2 = 1'b1;
-            if (bge == 1'b1) begin
-                branch = 1'b1;
-            end
+            branch = 1'b1;
+            funct3 = instr[14:12];
         end else if (instr[14:12] == 3'b110) begin
             uses_rs1 = 1'b1;
             uses_rs2 = 1'b1;
-            if (bltu == 1'b1) begin
-                branch = 1'b1;
-            end
+            branch = 1'b1;
+            funct3 = instr[14:12];
         end else if (instr[14:12] == 3'b111) begin
             uses_rs1 = 1'b1;
             uses_rs2 = 1'b1;
-            if (bgeu == 1'b1) begin
-                branch = 1'b1;
-            end
+            branch = 1'b1;
+            funct3 = instr[14:12];
         end
     end
 
