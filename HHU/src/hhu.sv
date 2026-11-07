@@ -92,4 +92,4 @@ module HHU #(
 
   assign id_ex_c_word = branch_taken ? c_word_bhu : c_word_hdu;
 
-endmodule
+endmodule 
