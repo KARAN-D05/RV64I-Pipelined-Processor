@@ -1,4 +1,3 @@
-VCD info: dumpfile Sim.vcd opened for output.
 time=0 | branch=1 | uses_rs1=0 uses_rs2=0 | is_jalr=0 | funct3=000 | beq=0 bne=0 blt=0 bge=0 bltu=0 bgeu=0 | branch_taken=1
 time=1000 | branch=1 | uses_rs1=1 uses_rs2=0 | is_jalr=1 | funct3=000 | beq=0 bne=0 blt=0 bge=0 bltu=0 bgeu=0 | branch_taken=1
 time=2000 | branch=1 | uses_rs1=1 uses_rs2=1 | is_jalr=0 | funct3=000 | beq=1 bne=0 blt=0 bge=0 bltu=0 bgeu=0 | branch_taken=1
@@ -11,5 +10,3 @@ time=8000 | branch=1 | uses_rs1=1 uses_rs2=1 | is_jalr=0 | funct3=000 | beq=0 bn
 time=9000 | branch=1 | uses_rs1=1 uses_rs2=1 | is_jalr=0 | funct3=010 | beq=1 bne=0 blt=0 bge=0 bltu=0 bgeu=0 | branch_taken=0
 time=10000 | branch=0 | uses_rs1=1 uses_rs2=1 | is_jalr=0 | funct3=000 | beq=1 bne=0 blt=0 bge=0 bltu=0 bgeu=0 | branch_taken=0
 time=11000 | branch=0 | uses_rs1=1 uses_rs2=1 | is_jalr=1 | funct3=000 | beq=1 bne=0 blt=0 bge=0 bltu=0 bgeu=0 | branch_taken=0
-Simulation Complete
-bcu_tb.sv:127: $finish called at 12000 (1ps)
