@@ -129,7 +129,7 @@ module testbench;
     instr = 32'h00000000;
     #1;
 
-    $display("Simulation Complete");
+    $display("Simulation Complete!");
     $finish;
 
   end
