@@ -6,4 +6,3 @@ time=4000 | branch=1 branch_taken=1 | rs1=11 rs2=12 rd=10 | id_ex_is_load=0 uses
 time=5000 | branch=1 branch_taken=0 | rs1=11 rs2=12 rd=10 | id_ex_is_load=0 uses_rs1=1 uses_rs2=1 write_ram=0 | stall=0 | HDU_word=zzzzz BHU_word=zzzzz | id_ex_c_word=f0800 | instr=00208463 | if_id_out=00208463
 time=6000 | branch=0 branch_taken=0 | rs1=14 rs2=15 rd=15 | id_ex_is_load=1 uses_rs1=1 uses_rs2=1 write_ram=0 | stall=1 | HDU_word=zzzzz BHU_word=zzzzz | id_ex_c_word=00000 | instr=00f707b3 | if_id_out=00f707b3
 time=7000 | branch=0 branch_taken=0 | rs1=20 rs2=21 rd=20 | id_ex_is_load=0 uses_rs1=1 uses_rs2=1 write_ram=0 | stall=0 | HDU_word=zzzzz BHU_word=zzzzz | id_ex_c_word=d0800 | instr=015a0a33 | if_id_out=015a0a33
- 
