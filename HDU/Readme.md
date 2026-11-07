@@ -23,7 +23,6 @@ The HDU simultaneously forces the control word to zero, inserting a bubble into 
 - Avoids unnecessary stalls for load-to-store `rs2` dependencies, which are handled by MMF.
 - Asserts `stall` to hold the PC and IF/ID pipeline register.
 - Forces the 20-bit control word to zero to insert a bubble into ID/EX.
-- Preserves `funct3` as part of the control word when no stall is detected.
 - Allows EX/MEM and MEM/WB pipeline registers to continue advancing.
 - Implements combinational hazard detection without additional pipeline latency.
 
