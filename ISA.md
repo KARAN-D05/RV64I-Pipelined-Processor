@@ -276,7 +276,7 @@ The Control Unit generates a **20-bit control word**. It combines datapath contr
 | ----- | -------------- | ----------- |
 | 19    | uses_rs1       | Indicates whether the instruction uses rs1 (forwarding metadata) |
 | 18    | uses_rs2       | Indicates whether the instruction uses rs2 (forwarding metadata) |
-| 17    | branch         | Identifies a control-flow instruction requiring branch/jump handling |
+| 17    | branch         | Valid branch/jump indicator; asserted for supported conditional branches, JAL, and JALR |
 | 16    | write(RF)      | Register-file write enable |
 | 15:12 | alu_op[3:0]    | ALU operation selection |
 | 11    | alu_src        | Selects immediate or rs2 as ALU operand |
@@ -301,7 +301,7 @@ These signals directly control datapath operations, operand selection, memory ac
 
 These signals are consumed by other processor units:
 - `uses_rs1` and `uses_rs2` support forwarding and hazard detection.
-- `branch` identifies branch/jump instructions for control-flow handling.
+- `branch` indicates that the instruction is a valid conditional branch or jump (JAL/JALR); it does not indicate that a conditional branch is taken.
 - `is_load` supports load-use hazard detection.
 - `funct3` identifies the conditional branch operation for the BCU.
 
@@ -375,9 +375,17 @@ Control word layout:
 | BLTU        | `110`  |
 | BGEU        | `111`  |
 
-For a valid conditional branch, the CU asserts `branch` based on the opcode and supported `funct3` encoding, and carries `funct3` in the 20-bit control word. It does not evaluate the branch condition. The BCU performs branch resolution in EX using the registered `funct3` and the comparison results from the ALU.
+The `branch` output is a **valid branch/jump indicator**, not the final taken decision. The CU asserts it for:
+- A conditional branch (`BEQ`, `BNE`, `BLT`, `BGE`, `BLTU`, or `BGEU`) with a supported `funct3` encoding.
+- `JAL`.
+- `JALR`.
 
-JAL and JALR remain unconditional control-flow instructions and assert `branch` for PC redirection.
+The CU does not evaluate conditional branch conditions. It passes the branch `funct3` through the 20-bit control word for use by the BCU in EX. The BCU handles conditional branches, JAL, and JALR, and receives the ALU's six comparison outputs (`beq`, `bne`, `blt`, `bge`, `bltu`, and `bgeu`). It uses `is_jalr`, `uses_rs1`, and `uses_rs2` to distinguish the unconditional jump cases:
+- Conditional branches are resolved using the ALU comparison output selected by `funct3`.
+- `JALR` is identified by `is_jalr` and is taken unconditionally.
+- `JAL` is identified by `branch=1`, `is_jalr=0`, `uses_rs1=0`, and `uses_rs2=0`; it is taken unconditionally.
+
+The BCU produces one `branch_taken` signal for all branch and jump instructions; this signal connects to the PC redirection control. The ALU comparison outputs are generated from operands supplied by EFU, so EX-stage forwarding is applied before the BCU evaluates a conditional branch. The branch/jump target is calculated separately by TAG: `PC + imm` for conditional branches and JAL, and `(rs1 + imm) & ~64'd1` for JALR. The BCU's decision is therefore distinct from both the CU's `branch` validity indicator and TAG's target-address calculation.
 
 ### TAG Output Usage
 
