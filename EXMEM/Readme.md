@@ -1,6 +1,6 @@
 # EX/MEM Pipeline Register
 
-The EX/MEM pipeline register stores the execution stage's ALU result, forwarded store data, TAG outputs, register indices, and remaining control signals between the Execute (EX) and Memory (MEM) stages. It captures all seven fields synchronously on the rising edge of the clock and supports asynchronous reset.
+The EX/MEM pipeline register stores the execution stage's ALU result, forwarded store data, TAG outputs, register indices, and remaining control signals between the Execute (EX) and Memory (MEM) stages. It captures all eight fields synchronously on the rising edge of the clock and supports asynchronous reset.
 
 <p align="center">
   <img src="images/EXMEM_Waveform.png" width="1000"/>
@@ -10,7 +10,7 @@ The EX/MEM pipeline register stores the execution stage's ALU result, forwarded 
 
 ## Features
 
-- 280-bit pipeline register organized into seven independently accessible fields.
+- 280-bit pipeline register organized into eight independently accessible fields.
 - Stores a 64-bit ALU result and 64-bit forwarded store-data operand.
 - Carries the 64-bit TAG return address (`r_out`) and target address (`t_out`).
 - Carries the 9-bit control word containing the control signals required by subsequent stages.
@@ -44,7 +44,7 @@ The EX/MEM pipeline register stores the execution stage's ALU result, forwarded 
 
 ## Payload Organization
 
-The register stores a total of 280 bits across seven fields.
+The register stores a total of 280 bits across eight fields.
 
 | Field | Width |
 |---|---:|
@@ -60,7 +60,7 @@ The register stores a total of 280 bits across seven fields.
 
 ## Operation
 
-All seven fields are captured together on every rising clock edge.
+All eight fields are captured together on every rising clock edge.
 
 During asynchronous reset, all registered outputs are cleared to zero without waiting for the next clock edge.
 
@@ -76,7 +76,7 @@ The register indices are retained for forwarding and dependency tracking. In par
 
 - RTL simulation: Directed test scenarios passed.
 - Gate-level simulation: Directed test scenarios passed using the synthesized and technology-mapped netlist.
-- Asynchronous reset: Verified clearing of all seven fields.
+- Asynchronous reset: Verified clearing of all eight fields.
 - Sequential capture: Verified simultaneous capture of all fields.
 - ALU result propagation: Verified 64-bit ALU result capture.
 - Store-data propagation: Verified 64-bit store-data operand capture.
