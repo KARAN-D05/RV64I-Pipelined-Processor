@@ -34,6 +34,7 @@
 | [BHU](BHU) | Handles pipeline flushing by injecting NOPs when branches or jumps are taken | ✅ |
 | [HHU](HHU) | Integrates HDU and BHU to handle load-use and control hazards through stalls and flushes | ✅ |
 | [IFID](IFID) | 96-bit pipeline register that stores the PC and instruction between the IF and ID stages | ✅ |
+| [IDEX](IDEX) | 291-bit pipeline register that stores operands, PC, immediate, control word, and register indices between the ID and EX stages | ✅ |
 
 ## 🔄 Implemented Pipeline Stages
 | Stage | Description                                                                              | Status |
