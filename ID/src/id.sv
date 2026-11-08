@@ -8,7 +8,8 @@ module ID #(
     IW = 32,
     MOPS = 16,
     MMOPS = 7,
-    WBS = 4
+    WBS = 4,
+    FB = 3
 ) (
     input logic [$clog2(IW)-1:0] Raddr1,
     input logic [$clog2(IW)-1:0] Raddr2,
@@ -17,12 +18,6 @@ module ID #(
     input logic write,
     input logic clk,
     input logic [IW-1:0] instr,
-    input logic beq,
-    input logic bne,
-    input logic blt,
-    input logic bge,
-    input logic bltu,
-    input logic bgeu,
     output logic branch,
     output logic write_rf,
     output logic [$clog2(MOPS)-1:0] alu_op,
@@ -35,7 +30,9 @@ module ID #(
     output logic [W-1:0] data_out1,
     output logic [W-1:0] data_out2,
     output logic uses_rs1,
-    output logic uses_rs2
+    output logic uses_rs2,
+    output logic [FB-1:0] funct3,
+    output logic is_load
 );
 
   RF #(
@@ -56,15 +53,10 @@ module ID #(
     .IWIDTH(IW),
     .MOPS(MOPS),
     .MMOPS(MMOPS),
-    .WBS(WBS)
+    .WBS(WBS),
+    .FB(FB)
   ) dut2 (
     .instr(instr),
-    .beq(beq),
-    .bne(bne),
-    .bge(bge),
-    .blt(blt),
-    .bltu(bltu),
-    .bgeu(bgeu),
     .branch(branch),
     .alu_op(alu_op),
     .alu_src(alu_src),
@@ -74,7 +66,9 @@ module ID #(
     .write_rf(write_rf),
     .write_ram(write_ram),
     .uses_rs1(uses_rs1),
-    .uses_rs2(uses_rs2)
+    .uses_rs2(uses_rs2),
+    .funct3(funct3),
+    .is_load(is_load)
   );
 
   se #(
