@@ -10,18 +10,15 @@ module testbench;
     logic [W-1:0] data_in;
     logic write, clk;
     logic [IW-1:0] instr;
-
-    logic beq, bne, blt, bge, bltu, bgeu;
-
     logic branch, write_rf;
     logic [3:0] alu_op;
     logic alu_src, is_jalr;
     logic [2:0] op_width;
     logic write_ram;
     logic [1:0] res;
-
     logic uses_rs1, uses_rs2;
-
+    logic [2:0] funct3;
+    logic is_load;
     logic [W-1:0] imm;
     logic [W-1:0] data_out1, data_out2;
 
@@ -36,7 +33,8 @@ module testbench;
         .IW(32),
         .MOPS(16),
         .MMOPS(7),
-        .WBS(4)
+        .WBS(4),
+        .FB(3)
     ) dut (
         .Raddr1(Raddr1),
         .Raddr2(Raddr2),
@@ -45,13 +43,6 @@ module testbench;
         .write(write),
         .clk(clk),
         .instr(instr),
-
-        .beq(beq),
-        .bne(bne),
-        .blt(blt),
-        .bge(bge),
-        .bltu(bltu),
-        .bgeu(bgeu),
 
         .branch(branch),
         .write_rf(write_rf),
@@ -64,6 +55,8 @@ module testbench;
 
         .uses_rs1(uses_rs1),
         .uses_rs2(uses_rs2),
+        .funct3(funct3),
+        .is_load(is_load),
 
         .imm(imm),
         .data_out1(data_out1),
@@ -116,13 +109,6 @@ module testbench;
         write = 0;
         instr = 0;
 
-        beq = 0;
-        bne = 0;
-        blt = 0;
-        bge = 0;
-        bltu = 0;
-        bgeu = 0;
-
         #2;
 
         write_reg(5'd1, 64'd10);
@@ -137,7 +123,6 @@ module testbench;
         check(data_out2 == 64'd20, "RF read port 2");
 
         instr = 32'h002081B3;
-
         Raddr1 = 5'd1;
         Raddr2 = 5'd2;
 
@@ -145,12 +130,12 @@ module testbench;
 
         check(data_out1 == 64'd10, "ADD rs1 data");
         check(data_out2 == 64'd20, "ADD rs2 data");
-
         check(write_rf == 1'b1, "ADD write_rf");
         check(alu_op == 4'b0000, "ADD alu_op");
         check(alu_src == 1'b0, "ADD alu_src");
         check(uses_rs1 == 1'b1, "ADD uses_rs1");
         check(uses_rs2 == 1'b1, "ADD uses_rs2");
+        check(is_load == 1'b0, "ADD is_load");
 
         instr = 32'h00508213;
         Raddr1 = 5'd1;
@@ -170,6 +155,7 @@ module testbench;
         Raddr1 = 5'd1;
 
         #2;
+
         check(imm == 64'd8, "LW immediate");
         check(alu_src == 1'b1, "LW alu_src");
         check(write_rf == 1'b1, "LW write_rf");
@@ -177,6 +163,7 @@ module testbench;
         check(res == 2'b01, "LW result selection");
         check(uses_rs1 == 1'b1, "LW uses_rs1");
         check(uses_rs2 == 1'b0, "LW uses_rs2");
+        check(is_load == 1'b1, "LW is_load");
 
         instr = 32'h0020A623;
         Raddr1 = 5'd1;
@@ -187,29 +174,32 @@ module testbench;
         check(imm == 64'd12, "SW immediate");
         check(data_out1 == 64'd10, "SW address operand");
         check(data_out2 == 64'd20, "SW store data");
-
         check(write_ram == 1'b1, "SW write_ram");
         check(write_rf == 1'b0, "SW write_rf");
         check(alu_src == 1'b1, "SW alu_src");
         check(op_width == 3'b010, "SW op_width");
         check(uses_rs1 == 1'b1, "SW uses_rs1");
         check(uses_rs2 == 1'b1, "SW uses_rs2");
+        check(is_load == 1'b0, "SW is_load");
 
         instr = 32'h00208463;
-
         Raddr1 = 5'd1;
         Raddr2 = 5'd2;
-
-        beq = 1'b1;
 
         #2;
 
         check(branch == 1'b1, "BEQ branch");
+        check(funct3 == 3'b000, "BEQ funct3");
         check(write_rf == 1'b0, "BEQ write_rf");
         check(uses_rs1 == 1'b1, "BEQ uses_rs1");
         check(uses_rs2 == 1'b1, "BEQ uses_rs2");
 
-        beq = 1'b0;
+        instr = 32'h00209463;
+
+        #2;
+
+        check(branch == 1'b1, "BNE branch");
+        check(funct3 == 3'b001, "BNE funct3");
 
         instr = 32'h123451B7;
 
@@ -220,6 +210,46 @@ module testbench;
         check(alu_src == 1'b1, "LUI alu_src");
         check(uses_rs1 == 1'b0, "LUI uses_rs1");
         check(uses_rs2 == 1'b0, "LUI uses_rs2");
+
+        instr = {12'd5, 5'd1, 3'b000, 5'd4, 7'b0011011};
+        Raddr1 = 5'd1;
+        Raddr2 = 5'd0;
+
+        #2;
+
+        check(imm == 64'd5, "ADDIW immediate");
+        check(alu_op == 4'b1010, "ADDIW alu_op");
+        check(alu_src == 1'b1, "ADDIW alu_src");
+        check(write_rf == 1'b1, "ADDIW write_rf");
+        check(uses_rs1 == 1'b1, "ADDIW uses_rs1");
+        check(uses_rs2 == 1'b0, "ADDIW uses_rs2");
+        
+        instr = {7'b0000000, 5'd5, 5'd1, 3'b001, 5'd4, 7'b0011011};
+
+        #2;
+
+        check(imm == 64'd5, "SLLIW shift immediate");
+        check(alu_op == 4'b1100, "SLLIW alu_op");
+        check(alu_src == 1'b1, "SLLIW alu_src");
+        check(write_rf == 1'b1, "SLLIW write_rf");
+        
+        instr = {7'b0000000, 5'd17, 5'd1, 3'b101, 5'd4, 7'b0011011};
+
+        #2;
+
+        check(imm == 64'd17, "SRLIW shift immediate");
+        check(alu_op == 4'b1101, "SRLIW alu_op");
+        check(alu_src == 1'b1, "SRLIW alu_src");
+        check(write_rf == 1'b1, "SRLIW write_rf");
+
+        instr = {7'b0100000, 5'd9, 5'd1, 3'b101, 5'd4, 7'b0011011};
+
+        #2;
+
+        check(imm == 64'd9, "SRAIW shift immediate");
+        check(alu_op == 4'b1110, "SRAIW alu_op");
+        check(alu_src == 1'b1, "SRAIW alu_src");
+        check(write_rf == 1'b1, "SRAIW write_rf");
 
         $display("Passed: %0d", passed);
         $display("Failed: %0d", failed);
