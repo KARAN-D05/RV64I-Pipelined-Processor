@@ -33,6 +33,7 @@
 | [BCU](BCU) | Determines whether branches and unconditional jumps should redirect program execution | ✅ |
 | [BHU](BHU) | Handles pipeline flushing by injecting NOPs when branches or jumps are taken | ✅ |
 | [HHU](HHU) | Integrates HDU and BHU to handle load-use and control hazards through stalls and flushes | ✅ |
+| [IFID](IFID) | 96-bit pipeline register that stores the PC and instruction between the IF and ID stages | ✅ |
 
 ## 🔄 Implemented Pipeline Stages
 | Stage | Description                                                                              | Status |
