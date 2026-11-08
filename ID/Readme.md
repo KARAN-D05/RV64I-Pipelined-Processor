@@ -120,4 +120,4 @@ The Hazard Detection Unit (HDU) uses this metadata to detect load-use dependenci
 - Control propagation: Verified ALU selection, register-file write control, memory write control, and result selection.
 - Source-usage metadata: Verified `uses_rs1` and `uses_rs2`.
 - Branch metadata: Verified branch identification and `funct3` generation.
-- Load metadata: Verified `is_load` generation for load and non-load instructions.
+- Load metadata: Verified `is_load` generation for load and non-load instructions. 
