@@ -18,12 +18,12 @@ The IF/ID pipeline register stores the program counter and fetched instruction b
 
 | Signal | Direction | Width | Description |
 |---|---|---|---|
-| `instr_in` | Input | IWIDTH | Instruction from the BHU output |
-| `pc_in` | Input | PCWIDTH | Program counter from the IF stage |
+| `instr_in` | Input | 32 | Instruction from the BHU output |
+| `pc_in` | Input | 64 | Program counter from the IF stage |
 | `clk` | Input | 1 | Clock signal |
 | `rst` | Input | 1 | Asynchronous active-high reset |
-| `instr_out` | Output | IWIDTH | Registered instruction delivered to ID |
-| `pc_out` | Output | PCWIDTH | Registered program counter delivered to ID |
+| `instr_out` | Output | 32 | Registered instruction delivered to ID |
+| `pc_out` | Output | 64 | Registered program counter delivered to ID |
 
 ## Operation
 
