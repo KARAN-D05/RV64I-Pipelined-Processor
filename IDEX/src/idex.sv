@@ -47,4 +47,4 @@ module IDEX #(
     end
   end
 
-endmodule
+endmodule 
