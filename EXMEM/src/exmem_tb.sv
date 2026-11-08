@@ -12,17 +12,16 @@ module testbench;
   logic [W-1:0] r_in;
   logic [W-1:0] t_in;
   logic [NCS-1:0] c_word_in;
-  logic [F-1:0] rs1;
   logic [F-1:0] rs2;
   logic [F-1:0] rd;
   logic rst;
   logic clk;
+
   logic [W-1:0] alu_out;
   logic [W-1:0] data_out2;
   logic [W-1:0] r_out;
   logic [W-1:0] t_out;
   logic [NCS-1:0] c_word_out;
-  logic [F-1:0] rs1_out;
   logic [F-1:0] rs2_out;
   logic [F-1:0] rd_out;
 
@@ -36,7 +35,6 @@ module testbench;
     .r_in(r_in),
     .t_in(t_in),
     .c_word_in(c_word_in),
-    .rs1(rs1),
     .rs2(rs2),
     .rd(rd),
     .rst(rst),
@@ -46,7 +44,6 @@ module testbench;
     .r_out(r_out),
     .t_out(t_out),
     .c_word_out(c_word_out),
-    .rs1_out(rs1_out),
     .rs2_out(rs2_out),
     .rd_out(rd_out)
   );
@@ -56,9 +53,9 @@ module testbench;
 
   initial begin
 
-    $monitor("t = %0t | rst = %0b | alu_in = %016h | data_in2 = %016h | r_in = %016h | t_in = %016h | c_word_in = %03h | rs1 = %0d | rs2 = %0d | rd = %0d | alu_out = %016h | data_out2 = %016h | r_out = %016h | t_out = %016h | c_word_out = %03h | rs1_out = %0d | rs2_out = %0d | rd_out = %0d",
-             $time, rst, alu_in, data_in2, r_in, t_in, c_word_in, rs1, rs2, rd,
-             alu_out, data_out2, r_out, t_out, c_word_out, rs1_out, rs2_out, rd_out);
+    $monitor("t = %0t | rst = %0b | alu_in = %016h | data_in2 = %016h | r_in = %016h | t_in = %016h | c_word_in = %03h | rs2 = %0d | rd = %0d | alu_out = %016h | data_out2 = %016h | r_out = %016h | t_out = %016h | c_word_out = %03h | rs2_out = %0d | rd_out = %0d",
+             $time, rst, alu_in, data_in2, r_in, t_in, c_word_in, rs2, rd,
+             alu_out, data_out2, r_out, t_out, c_word_out, rs2_out, rd_out);
 
     $dumpfile("Sim.vcd");
     $dumpvars(0, testbench);
@@ -69,7 +66,6 @@ module testbench;
     r_in = 0;
     t_in = 0;
     c_word_in = 0;
-    rs1 = 0;
     rs2 = 0;
     rd = 0;
 
@@ -86,7 +82,6 @@ module testbench;
     r_in = 64'h0000_0000_0000_1004;
     t_in = 64'h0000_0000_0000_1020;
     c_word_in = 9'b101_101_011;
-    rs1 = 5'd1;
     rs2 = 5'd2;
     rd = 5'd3;
 
@@ -97,7 +92,6 @@ module testbench;
     r_in = 64'h0000_0000_0000_2004;
     t_in = 64'h0000_0000_0000_2040;
     c_word_in = 9'b010_110_100;
-    rs1 = 5'd10;
     rs2 = 5'd11;
     rd = 5'd12;
 
@@ -108,7 +102,6 @@ module testbench;
     r_in = 64'h0000_0000_0000_3004;
     t_in = 64'h0000_0000_0000_300C;
     c_word_in = 9'b000_000_000;
-    rs1 = 5'd20;
     rs2 = 5'd21;
     rd = 5'd22;
 
@@ -123,14 +116,13 @@ module testbench;
     r_in = 64'h0000_0000_0000_4004;
     t_in = 64'h0000_0000_0000_4040;
     c_word_in = 9'b111_111_111;
-    rs1 = 5'd5;
     rs2 = 5'd6;
     rd = 5'd7;
 
     @(negedge clk);
     #1;
 
-    $display("Simulation Complete");
+    $display("Simulation Complete!");
     $finish;
 
   end
