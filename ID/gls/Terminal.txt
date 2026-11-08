@@ -7,6 +7,7 @@ PASS: ADD alu_op
 PASS: ADD alu_src
 PASS: ADD uses_rs1
 PASS: ADD uses_rs2
+PASS: ADD is_load
 PASS: ADDI immediate
 PASS: ADDI rs1 data
 PASS: ADDI write_rf
@@ -21,6 +22,7 @@ PASS: LW op_width
 PASS: LW result selection
 PASS: LW uses_rs1
 PASS: LW uses_rs2
+PASS: LW is_load
 PASS: SW immediate
 PASS: SW address operand
 PASS: SW store data
@@ -30,15 +32,37 @@ PASS: SW alu_src
 PASS: SW op_width
 PASS: SW uses_rs1
 PASS: SW uses_rs2
+PASS: SW is_load
 PASS: BEQ branch
+PASS: BEQ funct3
 PASS: BEQ write_rf
 PASS: BEQ uses_rs1
 PASS: BEQ uses_rs2
+PASS: BNE branch
+PASS: BNE funct3
 PASS: LUI write_rf
 PASS: LUI alu_op
 PASS: LUI alu_src
 PASS: LUI uses_rs1
 PASS: LUI uses_rs2
-Passed: 41
+PASS: ADDIW immediate
+PASS: ADDIW alu_op
+PASS: ADDIW alu_src
+PASS: ADDIW write_rf
+PASS: ADDIW uses_rs1
+PASS: ADDIW uses_rs2
+PASS: SLLIW shift immediate
+PASS: SLLIW alu_op
+PASS: SLLIW alu_src
+PASS: SLLIW write_rf
+PASS: SRLIW shift immediate
+PASS: SRLIW alu_op
+PASS: SRLIW alu_src
+PASS: SRLIW write_rf
+PASS: SRAIW shift immediate
+PASS: SRAIW alu_op
+PASS: SRAIW alu_src
+PASS: SRAIW write_rf
+Passed: 65
 Failed: 0
 ALL TESTS PASSED
