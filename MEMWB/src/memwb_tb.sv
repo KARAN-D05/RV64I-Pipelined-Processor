@@ -113,7 +113,7 @@ module testbench;
     @(negedge clk);
     #1;
 
-    $display("Simulation Complete!");
+    $display("Simulation Complete");
     $finish;
 
   end
