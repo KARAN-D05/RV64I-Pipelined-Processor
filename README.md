@@ -33,10 +33,10 @@
 | [BCU](BCU) | Determines whether branches and unconditional jumps should redirect program execution | ✅ |
 | [BHU](BHU) | Handles pipeline flushing by injecting NOPs when branches or jumps are taken | ✅ |
 | [HHU](HHU) | Integrates HDU and BHU to handle load-use and control hazards through stalls and flushes | ✅ |
-| [IFID](IFID) | 96-bit pipeline register between the IF and ID stages | ✅ |
-| [IDEX](IDEX) | 291-bit pipeline register between the ID and EX stages | ✅ |
-| [EXMEM](EXMEM) | 275-bit pipeline register between the EX and MEM stages | ✅ |
-| [MEMWB](MEMWB) | 264-bit pipeline register between the MEM and WB stages | ✅ |
+| [IFID](IFID) | 96-bit pipeline register carrying PC and instruction between IF and ID | ✅ |
+| [IDEX](IDEX) | 291-bit pipeline register carrying operands, control signals, and metadata between ID and EX | ✅ |
+| [EXMEM](EXMEM) | 275-bit pipeline register carrying execution results and forwarding data between EX and MEM | ✅ |
+| [MEMWB](MEMWB) | 264-bit pipeline register carrying memory, execution, and writeback data between MEM and WB | ✅ |
 
 ## 🔄 Implemented Pipeline Stages
 | Stage | Description                                                                              | Status |
