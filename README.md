@@ -35,7 +35,8 @@
 | [HHU](HHU) | Integrates HDU and BHU to handle load-use and control hazards through stalls and flushes | ✅ |
 | [IFID](IFID) | 96-bit pipeline register that stores PC and instruction between the IF and ID stages | ✅ |
 | [IDEX](IDEX) | 291-bit pipeline register that stores operands, PC, immediate, control word, and register indices between the ID and EX stages | ✅ |
-| [EXMEM](EXMEM) | 280-bit pipeline register that stores the ALU result, store data, TAG outputs, control word, and register indices between the EX and MEM stages | ✅ |
+| [EXMEM](EXMEM) | 275-bit pipeline register that stores the ALU result, store data, TAG outputs, control word, and register indices between the EX and MEM stages | ✅ |
+| [MEMWB](MEMWB) | 264-bit pipeline register that stores the memory result, ALU result, TAG outputs, writeback control word, and destination register index between the MEM and WB stages | ✅ |
 
 ## 🔄 Implemented Pipeline Stages
 | Stage | Description                                                                              | Status |
