@@ -1,46 +1,129 @@
-`default_nettype none
+`timescale 1ns/1ns
+`include "exmem.sv"
 
-module EXMEM #(
-    parameter W = 64,
-    parameter F = 5,
-    parameter NCS = 9
-) (
-    input logic [W-1:0] alu_in,
-    input logic [W-1:0] data_in2,
-    input logic [W-1:0] r_in,
-    input logic [W-1:0] t_in,
-    input logic [NCS-1:0] c_word_in,
-    input logic [F-1:0] rs2,
-    input logic [F-1:0] rd,
-    input logic rst,
-    input logic clk,
-    output logic [W-1:0] alu_out,
-    output logic [W-1:0] data_out2,
-    output logic [W-1:0] r_out,
-    output logic [W-1:0] t_out,
-    output logic [NCS-1:0] c_word_out,
-    output logic [F-1:0] rs2_out,
-    output logic [F-1:0] rd_out
-);
+module testbench;
 
-  always_ff @(posedge clk or posedge rst) begin
-    if (rst) begin
-        alu_out <= W'(1'b0);
-        data_out2 <= W'(1'b0);
-        r_out <= W'(1'b0);
-        t_out <= W'(1'b0);
-        c_word_out <= NCS'(1'b0);
-        rs2_out <= F'(1'b0);
-        rd_out <= F'(1'b0);
-    end else begin
-        alu_out <= alu_in;
-        data_out2 <= data_in2;
-        r_out <= r_in;
-        t_out <= t_in;
-        c_word_out <= c_word_in;
-        rs2_out <= rs2;
-        rd_out <= rd;
-    end
+  parameter NCS = 8;
+  parameter F = 5;
+  parameter W = 64;
+
+  logic [W-1:0] alu_in;
+  logic [W-1:0] data_in2;
+  logic [W-1:0] r_in;
+  logic [W-1:0] t_in;
+  logic [NCS-1:0] c_word_in;
+  logic [F-1:0] rs2;
+  logic [F-1:0] rd;
+  logic rst;
+  logic clk;
+  logic [W-1:0] alu_out;
+  logic [W-1:0] data_out2;
+  logic [W-1:0] r_out;
+  logic [W-1:0] t_out;
+  logic [NCS-1:0] c_word_out;
+  logic [F-1:0] rs2_out;
+  logic [F-1:0] rd_out;
+
+  EXMEM #(
+    .W(W),
+    .F(F),
+    .NCS(NCS)
+  ) dut (
+    .alu_in(alu_in),
+    .data_in2(data_in2),
+    .r_in(r_in),
+    .t_in(t_in),
+    .c_word_in(c_word_in),
+    .rs2(rs2),
+    .rd(rd),
+    .rst(rst),
+    .clk(clk),
+    .alu_out(alu_out),
+    .data_out2(data_out2),
+    .r_out(r_out),
+    .t_out(t_out),
+    .c_word_out(c_word_out),
+    .rs2_out(rs2_out),
+    .rd_out(rd_out)
+  );
+
+  initial clk = 0;
+  always #5 clk = ~clk;
+
+  initial begin
+
+    $monitor("t = %0t | rst = %0b | alu_in = %016h | data_in2 = %016h | r_in = %016h | t_in = %016h | c_word_in = %02h | rs2 = %0d | rd = %0d | alu_out = %016h | data_out2 = %016h | r_out = %016h | t_out = %016h | c_word_out = %02h | rs2_out = %0d | rd_out = %0d",
+             $time, rst, alu_in, data_in2, r_in, t_in, c_word_in, rs2, rd,
+             alu_out, data_out2, r_out, t_out, c_word_out, rs2_out, rd_out);
+
+    $dumpfile("Sim.vcd");
+    $dumpvars(0, testbench);
+
+    rst = 1'b0;
+    alu_in = 0;
+    data_in2 = 0;
+    r_in = 0;
+    t_in = 0;
+    c_word_in = 0;
+    rs2 = 0;
+    rd = 0;
+
+    #2;
+    rst = 1'b1;
+
+    #2;
+    rst = 1'b0;
+
+    @(negedge clk);
+    #1;
+    alu_in = 64'hAAAA_AAAA_AAAA_AAAA;
+    data_in2 = 64'hBBBB_BBBB_BBBB_BBBB;
+    r_in = 64'h0000_0000_0000_1004;
+    t_in = 64'h0000_0000_0000_1020;
+    c_word_in = 8'b01_101_011;
+    rs2 = 5'd2;
+    rd = 5'd3;
+
+    @(negedge clk);
+    #1;
+    alu_in = 64'h1234_5678_9ABC_DEF0;
+    data_in2 = 64'hFEDC_BA98_7654_3210;
+    r_in = 64'h0000_0000_0000_2004;
+    t_in = 64'h0000_0000_0000_2040;
+    c_word_in = 8'b10_110_100;
+    rs2 = 5'd11;
+    rd = 5'd12;
+
+    @(negedge clk);
+    #1;
+    alu_in = 64'h0000_0000_0000_0001;
+    data_in2 = 64'h0000_0000_0000_0002;
+    r_in = 64'h0000_0000_0000_3004;
+    t_in = 64'h0000_0000_0000_300C;
+    c_word_in = 8'b000_000_00;
+    rs2 = 5'd21;
+    rd = 5'd22;
+
+    @(negedge clk);
+    #1;
+    rst = 1'b1;
+
+    #1;
+    rst = 1'b0;
+    alu_in = 64'hFFFF_FFFF_FFFF_FFFF;
+    data_in2 = 64'h1111_1111_1111_1111;
+    r_in = 64'h0000_0000_0000_4004;
+    t_in = 64'h0000_0000_0000_4040;
+    c_word_in = 8'b11_111_111;
+    rs2 = 5'd6;
+    rd = 5'd7;
+
+    @(negedge clk);
+    #1;
+
+    $display("Simulation Complete!");
+    $finish;
+
   end
 
 endmodule
