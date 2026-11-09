@@ -35,7 +35,7 @@
 | [HHU](HHU) | Integrates HDU and BHU to handle load-use and control hazards through stalls and flushes | ✅ |
 | [IFID](IFID) | 96-bit pipeline register carrying PC and instruction between IF and ID | ✅ |
 | [IDEX](IDEX) | 291-bit pipeline register carrying operands, control signals, metadata between ID and EX | ✅ |
-| [EXMEM](EXMEM) | 275-bit pipeline register carrying execution results, forwarding data between EX and MEM | ✅ |
+| [EXMEM](EXMEM) | 274-bit pipeline register carrying execution results, forwarding data between EX and MEM | ✅ |
 | [MEMWB](MEMWB) | 264-bit pipeline register carrying memory, execution, writeback data between MEM and WB | ✅ |
 
 ## 🔄 Implemented Pipeline Stages
