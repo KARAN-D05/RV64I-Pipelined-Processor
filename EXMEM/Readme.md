@@ -80,4 +80,3 @@ The `uses_rs1` metadata bit is discarded after EX because no subsequent stage re
 - TAG propagation: Verified return address and target address capture.
 - Register indices: Verified `rs2` and `rd` propagation.
 - Control propagation: Verified 8-bit control word capture, including a zero control word.
-- Reset between clock edges: Verified asynchronous clearing and subsequent capture.
