@@ -48,7 +48,7 @@ END:
 
 > The waveform captures the five-stage pipeline during factorial execution. It illustrates instruction flow through the pipeline and branch-handling behavior, including control-word and IF/ID updates when a branch is taken.
 
-`[20! = [0x21C3677C82B40000(2,432,902,008,176,640,000)]]`
+`[20! = 0x21C3677C82B40000(2,432,902,008,176,640,000)]`
 
 <p align="center">
   <img src="CORE/images/Fact_Waveform.png" width="1000"/>
