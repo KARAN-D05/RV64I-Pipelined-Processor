@@ -35,7 +35,7 @@ This program computes the factorial of 20 (`20!`) using the RV64I instruction se
 
 `Factorial.asm`
 
-```
+```asm
         ADDI x1, x0, 1       ; Initialize factorial result to 1
         ADDI x2, x0, 20      ; Initialize counter to 20
 
