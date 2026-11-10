@@ -1,5 +1,5 @@
 # RV64I Pipelined Processor
-A 64-bit processor implementing a documented subset of the RV64I Base ISA through a five-stage, in-order pipeline.
+A 64-bit processor implementing a documented subset of the RV64I Base ISA through a five-stage, in-order pipeline. The design incorporates data forwarding, hazard detection, pipeline stalling, and control-flow handling to support instruction-level execution across pipeline stages.
 
 ## 🛠️ Tools & Technologies
 ![RISC-V](https://img.shields.io/badge/ISA-RISC_V_(RV64I)-3949AB?style=flat-square)
@@ -11,23 +11,6 @@ A 64-bit processor implementing a documented subset of the RV64I Base ISA throug
 
 ## 📚 Documentation
 - [Instruction Set Architecture](ISA.md)
-
-## ⚙️ Supported Instructions
-
-> 49 of 52 RV64I Base ISA instructions implemented
-
-| Category | Instructions |
-|---|---|
-| Upper Immediate | `LUI`, `AUIPC` |
-| Control Transfer | `JAL`, `JALR` |
-| Conditional Branch | `BEQ`, `BNE`, `BLT`, `BGE`, `BLTU`, `BGEU` |
-| Loads | `LB`, `LH`, `LW`, `LD`, `LBU`, `LHU`, `LWU` |
-| Stores | `SB`, `SH`, `SW`, `SD` |
-| Immediate Arithmetic & Logic | `ADDI`, `SLTI`, `SLTIU`, `XORI`, `ORI`, `ANDI` |
-| Immediate Shifts | `SLLI`, `SRLI`, `SRAI` |
-| Register Arithmetic & Logic | `ADD`, `SUB`, `SLL`, `SLT`, `SLTU`, `XOR`, `SRL`, `SRA`, `OR`, `AND` |
-| Word Immediate Operations | `ADDIW`, `SLLIW`, `SRLIW`, `SRAIW` |
-| Word Register Operations | `ADDW`, `SUBW`, `SLLW`, `SRLW`, `SRAW` |
 
 ## 🧮 Factorial
 
@@ -110,6 +93,23 @@ END:
 | [EX](EX)    | Integrates ALU and TAG to perform operations and calculate target addresses              | ✅     |
 | [MEM](MEM)  | Integrates the data memory for load/store operations                                     | ✅     |
 | [WB](WB)    | Selects the appropriate result for register write-back                                   | ✅     |
+
+## ⚙️ Supported Instructions
+
+> 49 of 52 RV64I Base ISA instructions implemented
+
+| Category | Instructions |
+|---|---|
+| Upper Immediate | `LUI`, `AUIPC` |
+| Control Transfer | `JAL`, `JALR` |
+| Conditional Branch | `BEQ`, `BNE`, `BLT`, `BGE`, `BLTU`, `BGEU` |
+| Loads | `LB`, `LH`, `LW`, `LD`, `LBU`, `LHU`, `LWU` |
+| Stores | `SB`, `SH`, `SW`, `SD` |
+| Immediate Arithmetic & Logic | `ADDI`, `SLTI`, `SLTIU`, `XORI`, `ORI`, `ANDI` |
+| Immediate Shifts | `SLLI`, `SRLI`, `SRAI` |
+| Register Arithmetic & Logic | `ADD`, `SUB`, `SLL`, `SLT`, `SLTU`, `XOR`, `SRL`, `SRA`, `OR`, `AND` |
+| Word Immediate Operations | `ADDIW`, `SLLIW`, `SRLIW`, `SRAIW` |
+| Word Register Operations | `ADDW`, `SUBW`, `SLLW`, `SRLW`, `SRAW` |
 
 ## 📜License
 - Source code and HDL files are licensed under the MIT License.
