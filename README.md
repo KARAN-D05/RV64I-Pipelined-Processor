@@ -33,11 +33,39 @@ A 64-bit processor implementing a documented subset of the RV64I Base ISA throug
 
 This program computes the factorial of 20 (`20!`) using the RV64I instruction set, exercising arithmetic operations, loop execution, conditional branching, and pipeline control-flow handling.
 
+`Factorial.asm`
+
+```
+        ADDI x1, x0, 1       ; Initialize factorial result to 1
+        ADDI x2, x0, 20      ; Initialize counter to 20
+
+OUTER:
+        BEQ  x2, x0, END     ; If counter reaches zero, finish
+
+        ADDI x3, x0, 0       ; Clear intermediate result
+        ADDI x4, x2, 0       ; Initialize inner loop counter
+        ADDI x5, x1, 0       ; Copy previous factorial result
+
+INNER:
+        BEQ  x4, x0, NEXT    ; If inner counter reaches zero, continue
+        ADD  x3, x3, x5      ; Accumulate using repeated addition
+        ADDI x4, x4, -1      ; Decrement inner counter
+        JAL  x0, INNER      ; Repeat inner loop
+
+NEXT:
+        ADDI x1, x3, 0       ; Update factorial result
+        ADDI x2, x2, -1      ; Decrement outer counter
+        JAL  x0, OUTER      ; Repeat outer loop
+
+END:
+        ADDI x3, x1, 0       ; Move final factorial result to x3
+```
+
 **Program Source:** [Factorial.hex](CORE/Programs/Factorial.hex)
 
 > The waveform captures the five-stage pipeline during factorial execution. It illustrates instruction flow through the pipeline and branch-handling behavior, including control-word and IF/ID updates when a branch is taken.
 
-`[20! = 2,432,902,008,176,640,000]`
+`[20! = [0x21C3677C82B40000(2,432,902,008,176,640,000)]]`
 
 <p align="center">
   <img src="CORE/images/Fact_Waveform.png" width="1000"/>
