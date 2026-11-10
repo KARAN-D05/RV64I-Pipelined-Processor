@@ -4,6 +4,12 @@ The CORE integrates the processor datapath, control logic, pipeline registers, f
 
 The processor is organized into five stages: Instruction Fetch (IF), Instruction Decode (ID), Execute (EX), Memory Access (MEM), and Write Back (WB). Each stage performs a distinct part of instruction execution, with pipeline registers separating successive stages and allowing multiple instructions to be processed concurrently.
 
+<p align="center">
+  <img src="images/Core_Synthesis.png" width="1000"/>
+  <br>
+  <sub>Core Synthesis</sub>
+</p>
+
 ## Architecture
 
 | Stage | Name | Function |
