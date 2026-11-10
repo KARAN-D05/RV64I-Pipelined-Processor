@@ -71,20 +71,6 @@ When a branch or jump is taken:
 
 The Branch Handling Unit (BHU) implements the flushing mechanism, while the HHU integrates branch handling with load-use hazard detection.
 
-## Pipeline Control
-
-Pipeline registers maintain the instruction state and associated information as instructions advance through the datapath.
-
-Valid bits are implemented in:
-
-- ID/EX
-- EX/MEM
-- MEM/WB
-
-These signals track valid instructions through the later pipeline stages and distinguish active instructions from bubbles.
-
-The pipeline control logic coordinates stalling, bubble insertion, and flushing to maintain correct in-order execution.
-
 ## Verification
 
 The CORE is verified through RTL simulation and post-synthesis gate-level simulation.
