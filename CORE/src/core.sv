@@ -1,4 +1,4 @@
-`default_nettype none
+`default_nettype none 
 `include "if.sv"
 `include "hhu.sv"
 `include "ifid.sv"
