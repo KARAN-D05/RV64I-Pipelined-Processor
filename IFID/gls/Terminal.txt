@@ -1,14 +1,18 @@
-t = 0 | rst = 0 | pc_in = 0000000000000000 | instr_in = 00000000 | pc_out = xxxxxxxxxxxxxxxx | instr_out = xxxxxxxx
-t = 2000 | rst = 1 | pc_in = 0000000000000000 | instr_in = 00000000 | pc_out = 0000000000000000 | instr_out = 00000000
-t = 4000 | rst = 0 | pc_in = 0000000000000000 | instr_in = 00000000 | pc_out = 0000000000000000 | instr_out = 00000000
-t = 11000 | rst = 0 | pc_in = 0000000000001000 | instr_in = 00a00093 | pc_out = 0000000000000000 | instr_out = 00000000
-t = 15000 | rst = 0 | pc_in = 0000000000001000 | instr_in = 00a00093 | pc_out = 0000000000001000 | instr_out = 00a00093
-t = 21000 | rst = 0 | pc_in = 0000000000001004 | instr_in = 00208133 | pc_out = 0000000000001000 | instr_out = 00a00093
-t = 25000 | rst = 0 | pc_in = 0000000000001004 | instr_in = 00208133 | pc_out = 0000000000001004 | instr_out = 00208133
-t = 31000 | rst = 0 | pc_in = 0000000000001008 | instr_in = 003101b3 | pc_out = 0000000000001004 | instr_out = 00208133
-t = 35000 | rst = 0 | pc_in = 0000000000001008 | instr_in = 003101b3 | pc_out = 0000000000001008 | instr_out = 003101b3
-t = 41000 | rst = 0 | pc_in = 000000000000100c | instr_in = 0000006f | pc_out = 0000000000001008 | instr_out = 003101b3
-t = 45000 | rst = 0 | pc_in = 000000000000100c | instr_in = 0000006f | pc_out = 000000000000100c | instr_out = 0000006f
-t = 51000 | rst = 1 | pc_in = 000000000000100c | instr_in = 0000006f | pc_out = 0000000000000000 | instr_out = 00000000
-t = 52000 | rst = 0 | pc_in = 0000000000001010 | instr_in = 00000013 | pc_out = 0000000000000000 | instr_out = 00000000
-t = 55000 | rst = 0 | pc_in = 0000000000001010 | instr_in = 00000013 | pc_out = 0000000000001010 | instr_out = 00000013
+t = 0 | rst = 0 | stall = 0 | pc_in = 0000000000000000 | instr_in = 00000000 | pc_out = xxxxxxxxxxxxxxxx | instr_out = xxxxxxxx
+t = 2000 | rst = 1 | stall = 0 | pc_in = 0000000000000000 | instr_in = 00000000 | pc_out = 0000000000000000 | instr_out = 00000000
+t = 4000 | rst = 0 | stall = 0 | pc_in = 0000000000000000 | instr_in = 00000000 | pc_out = 0000000000000000 | instr_out = 00000000
+t = 11000 | rst = 0 | stall = 0 | pc_in = 0000000000001000 | instr_in = 00a00093 | pc_out = 0000000000000000 | instr_out = 00000000
+t = 15000 | rst = 0 | stall = 0 | pc_in = 0000000000001000 | instr_in = 00a00093 | pc_out = 0000000000001000 | instr_out = 00a00093
+t = 21000 | rst = 0 | stall = 0 | pc_in = 0000000000001004 | instr_in = 00208133 | pc_out = 0000000000001000 | instr_out = 00a00093
+t = 25000 | rst = 0 | stall = 0 | pc_in = 0000000000001004 | instr_in = 00208133 | pc_out = 0000000000001004 | instr_out = 00208133
+t = 31000 | rst = 0 | stall = 0 | pc_in = 0000000000001008 | instr_in = 003101b3 | pc_out = 0000000000001004 | instr_out = 00208133
+t = 35000 | rst = 0 | stall = 0 | pc_in = 0000000000001008 | instr_in = 003101b3 | pc_out = 0000000000001008 | instr_out = 003101b3
+t = 41000 | rst = 0 | stall = 1 | pc_in = 000000000000100c | instr_in = 0000006f | pc_out = 0000000000001008 | instr_out = 003101b3
+t = 51000 | rst = 0 | stall = 1 | pc_in = 0000000000001010 | instr_in = 00000013 | pc_out = 0000000000001008 | instr_out = 003101b3
+t = 61000 | rst = 0 | stall = 0 | pc_in = 0000000000001014 | instr_in = 00500193 | pc_out = 0000000000001008 | instr_out = 003101b3
+t = 65000 | rst = 0 | stall = 0 | pc_in = 0000000000001014 | instr_in = 00500193 | pc_out = 0000000000001014 | instr_out = 00500193
+t = 71000 | rst = 0 | stall = 0 | pc_in = 0000000000001018 | instr_in = 0000006f | pc_out = 0000000000001014 | instr_out = 00500193
+t = 75000 | rst = 0 | stall = 0 | pc_in = 0000000000001018 | instr_in = 0000006f | pc_out = 0000000000001018 | instr_out = 0000006f
+t = 81000 | rst = 1 | stall = 1 | pc_in = 0000000000001018 | instr_in = 0000006f | pc_out = 0000000000000000 | instr_out = 00000000
+t = 82000 | rst = 0 | stall = 0 | pc_in = 000000000000101c | instr_in = 00000013 | pc_out = 0000000000000000 | instr_out = 00000000
+t = 85000 | rst = 0 | stall = 0 | pc_in = 000000000000101c | instr_in = 00000013 | pc_out = 000000000000101c | instr_out = 00000013
