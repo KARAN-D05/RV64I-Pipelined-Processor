@@ -24,7 +24,9 @@ module testbench;
     rst = 1;
 
     #10;
-    rst = 0;#500;
+    rst = 0;
+    
+    #500;
 
     $display("Simulation Complete!");
     $finish;
