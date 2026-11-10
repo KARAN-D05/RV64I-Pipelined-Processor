@@ -37,6 +37,7 @@
 | [IDEX](IDEX) | 291-bit pipeline register carrying operands, control signals, metadata between ID and EX | ✅ |
 | [EXMEM](EXMEM) | 274-bit pipeline register carrying execution results, forwarding data between EX and MEM | ✅ |
 | [MEMWB](MEMWB) | 264-bit pipeline register carrying memory, execution, writeback data between MEM and WB | ✅ |
+| [CORE](CORE) | Integrated 64-bit pipelined processor with forwarding and hazard handling | ✅ |
 
 ## 🔄 Implemented Pipeline Stages
 | Stage | Description                                                                              | Status |
