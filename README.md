@@ -14,9 +14,9 @@ A 64-bit processor implementing a documented subset(49/52) of the RV64I Base ISA
 - Bubble insertion and pipeline flushing.
 - Branch/jump handling with target redirection.
 
-## Supported Instructions
+## ⚙️ Supported Instructions
 
-**49 of 52 RV64I Base ISA instructions implemented.**
+> 49 of 52 RV64I Base ISA instructions implemented
 
 | Category | Instructions |
 |---|---|
