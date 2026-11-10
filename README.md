@@ -1,23 +1,18 @@
 # RV64I Pipelined Processor
 A 64-bit processor implementing a documented subset of the RV64I Base ISA through a five-stage, in-order pipeline.
 
-**Pipeline Stages**
-
 > [ IF ] → [ ID ] → [ EX ] → [ MEM ] → [ WB ]
 
 **Data Forwarding Network**
-
 - EX/MEM → EX
 - MEM/WB → EX
 - MEM/WB → ID
 - MEM/WB → MEM
 
 **Hazard and Control Handling**
-
 - Load-use hazard detection and pipeline stalling.
 - Bubble insertion and pipeline flushing.
 - Branch/jump handling with target redirection.
-- Wrong-path instruction suppression.
 
 ## 🛠️ Tools & Technologies
 ![RISC-V](https://img.shields.io/badge/ISA-RISC_V_(RV64I)-3949AB?style=flat-square)
