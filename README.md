@@ -9,6 +9,9 @@ A 64-bit processor implementing a documented subset of the RV64I Base ISA throug
 ![GTKWave](https://img.shields.io/badge/GTKWave-Waveforms-F57C00?style=flat-square)
 ![Yosys](https://img.shields.io/badge/Yosys-Logic_Synthesis-43A047?style=flat-square)
 
+## 📚 Documentation
+- [Instruction Set Architecture](ISA.md)
+
 ## ⚙️ Supported Instructions
 
 > 49 of 52 RV64I Base ISA instructions implemented
@@ -26,8 +29,23 @@ A 64-bit processor implementing a documented subset of the RV64I Base ISA throug
 | Word Immediate Operations | `ADDIW`, `SLLIW`, `SRLIW`, `SRAIW` |
 | Word Register Operations | `ADDW`, `SUBW`, `SLLW`, `SRLW`, `SRAW` |
 
-## 📚 Documentation
-- [Instruction Set & Control Specification](ISA.md)
+## 🧮 Factorial
+
+This program computes the factorial of 20 (`20!`) using the RV64I instruction set, exercising arithmetic operations, loop execution, conditional branching, and pipeline control-flow handling.
+
+**Program Source:** [Factorial.hex](CORE/Programs/Factorial.hex)
+
+> The waveform captures the five-stage pipeline during factorial execution. It illustrates instruction flow through the pipeline and branch-handling behavior, including control-word and IF/ID updates when a branch is taken.
+
+`[20! = 2,432,902,008,176,640,000]`
+
+<p align="center">
+  <img src="CORE/images/Fact_Waveform.png" width="1000"/>
+  <br>
+  <sub>RTL simulation of the processor executing the Factorial (20!) program, illustrating pipeline-register activity, datapath execution, and branch handling.</sub>
+</p>
+
+**Performance:** The processor executed the Factorial (20!) program in **1,510 clock cycles**, retiring 1,255 instructions, achieving a **CPI of 1.20319** and an **IPC of 0.83113**. The execution involved 251 branch flush events and no stall cycles.
 
 ## ⚙️ Implemented Modules
 
