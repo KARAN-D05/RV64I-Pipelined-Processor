@@ -1,7 +1,23 @@
 # RV64I Pipelined Processor
-A 64-bit RISC-V scalar processor implementing a documented subset of the RV64I Base ISA through a five-stage, in-order pipeline (IF, ID, EX, MEM, WB). 
+A 64-bit RISC-V scalar processor implementing a documented subset of the RV64I Base ISA through a five-stage, in-order pipeline.
 
-Features a four-path data forwarding network (EX/MEM → EX, MEM/WB → EX, WB → ID, WB → MEM), load-use hazard detection, pipeline stalling, bubble insertion, and branch/jump handling with target redirection, pipeline flushing, and wrong-path instruction suppression.
+**Pipeline Stages**
+
+`[ IF ] → [ ID ] → [ EX ] → [ MEM ] → [ WB ]`
+
+**Data Forwarding Network**
+
+- EX/MEM → EX
+- MEM/WB → EX
+- MEM/WB → ID
+- MEM/WB → MEM
+
+**Hazard and Control Handling**
+
+- Load-use hazard detection and pipeline stalling.
+- Bubble insertion and pipeline flushing.
+- Branch/jump handling with target redirection.
+- Wrong-path instruction suppression.
 
 ## 🛠️ Tools & Technologies
 ![RISC-V](https://img.shields.io/badge/ISA-RISC_V_(RV64I)-3949AB?style=flat-square)
