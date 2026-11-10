@@ -1,5 +1,5 @@
 # RV64I Pipelined Processor
-A 64-bit processor implementing a documented subset of the RV64I Base ISA through a five-stage, in-order pipeline.
+A 64-bit processor implementing a documented subset(49/52) of the RV64I Base ISA through a five-stage, in-order pipeline.
 
 > [ IF ] → [ ID ] → [ EX ] → [ MEM ] → [ WB ]
 
@@ -13,6 +13,23 @@ A 64-bit processor implementing a documented subset of the RV64I Base ISA throug
 - Load-use hazard detection and pipeline stalling.
 - Bubble insertion and pipeline flushing.
 - Branch/jump handling with target redirection.
+
+## Supported Instructions
+
+**49 of 52 RV64I Base ISA instructions implemented.**
+
+| Category | Instructions |
+|---|---|
+| Upper Immediate | `LUI`, `AUIPC` |
+| Control Transfer | `JAL`, `JALR` |
+| Conditional Branch | `BEQ`, `BNE`, `BLT`, `BGE`, `BLTU`, `BGEU` |
+| Loads | `LB`, `LH`, `LW`, `LD`, `LBU`, `LHU`, `LWU` |
+| Stores | `SB`, `SH`, `SW`, `SD` |
+| Immediate Arithmetic & Logic | `ADDI`, `SLTI`, `SLTIU`, `XORI`, `ORI`, `ANDI` |
+| Immediate Shifts | `SLLI`, `SRLI`, `SRAI` |
+| Register Arithmetic & Logic | `ADD`, `SUB`, `SLL`, `SLT`, `SLTU`, `XOR`, `SRL`, `SRA`, `OR`, `AND` |
+| Word Immediate Operations | `ADDIW`, `SLLIW`, `SRLIW`, `SRAIW` |
+| Word Register Operations | `ADDW`, `SUBW`, `SLLW`, `SRLW`, `SRAW` |
 
 ## 🛠️ Tools & Technologies
 ![RISC-V](https://img.shields.io/badge/ISA-RISC_V_(RV64I)-3949AB?style=flat-square)
