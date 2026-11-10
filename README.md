@@ -1,5 +1,5 @@
 # RV64I Pipelined Processor
-A 64-bit RISC-V scalar processor implementing a documented subset of the RV64I Base ISA through a five-stage, in-order pipeline.
+A 64-bit processor implementing a documented subset of the RV64I Base ISA through a five-stage, in-order pipeline.
 
 **Pipeline Stages**
 
