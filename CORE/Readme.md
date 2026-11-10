@@ -65,20 +65,6 @@ On a taken branch or jump:
 
 The HHU coordinates the HDU and BHU outputs, giving branch handling priority when control flow must be redirected.
 
-## Pipeline Control
-
-Pipeline registers carry instruction data, operands, control signals, and execution results between successive stages.
-
-Valid-bit tracking is implemented in the ID/EX, EX/MEM, and MEM/WB pipeline registers. These bits distinguish valid instructions from bubbles and allow the pipeline to track instruction progression through execution and write-back.
-
-The integrated pipeline control coordinates:
-
-- Normal instruction advancement.
-- Load-use stalls.
-- Bubble insertion.
-- Branch and jump flushing.
-- Prevention of invalid instructions from committing architectural state changes.
-
 ## Memory Organization
 
 The processor uses separate instruction and data memory interfaces.
