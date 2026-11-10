@@ -5,13 +5,18 @@ A 64-bit processor implementing a documented subset of the RV64I Base ISA throug
 
 **Data Forwarding Network**
 > EX/MEM → EX
+
 > MEM/WB → EX
+
 > MEM/WB → ID
+
 > MEM/WB → MEM
 
 **Hazard and Control Handling**
 > Load-use hazard detection and pipeline stalling.
+
 > Bubble insertion and pipeline flushing.
+
 > Branch/jump handling with target redirection.
 
 ## ⚙️ Supported Instructions
