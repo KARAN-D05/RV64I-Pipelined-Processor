@@ -3,7 +3,7 @@ A 64-bit processor implementing a documented subset of the RV64I Base ISA throug
 
 **Pipeline Stages**
 
-`[ IF ] → [ ID ] → [ EX ] → [ MEM ] → [ WB ]`
+> [ IF ] → [ ID ] → [ EX ] → [ MEM ] → [ WB ]
 
 **Data Forwarding Network**
 
