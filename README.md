@@ -1,9 +1,6 @@
 # RV64I Pipelined Processor
 A 64-bit processor implementing a documented subset of the RV64I Base ISA through a five-stage, in-order pipeline.
 
-## 📚 Documentation
-- [Instruction Set Specification](ISA.md)
-
 ## ⚙️ Supported Instructions
 
 > 49 of 52 RV64I Base ISA instructions implemented
@@ -28,6 +25,9 @@ A 64-bit processor implementing a documented subset of the RV64I Base ISA throug
 ![Verilator](https://img.shields.io/badge/Verilator-Linting-00897B?style=flat-square)
 ![GTKWave](https://img.shields.io/badge/GTKWave-Waveforms-F57C00?style=flat-square)
 ![Yosys](https://img.shields.io/badge/Yosys-Logic_Synthesis-43A047?style=flat-square)
+
+## 📚 Documentation
+- [Instruction Set & Control Specification](ISA.md)
 
 ## ⚙️ Implemented Modules
 
