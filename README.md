@@ -1,5 +1,5 @@
 # RV64I Pipelined Processor
-A 64-bit processor implementing a documented subset(49/52) of the RV64I Base ISA through a five-stage, in-order pipeline.
+A 64-bit processor implementing a documented subset of the RV64I Base ISA through a five-stage, in-order pipeline.
 
 ## ⚙️ Supported Instructions
 
