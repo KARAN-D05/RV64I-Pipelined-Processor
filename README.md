@@ -1,5 +1,5 @@
 # RV64I Pipelined Processor
-A 64-bit processor implementing a documented subset of the RV64I Base ISA through a five-stage, in-order pipeline. The design incorporates data forwarding, hazard detection, pipeline stalling, and control-flow handling to support instruction-level execution across pipeline stages.
+The processor follows a **five-stage, in-order pipeline architecture** (IF, ID, EX, MEM, WB), implementing a documented subset of the **RV64I Base Integer ISA**. It incorporates dedicated hazard handling, data forwarding paths, pipeline stalling, and control-flow redirection to manage instruction dependencies and execution flow.
 
 ## 🛠️ Tools & Technologies
 ![RISC-V](https://img.shields.io/badge/ISA-RISC_V_(RV64I)-3949AB?style=flat-square)
@@ -55,8 +55,6 @@ END:
   <br>
   <sub>RTL simulation of the processor executing the Factorial (20!) program, illustrating pipeline-register activity, datapath execution, and branch handling.</sub>
 </p>
-
-**Performance:** The processor executed the Factorial (20!) program in **1,510 clock cycles**, retiring 1,255 instructions, achieving a **CPI of 1.20319** and an **IPC of 0.83113**. The execution involved 251 branch flush events and no stall cycles.
 
 ## ⚙️ Implemented Modules
 
