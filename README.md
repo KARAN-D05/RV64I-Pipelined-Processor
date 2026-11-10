@@ -1,13 +1,13 @@
 # RV64I Pipelined Processor
 A 64-bit processor implementing a documented subset of the RV64I Base ISA through a five-stage, in-order pipeline.
 
-> [ IF ] → [ ID ] → [ EX ] → [ MEM ] → [ WB ]
-
-**Data Forwarding Network**
-- EX/MEM → EX
-- MEM/WB → EX
-- MEM/WB → ID
-- MEM/WB → MEM
+## 🛠️ Tools & Technologies
+![RISC-V](https://img.shields.io/badge/ISA-RISC_V_(RV64I)-3949AB?style=flat-square)
+![5-Stage Pipeline](https://img.shields.io/badge/Design-5--Stage_Pipeline-D50000?style=flat-square)
+![Icarus Verilog](https://img.shields.io/badge/Icarus_Verilog-Simulation-8E24AA?style=flat-square)
+![Verilator](https://img.shields.io/badge/Verilator-Linting-00897B?style=flat-square)
+![GTKWave](https://img.shields.io/badge/GTKWave-Waveforms-F57C00?style=flat-square)
+![Yosys](https://img.shields.io/badge/Yosys-Logic_Synthesis-43A047?style=flat-square)
 
 ## ⚙️ Supported Instructions
 
@@ -25,14 +25,6 @@ A 64-bit processor implementing a documented subset of the RV64I Base ISA throug
 | Register Arithmetic & Logic | `ADD`, `SUB`, `SLL`, `SLT`, `SLTU`, `XOR`, `SRL`, `SRA`, `OR`, `AND` |
 | Word Immediate Operations | `ADDIW`, `SLLIW`, `SRLIW`, `SRAIW` |
 | Word Register Operations | `ADDW`, `SUBW`, `SLLW`, `SRLW`, `SRAW` |
-
-## 🛠️ Tools & Technologies
-![RISC-V](https://img.shields.io/badge/ISA-RISC_V_(RV64I)-3949AB?style=flat-square)
-![5-Stage Pipeline](https://img.shields.io/badge/Design-5--Stage_Pipeline-D50000?style=flat-square)
-![Icarus Verilog](https://img.shields.io/badge/Icarus_Verilog-Simulation-8E24AA?style=flat-square)
-![Verilator](https://img.shields.io/badge/Verilator-Linting-00897B?style=flat-square)
-![GTKWave](https://img.shields.io/badge/GTKWave-Waveforms-F57C00?style=flat-square)
-![Yosys](https://img.shields.io/badge/Yosys-Logic_Synthesis-43A047?style=flat-square)
 
 ## 📚 Documentation
 - [Instruction Set & Control Specification](ISA.md)
