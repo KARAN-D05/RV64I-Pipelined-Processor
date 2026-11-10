@@ -33,12 +33,12 @@ INNER:
         BEQ  x4, x0, NEXT    ; If inner counter reaches zero, continue
         ADD  x3, x3, x5      ; Accumulate using repeated addition
         ADDI x4, x4, -1      ; Decrement inner counter
-        JAL  x0, INNER      ; Repeat inner loop
+        JAL  x0, INNER       ; Repeat inner loop
 
 NEXT:
         ADDI x1, x3, 0       ; Update factorial result
         ADDI x2, x2, -1      ; Decrement outer counter
-        JAL  x0, OUTER      ; Repeat outer loop
+        JAL  x0, OUTER       ; Repeat outer loop
 
 END:
         ADDI x3, x1, 0       ; Move final factorial result to x3
