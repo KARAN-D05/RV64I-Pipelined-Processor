@@ -10,6 +10,7 @@ module testbench;
   logic [PCWIDTH-1:0] pc_in;
   logic clk;
   logic rst;
+  logic stall;
   logic [IWIDTH-1:0] instr_out;
   logic [PCWIDTH-1:0] pc_out;
 
@@ -21,6 +22,7 @@ module testbench;
     .pc_in(pc_in),
     .clk(clk),
     .rst(rst),
+    .stall(stall),
     .instr_out(instr_out),
     .pc_out(pc_out)
   );
@@ -30,12 +32,14 @@ module testbench;
 
   initial begin
 
-    $monitor("t = %0t | rst = %0b | pc_in = %016h | instr_in = %08h | pc_out = %016h | instr_out = %08h", $time, rst, pc_in, instr_in, pc_out, instr_out);
+    $monitor("t = %0t | rst = %0b | stall = %0b | pc_in = %016h | instr_in = %08h | pc_out = %016h | instr_out = %08h",
+             $time, rst, stall, pc_in, instr_in, pc_out, instr_out);
 
     $dumpfile("Sim.vcd");
     $dumpvars(0, testbench);
 
     rst = 1'b0;
+    stall = 1'b0;
     pc_in = 64'd0;
     instr_in = 32'd0;
 
@@ -62,22 +66,41 @@ module testbench;
 
     @(negedge clk);
     #1;
+    stall = 1'b1;
     pc_in = 64'h0000_0000_0000_100C;
     instr_in = 32'h0000_006F;
 
     @(negedge clk);
     #1;
-    rst = 1'b1;
-
-    #1;
-    rst = 1'b0;
     pc_in = 64'h0000_0000_0000_1010;
     instr_in = 32'h0000_0013;
 
     @(negedge clk);
     #1;
+    stall = 1'b0;
+    pc_in = 64'h0000_0000_0000_1014;
+    instr_in = 32'h0050_0193;
 
-    $display("Simulation Complete!");
+    @(negedge clk);
+    #1;
+    pc_in = 64'h0000_0000_0000_1018;
+    instr_in = 32'h0000_006F;
+
+    @(negedge clk);
+    #1;
+    stall = 1'b1;
+    rst = 1'b1;
+
+    #1;
+    rst = 1'b0;
+    stall = 1'b0;
+    pc_in = 64'h0000_0000_0000_101C;
+    instr_in = 32'h0000_0013;
+
+    @(negedge clk);
+    #1;
+
+    $display("Simulation Complete");
     $finish;
 
   end
