@@ -66,7 +66,7 @@ END:
 | [ROM](ROM) | Stores and fetches 32-bit instructions using the PC's byte address | ✅ |
 | [ALU](ALU) | Performs arithmetic, logical, shift operations and generates comparision signals | ✅ |
 | [TAG](TAG) | Calculates branch and jump targets and generates return addresses | ✅      |
-| [RAM](RAM) | implements byte-addressable memory with support for aligned and misaligned accesses | ✅ |
+| [RAM](MEM) | implements byte-addressable memory with support for aligned and misaligned accesses | ✅ |
 | [CU](CU) | decodes 49 RV64I instructions and generates datapath control signals | ✅ |
 | [EEF](EEF) | Detects EX/MEM-to-EX RAW dependencies and forwards results to ALU operands | ✅ |
 | [MEF](MEF) | Detects MEM/WB-to-EX RAW dependencies and forwards results to ALU operands | ✅ |
