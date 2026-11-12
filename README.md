@@ -35,6 +35,30 @@ This test verifies EX/MEM-to-EX data forwarding by executing consecutive depende
   <sub>RTL simulation demonstrating EX/MEM-to-EX forwarding through the ALU operand selection and execution datapath.</sub>
 </p>
 
+## ↗️ MEM/WB → EX Forwarding
+
+This test verifies **MEM/WB-to-EX data forwarding** by executing dependent instructions separated by one independent instruction, handling **RAW dependencies with a dependency distance of 2**.
+
+`MEM_WB-EX.asm`
+
+```asm
+        ADDI x1, x0, 5      ; Initialize x1 = 5
+        ADDI x6, x0, 7      ; Independent instruction
+        ADD  x2, x1, x1     ; x2 = x1 + x1
+```
+
+**Program Source:** [MEM_WB-EX.hex](CORE/Programs/MEM_WB-EX.hex)
+
+> The waveform captures the MEM/WB-to-EX forwarding operation, where the result (`5`) produced by the first ADDI instruction is forwarded to both ALU operands of the dependent ADD instruction, producing `10`.
+
+`[x1 = 5, x2 = 10, x6 = 7]`
+
+<p align="center">
+  <img src="CORE/images/MEM_EX-EX_Waveform.png" width="1000"/>
+  <br>
+  <sub>RTL simulation demonstrating MEM/WB-to-EX forwarding through the ALU operand selection and execution datapath.</sub>
+</p>
+
 ## ⚙️ Implemented Modules
 
 | Module               | Description                                                       | Status |
