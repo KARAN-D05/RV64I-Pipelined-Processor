@@ -12,48 +12,27 @@ The processor follows a **five-stage, in-order pipeline architecture** (IF, ID, 
 ## 📚 Documentation
 - [Instruction Set Architecture](ISA.md)
 
-## 🧮 Factorial
+## ↗️ EX/MEM → EX Forwarding
 
-This program computes the factorial of 20 (`20!`) using the RV64I instruction set, exercising arithmetic operations, loop execution, conditional branching, and pipeline control-flow handling.
+This test verifies **EX/MEM-to-EX data forwarding** by executing consecutive dependent instructions, where the second instruction consumes the result produced by the preceding instruction.
 
-`Factorial.asm`
+`EX_MEM-EX.asm`
 
 ```asm
-        ADDI x1, x0, 1       ; Initialize factorial result to 1
-        ADDI x2, x0, 20      ; Initialize counter to 20
-
-OUTER:
-        BEQ  x2, x0, END     ; If counter reaches zero, finish
-
-        ADDI x3, x0, 0       ; Clear intermediate result
-        ADDI x4, x2, 0       ; Initialize inner loop counter
-        ADDI x5, x1, 0       ; Copy previous factorial result
-
-INNER:
-        BEQ  x4, x0, NEXT    ; If inner counter reaches zero, continue
-        ADD  x3, x3, x5      ; Accumulate using repeated addition
-        ADDI x4, x4, -1      ; Decrement inner counter
-        JAL  x0, INNER       ; Repeat inner loop
-
-NEXT:
-        ADDI x1, x3, 0       ; Update factorial result
-        ADDI x2, x2, -1      ; Decrement outer counter
-        JAL  x0, OUTER       ; Repeat outer loop
-
-END:
-        ADDI x3, x1, 0       ; Move final factorial result to x3
+        ADDI x1, x0, 5      ; Initialize x1 = 5
+        ADD  x2, x1, x1     ; x2 = x1 + x1
 ```
 
-**Program Source:** [Factorial.hex](CORE/Programs/Factorial.hex)
+**Program Source:** [EX_MEM-EX.hex](CORE/Programs/EX_MEM-EX.hex)
 
-> The waveform captures the five-stage pipeline during factorial execution. It illustrates instruction flow through the pipeline and branch-handling behavior, including control-word and IF/ID updates when a branch is taken.
+> The waveform captures the forwarding operation, where the result (`5`) from the EX/MEM pipeline register is routed to both ALU operands of the dependent ADD instruction, producing the expected result (`10`) without stalling the pipeline.
 
-`[20! = 0x21C3677C82B40000(2,432,902,008,176,640,000)]`
+`[x1 = 5, x2 = 10]`
 
 <p align="center">
-  <img src="CORE/images/Fact_Waveform.png" width="1000"/>
+  <img src="Computer/images/EX_MEM-EX_Waveform.png" width="1000"/>
   <br>
-  <sub>RTL simulation of the processor executing the Factorial (20!) program, illustrating pipeline-register activity, datapath execution, and branch handling.</sub>
+  <sub>RTL simulation demonstrating EX/MEM-to-EX forwarding through the ALU operand selection and execution datapath.</sub>
 </p>
 
 ## ⚙️ Implemented Modules
