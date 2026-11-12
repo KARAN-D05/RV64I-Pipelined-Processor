@@ -97,4 +97,4 @@ Verification covers:
 - Pipeline flushing and wrong-path instruction suppression.
 - Architectural state consistency between RTL and gate-level simulation.
 
-Directed instruction programs are used to exercise individual architectural features and integrated processor behavior.
+Directed instruction programs are used to exercise individual architectural features and integrated processor behavior. 
