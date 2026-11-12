@@ -30,7 +30,7 @@ This test verifies **EX/MEM-to-EX data forwarding** by executing consecutive dep
 `[x1 = 5, x2 = 10]`
 
 <p align="center">
-  <img src="Computer/images/EX_MEM-EX_Waveform.png" width="1000"/>
+  <img src="CORE/images/EX_MEM-EX_Waveform.png" width="1000"/>
   <br>
   <sub>RTL simulation demonstrating EX/MEM-to-EX forwarding through the ALU operand selection and execution datapath.</sub>
 </p>
