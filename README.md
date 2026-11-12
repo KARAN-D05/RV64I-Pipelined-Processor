@@ -291,13 +291,15 @@ The baseline implementation was compared against two experimental configurations
 
 | Configuration | Core Area | Estimated Fmax |
 |---|---|---|
-| RCA (TAG + ALU) | 131,735.09 | 32.95 MHz |
-| KSA (TAG + ALU) | 134,935.66 | 49.02 MHz |
-| CLA (TAG + ALU) | 143,044.69 | 51.31 MHz |
+| RCA (TAG + ALU) | 131,735.09 µm² | 32.95 MHz |
+| KSA (TAG + ALU) | 134,935.66 µm² | 49.02 MHz |
+| CLA (TAG + ALU) | 143,044.69 µm² | 51.31 MHz |
 
 Compared with the baseline, the KSA configuration achieved approximately **48.8% higher estimated maximum frequency**, with a **2.43% increase in mapped core area**.
 
-The CLA configuration achieved approximately **55.8% higher estimated maximum frequency**, with an **8.59% increase in mapped core area**.
+The CLA(2 32-Bit Blocks) configuration achieved approximately **55.8% higher estimated maximum frequency**, with an **8.59% increase in mapped core area**.
+
+> Adder architectures reuses the IP from [High-Performance Adder Architectures](https://github.com/KARAN-D05/High-Performance-Adder-Architectures).
 
 ## ⚙️ Supported Instructions
 
