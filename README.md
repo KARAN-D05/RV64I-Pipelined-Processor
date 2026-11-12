@@ -59,6 +59,30 @@ This test verifies MEM/WB-to-EX data forwarding by executing dependent instructi
   <sub>RTL simulation demonstrating MEM/WB-to-EX forwarding through the ALU operand selection and execution datapath.</sub>
 </p>
 
+## ↗️ EX/MEM Forwarding Priority
+
+This test verifies forwarding priority resolution when both EX/MEM and MEM/WB contain pending results for the same destination register. The forwarding unit must prioritize the newer EX/MEM result over the older MEM/WB result.
+
+`EX_MEM-EX_Priority.asm`
+
+```asm
+        ADDI x1, x0, 5      ; Initialize x1 = 5
+        ADDI x1, x0, 10     ; Update x1 = 10
+        ADD  x2, x1, x0     ; x2 = x1 (must receive 10)
+```
+
+**Program Source:** [EX_MEM-EX_Priority.hex](CORE/Programs/EX_MEM-EX_Priority.hex)
+
+> The waveform captures the simultaneous forwarding matches, demonstrating that the EX/MEM path takes priority and supplies the newer value (`10`) to the dependent ADD instruction instead of the older MEM/WB value (`5`).
+
+`[x1 = 10, x2 = 10]`
+
+<p align="center">
+  <img src="CORE/images/EX_MEM-EX_Priority_Waveform.png" width="1000"/>
+  <br>
+  <sub>RTL simulation demonstrating EX/MEM forwarding priority over MEM/WB when both paths match the same source register.</sub>
+</p>
+
 ## ⚙️ Implemented Modules
 
 | Module               | Description                                                       | Status |
