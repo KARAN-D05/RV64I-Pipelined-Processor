@@ -281,6 +281,21 @@ x31 = 0x21(33)
   <sub>RTL simulation waveform showing integrated pipeline execution, data forwarding, load-use stalls, and control-flow redirection.</sub>
 </p>
 
+## ⚡ Core Timing Evaluation
+
+The primary focus of this project is processor architecture and microarchitectural behavior rather than maximizing operating frequency. Nevertheless, synthesis-based timing analysis was performed to evaluate the impact of datapath implementation choices on the core's timing characteristics.
+
+A baseline implementation was compared against an experimental configuration incorporating a 64-bit Kogge–Stone Adder (KSA) in the TAG and ALU datapaths.
+
+| Configuration | Core Area | Estimated Fmax |
+|---|---|---|
+| Baseline Adder | 131,735.09 | 32.95 MHz |
+| KSA (TAG + ALU) | 134,935.66 | 49.02 MHz |
+
+The KSA configuration achieved approximately **48.8% higher estimated maximum frequency**, with a **2.43% increase in mapped core area**.
+
+These results demonstrate how datapath implementation choices can influence the timing characteristics of the processor, even when the overall pipeline architecture remains unchanged.
+
 ## ⚙️ Implemented Modules
 
 | Module               | Description                                                       | Status |
