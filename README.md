@@ -78,7 +78,7 @@ This test verifies forwarding priority resolution when both EX/MEM and MEM/WB co
 `[x1 = 10, x2 = 10]`
 
 <p align="center">
-  <img src="CORE/images/EX_MEM-EX_Priority_Waveform.png" width="1000"/>
+  <img src="CORE/images/EX_MEM-EX_Priority.png" width="1000"/>
   <br>
   <sub>RTL simulation demonstrating EX/MEM forwarding priority over MEM/WB when both paths match the same source register.</sub>
 </p>
