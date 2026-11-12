@@ -54,7 +54,7 @@ This test verifies **MEM/WB-to-EX data forwarding** by executing dependent instr
 `[x1 = 5, x2 = 10, x6 = 7]`
 
 <p align="center">
-  <img src="CORE/images/MEM_EX-EX_Waveform.png" width="1000"/>
+  <img src="CORE/images/MEM_WB-EX_Waveform.png" width="1000"/>
   <br>
   <sub>RTL simulation demonstrating MEM/WB-to-EX forwarding through the ALU operand selection and execution datapath.</sub>
 </p>
