@@ -190,6 +190,97 @@ The instructions writing to `x3` and `x4` must not execute.
   <sub>RTL simulation waveform showing branch resolution, pipeline flush, and execution at the branch target.</sub>
 </p>
 
+## 🔗 Integrated Pipeline Test
+
+This test evaluates the processor's pipeline behavior under a continuous instruction stream combining data dependencies, forwarding, load-use hazards, pipeline stalls, and control-flow redirection. It exercises the forwarding paths and hazard-handling mechanisms through interacting instruction sequences, including conditional branches, JAL, and JALR.
+
+**Integrated_Test.asm**
+```asm
+        ADDI x1, x0, 5
+        ADDI x2, x1, 3
+        ADD  x3, x2, x1
+        ADDI x4, x3, 2
+
+        ADDI x5, x0, 7
+        ADDI x6, x0, 9
+        ADD  x7, x5, x6
+
+        ADDI x8, x0, 11
+        ADDI x8, x0, 13
+        ADD  x9, x8, x7
+
+        ADDI x10, x0, 42
+        SW   x10, 0(x0)
+        LW   x11, 0(x0)
+        ADD  x12, x11, x11
+        ADDI x13, x12, 1
+
+        ADDI x14, x0, 17
+        ADDI x15, x0, 3
+        ADDI x16, x0, 4
+        ADD  x17, x14, x15
+
+        SW   x13, 8(x0)
+        LW   x18, 8(x0)
+        ADD  x19, x18, x17
+
+        BEQ  x19, x19, BRANCH_TARGET
+        ADDI x20, x0, 99
+        ADDI x21, x0, 88
+
+BRANCH_TARGET:
+        ADDI x22, x0, 25
+        ADD  x23, x22, x19
+
+        JAL  x24, JAL_TARGET
+        ADDI x25, x0, 77
+        ADDI x26, x0, 66
+
+JAL_TARGET:
+        ADDI x27, x0, 136
+        JALR x28, 0(x27)
+
+        ADDI x29, x0, 55
+        ADDI x30, x0, 44
+
+JALR_TARGET:
+        ADDI x31, x0, 33
+```
+
+**Program Source:** [Integrated_Test.hex](CORE/Programs/Integrated_Test.hex)
+
+> The waveform demonstrates the interaction of data forwarding, load-use hazard detection, pipeline stalling, and control-flow redirection within a continuous instruction stream. Taken BEQ, JAL, and JALR instructions redirect execution while invalidating younger instructions in the pipeline.
+
+**Expected Result:**
+
+- Register values:
+
+```text
+x1  = 0x05(5)       x2  = 0x08(8)
+x3  = 0x0D(13)      x4  = 0x0F(15)
+x5  = 0x07(7)       x6  = 0x09(9)
+x7  = 0x10(16)      x8  = 0x0D(13)
+x9  = 0x1D(29)      x10 = 0x2A(42)
+x11 = 0x2A(42)      x12 = 0x54(84)
+x13 = 0x55(85)      x14 = 0x11(17)
+x15 = 0x03(3)       x16 = 0x04(4)
+x17 = 0x14(20)      x18 = 0x55(85)
+x19 = 0x69(105)     x22 = 0x19(25)
+x23 = 0x82(130)     x24 = 0x70(112)
+x27 = 0x88(136)     x28 = 0x80(128)
+x31 = 0x21(33)
+```
+
+- Memory values: `[MEM[0] = 0x2A(42), MEM[8] = 0x55(85)]`
+- Flushed instructions: writes to `x20`, `x21`, `x25`, `x26`, `x29`, and `x30` must not occur.
+- `x0` remains architecturally zero.
+
+<p align="center">
+  <img src="CORE/images/Integrated_Test_Waveform.png" width="1000"/>
+  <br>
+  <sub>RTL simulation waveform showing integrated pipeline execution, data forwarding, load-use stalls, and control-flow redirection.</sub>
+</p>
+
 ## ⚙️ Implemented Modules
 
 | Module               | Description                                                       | Status |
