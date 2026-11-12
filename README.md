@@ -37,7 +37,7 @@ This test verifies EX/MEM-to-EX data forwarding by executing consecutive depende
 
 ## ↗️ MEM/WB → EX Forwarding
 
-This test verifies **MEM/WB-to-EX data forwarding** by executing dependent instructions separated by one independent instruction, handling **RAW dependencies with a dependency distance of 2**.
+This test verifies MEM/WB-to-EX data forwarding by executing dependent instructions separated by one independent instruction, handling RAW dependencies with a dependency distance of 2.
 
 `MEM_WB-EX.asm`
 
