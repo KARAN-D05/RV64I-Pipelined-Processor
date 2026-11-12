@@ -159,6 +159,37 @@ This test verifies load-use hazard detection by executing an instruction that im
   <sub>RTL simulation demonstrating load-use hazard detection, pipeline stalling, and subsequent data forwarding.</sub>
 </p>
 
+## 🔀 Branch Handling - Pipeline Flush
+
+This test verifies control-flow redirection when a branch is taken. Since branch resolution occurs in the EX stage, the two younger instructions occupying the IF and ID stages must be flushed, and execution must continue from the branch target.
+
+**Branch_Flush.asm**
+```asm
+        ADDI x1, x0, 5      ; Initialize x1 = 5
+        ADDI x2, x0, 5      ; Initialize x2 = 5
+        BEQ  x1, x2, TARGET ; Branch if x1 == x2
+
+        ADDI x3, x0, 10     ; Wrong-path instruction (must be flushed)
+        ADDI x4, x0, 20     ; Wrong-path instruction (must be flushed)
+
+TARGET:
+        ADDI x5, x0, 42     ; Execute branch target
+```
+
+**Program Source:** [Branch_Flush.hex](CORE/Programs/Branch_Flush.hex)
+
+> The waveform demonstrates a taken branch resolved in the EX stage, invalidating the two younger instructions in the IF and ID stages. The PC is redirected to the branch target, where execution resumes.
+
+**Expected Result:** `[x1 = 0x05(5), x2 = 0x05(5), x5 = 0x2A(42)]`
+
+The instructions writing to `x3` and `x4` must not execute.
+
+<p align="center">
+  <img src="CORE/images/Branch_Flush_Waveform.png" width="1000"/>
+  <br>
+  <sub>RTL simulation waveform showing branch resolution, pipeline flush, and execution at the branch target.</sub>
+</p>
+
 ## ⚙️ Implemented Modules
 
 | Module               | Description                                                       | Status |
