@@ -83,6 +83,30 @@ This test verifies forwarding priority resolution when both EX/MEM and MEM/WB co
   <sub>RTL simulation demonstrating EX/MEM forwarding priority over MEM/WB when both paths match the same source register.</sub>
 </p>
 
+## ↗️ MEM/WB → MEM Forwarding
+
+This test verifies MEM/WB-to-MEM data forwarding, where a result produced by an earlier instruction is forwarded from the MEM/WB pipeline register when it is needed as store data in the MEM stage.
+
+`MEM_WB-MEM.asm`
+
+```asm
+        ADDI x1, x0, 42     ; Initialize x1 = 42
+        SW   x1, 0(x0)      ; Store x1 to memory address 0
+        LW   x2, 0(x0)      ; Load stored value into x2
+```
+
+**Program Source:** [MEM_WB-MEM.hex](CORE/Programs/MEM_WB-MEM.hex)
+
+> The waveform captures MEM/WB-to-MEM forwarding, demonstrating how a result available in the MEM/WB register is supplied to a dependent store instruction in the MEM stage.
+
+`[x1 = 42, MEM[0] = 42, x2 = 42]`
+
+<p align="center">
+  <img src="CORE/images/MEM_WB-MEM_Waveform.png" width="1000"/>
+  <br>
+  <sub>RTL simulation demonstrating MEM/WB-to-MEM store-data forwarding and subsequent memory readback.</sub>
+</p>
+
 ## ⚙️ Implemented Modules
 
 | Module               | Description                                                       | Status |
