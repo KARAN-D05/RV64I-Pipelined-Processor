@@ -185,7 +185,7 @@ TARGET:
 The instructions writing to `x3` and `x4` must not execute.
 
 <p align="center">
-  <img src="CORE/images/Branch_Flush_Waveform.png" width="1000"/>
+  <img src="CORE/images/Branch_Waveform.png" width="1000"/>
   <br>
   <sub>RTL simulation waveform showing branch resolution, pipeline flush, and execution at the branch target.</sub>
 </p>
