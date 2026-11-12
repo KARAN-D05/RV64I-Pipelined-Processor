@@ -1,7 +1,7 @@
 # RV64I Pipelined Processor
 The processor follows a **five-stage, in-order pipeline architecture** (IF, ID, EX, MEM, WB), implementing a documented subset of the **RV64I Base Integer ISA**. It incorporates dedicated hazard handling, data forwarding paths, pipeline stalling, and control-flow redirection to manage instruction dependencies and execution flow.
 
-> **Core Results:** 51.31 MHz | 143,044.69 µm² (Sky130 HD)
+> **Core:** 51.31 MHz | 143,044.69 µm² (Sky130 HD)
 
 ## 🛠️ Tools & Technologies
 ![RISC-V](https://img.shields.io/badge/ISA-RISC_V_(RV64I)-3949AB?style=flat-square)
