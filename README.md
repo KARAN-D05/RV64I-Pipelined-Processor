@@ -107,6 +107,33 @@ This test verifies MEM/WB-to-MEM data forwarding, where a result produced by an 
   <sub>RTL simulation demonstrating MEM/WB-to-MEM store-data forwarding and subsequent memory readback.</sub>
 </p>
 
+## ↗️ MEM/WB → ID Forwarding
+
+This test verifies MEM/WB-to-ID data forwarding, where a result available in the MEM/WB pipeline register is forwarded to the ID-stage operand path when a dependent instruction requires it. The test exercises a RAW dependency with a dependency distance of 3.
+
+`MEM_WB-ID.asm`
+
+```asm
+        ADDI x1, x0, 5      ; Initialize x1 = 5
+        ADDI x6, x0, 7      ; Independent instruction
+        ADDI x7, x0, 9      ; Independent instruction
+        ADD  x2, x1, x0     ; x2 = x1
+```
+
+**Program Source:** [MEM_WB-ID.hex](CORE/Programs/MEM_WB-ID.hex)
+
+> The waveform captures MEM/WB-to-ID forwarding, demonstrating how the updated value (`5`) is supplied directly to the dependent instruction's ID-stage operand path.
+
+`[x1 = 5, x2 = 5, x6 = 7, x7 = 9]`
+
+<p align="center">
+  <img src="CORE/images/MEM_WB-ID_Waveform.png" width="1000"/>
+  <br>
+  <sub>RTL simulation demonstrating MEM/WB-to-ID forwarding through the decode-stage operand path.</sub>
+</p>
+
+**Design Consideration:** The register file does not rely on negative-edge write/read timing to resolve same-cycle dependencies. Instead, an explicit MEM/WB-to-ID forwarding path supplies the pending writeback value. This avoids introducing half-cycle timing paths between opposite clock edges, which would reduce the available timing budget and impose additional setup/hold constraints. Any timing violations can compromise reliable operation; explicit forwarding keeps the dependency handling within the pipeline's intended clocking scheme.
+
 ## ⚙️ Implemented Modules
 
 | Module               | Description                                                       | Status |
