@@ -27,7 +27,7 @@ This test verifies EX/MEM-to-EX data forwarding by executing consecutive depende
 
 > The waveform captures the forwarding operation, where the result (`5`) from the EX/MEM pipeline register is routed to both ALU operands of the dependent ADD instruction, producing the expected result (`10`) without stalling the pipeline.
 
-`[x1 = 5, x2 = 10]`
+`[x1 = 0x05(5), x2 = 0x0A(10)]`
 
 <p align="center">
   <img src="CORE/images/EX_MEM-EX_Waveform.png" width="1000"/>
@@ -51,7 +51,7 @@ This test verifies MEM/WB-to-EX data forwarding by executing dependent instructi
 
 > The waveform captures the MEM/WB-to-EX forwarding operation, where the result (`5`) produced by the first ADDI instruction is forwarded to both ALU operands of the dependent ADD instruction, producing `10`.
 
-`[x1 = 5, x2 = 10, x6 = 7]`
+`[x1 = 0x05(5), x2 = 0x0A(10), x6 = 0x07(7)]`
 
 <p align="center">
   <img src="CORE/images/MEM_WB-EX_Waveform.png" width="1000"/>
@@ -75,7 +75,7 @@ This test verifies forwarding priority resolution when both EX/MEM and MEM/WB co
 
 > The waveform captures the simultaneous forwarding matches, demonstrating that the EX/MEM path takes priority and supplies the newer value (`10`) to the dependent ADD instruction instead of the older MEM/WB value (`5`).
 
-`[x1 = 10, x2 = 10]`
+`[x1 = 0x0A(10), x2 = 0x0A(10)]`
 
 <p align="center">
   <img src="CORE/images/EX_MEM-EX_Priority.png" width="1000"/>
@@ -99,7 +99,7 @@ This test verifies MEM/WB-to-MEM data forwarding, where a result produced by an 
 
 > The waveform captures MEM/WB-to-MEM forwarding, demonstrating how a result available in the MEM/WB register is supplied to a dependent store instruction in the MEM stage.
 
-`[x1 = 42, MEM[0] = 42, x2 = 42]`
+`[x1 = 0x2A(42), MEM[0] = 0x2A(42), x2 = 0x2A(42)]`
 
 <p align="center">
   <img src="CORE/images/MEM_WB-MEM_Waveform.png" width="1000"/>
@@ -124,7 +124,7 @@ This test verifies MEM/WB-to-ID data forwarding, where a result available in the
 
 > The waveform captures MEM/WB-to-ID forwarding, demonstrating how the updated value (`5`) is supplied directly to the dependent instruction's ID-stage operand path.
 
-`[x1 = 5, x2 = 5, x6 = 7, x7 = 9]`
+`[x1 = 0x05(5), x2 = 0x05(5), x6 = 0x07(7), x7 = 0x09(9)]`
 
 <p align="center">
   <img src="CORE/images/MEM_WB-ID_Waveform.png" width="1000"/>
@@ -151,7 +151,7 @@ This test verifies load-use hazard detection by executing an instruction that im
 
 > The waveform captures the load-use dependency, demonstrating HHU stall assertion and pipeline control while the load instruction progresses to make its result available to the dependent ADD instruction.
 
-`[MEM[0] = 42, x2 = 42, x3 = 84]`
+`[MEM[0] = 0x2A(42), x2 = 0x2A(42), x3 = 0x54(84)]`
 
 <p align="center">
   <img src="CORE/images/Load_Use_Waveform.png" width="1000"/>
