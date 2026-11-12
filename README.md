@@ -134,6 +134,31 @@ This test verifies MEM/WB-to-ID data forwarding, where a result available in the
 
 **Design Consideration:** The register file does not rely on negative-edge write/read timing to resolve same-cycle dependencies. Instead, an explicit MEM/WB-to-ID forwarding path supplies the pending writeback value. This avoids introducing half-cycle timing paths between opposite clock edges, which would reduce the available timing budget and impose additional setup/hold constraints. Any timing violations can compromise reliable operation; explicit forwarding keeps the dependency handling within the pipeline's intended clocking scheme.
 
+## ⚠️ Load-Use Hazard - Pipeline Stalling
+
+This test verifies load-use hazard detection by executing an instruction that immediately consumes data loaded from memory, requiring the Hazard Handling Unit (HHU) to stall the pipeline until the data becomes available.
+
+`Load_Use.asm`
+
+```asm
+        ADDI x1, x0, 42     ; Initialize x1 = 42
+        SW   x1, 0(x0)      ; Store 42 at memory address 0
+        LW   x2, 0(x0)      ; Load value from memory
+        ADD  x3, x2, x2     ; Immediately consume loaded value
+```
+
+**Program Source:** [Load_Use.hex](CORE/Programs/Load_Use.hex)
+
+> The waveform captures the load-use dependency, demonstrating HHU stall assertion and pipeline control while the load instruction progresses to make its result available to the dependent ADD instruction.
+
+`[MEM[0] = 42, x2 = 42, x3 = 84]`
+
+<p align="center">
+  <img src="CORE/images/Load_Use_Waveform.png" width="1000"/>
+  <br>
+  <sub>RTL simulation demonstrating load-use hazard detection, pipeline stalling, and subsequent data forwarding.</sub>
+</p>
+
 ## ⚙️ Implemented Modules
 
 | Module               | Description                                                       | Status |
