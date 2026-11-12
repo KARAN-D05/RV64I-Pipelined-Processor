@@ -14,7 +14,7 @@ The processor follows a **five-stage, in-order pipeline architecture** (IF, ID, 
 
 ## ↗️ EX/MEM → EX Forwarding
 
-This test verifies **EX/MEM-to-EX data forwarding** by executing consecutive dependent instructions, where the second instruction consumes the result produced by the preceding instruction.
+This test verifies EX/MEM-to-EX data forwarding by executing consecutive dependent instructions, handling RAW dependencies with a dependency distance of 1, where the second instruction consumes the result produced by the preceding instruction.
 
 `EX_MEM-EX.asm`
 
