@@ -1,6 +1,8 @@
 # RV64I Pipelined Processor
 The processor follows a **five-stage, in-order pipeline architecture** (IF, ID, EX, MEM, WB), implementing a documented subset of the **RV64I Base Integer ISA**. It incorporates dedicated hazard handling, data forwarding paths, pipeline stalling, and control-flow redirection to manage instruction dependencies and execution flow.
 
+> **Core Results:** 51.31 MHz | 143,044.69 µm² (Sky130 HD)
+
 ## 🛠️ Tools & Technologies
 ![RISC-V](https://img.shields.io/badge/ISA-RISC_V_(RV64I)-3949AB?style=flat-square)
 ![5-Stage Pipeline](https://img.shields.io/badge/Design-5--Stage_Pipeline-D50000?style=flat-square)
@@ -297,6 +299,23 @@ Compared with the baseline, the KSA configuration achieved approximately **48.8%
 
 The CLA configuration achieved approximately **55.8% higher estimated maximum frequency**, with an **8.59% increase in mapped core area**.
 
+## ⚙️ Supported Instructions
+
+> 49 of 52 RV64I Base ISA instructions implemented
+
+| Category | Instructions |
+|---|---|
+| Upper Immediate | `LUI`, `AUIPC` |
+| Control Transfer | `JAL`, `JALR` |
+| Conditional Branch | `BEQ`, `BNE`, `BLT`, `BGE`, `BLTU`, `BGEU` |
+| Loads | `LB`, `LH`, `LW`, `LD`, `LBU`, `LHU`, `LWU` |
+| Stores | `SB`, `SH`, `SW`, `SD` |
+| Immediate Arithmetic & Logic | `ADDI`, `SLTI`, `SLTIU`, `XORI`, `ORI`, `ANDI` |
+| Immediate Shifts | `SLLI`, `SRLI`, `SRAI` |
+| Register Arithmetic & Logic | `ADD`, `SUB`, `SLL`, `SLT`, `SLTU`, `XOR`, `SRL`, `SRA`, `OR`, `AND` |
+| Word Immediate Operations | `ADDIW`, `SLLIW`, `SRLIW`, `SRAIW` |
+| Word Register Operations | `ADDW`, `SUBW`, `SLLW`, `SRLW`, `SRAW` |
+
 ## ⚙️ Implemented Modules
 
 | Module               | Description                                                       | Status |
@@ -332,23 +351,6 @@ The CLA configuration achieved approximately **55.8% higher estimated maximum fr
 | [EX](EX)    | Integrates ALU and TAG to perform operations and calculate target addresses              | ✅     |
 | [MEM](MEM)  | Integrates the data memory for load/store operations                                     | ✅     |
 | [WB](WB)    | Selects the appropriate result for register write-back                                   | ✅     |
-
-## ⚙️ Supported Instructions
-
-> 49 of 52 RV64I Base ISA instructions implemented
-
-| Category | Instructions |
-|---|---|
-| Upper Immediate | `LUI`, `AUIPC` |
-| Control Transfer | `JAL`, `JALR` |
-| Conditional Branch | `BEQ`, `BNE`, `BLT`, `BGE`, `BLTU`, `BGEU` |
-| Loads | `LB`, `LH`, `LW`, `LD`, `LBU`, `LHU`, `LWU` |
-| Stores | `SB`, `SH`, `SW`, `SD` |
-| Immediate Arithmetic & Logic | `ADDI`, `SLTI`, `SLTIU`, `XORI`, `ORI`, `ANDI` |
-| Immediate Shifts | `SLLI`, `SRLI`, `SRAI` |
-| Register Arithmetic & Logic | `ADD`, `SUB`, `SLL`, `SLT`, `SLTU`, `XOR`, `SRL`, `SRA`, `OR`, `AND` |
-| Word Immediate Operations | `ADDIW`, `SLLIW`, `SRLIW`, `SRAIW` |
-| Word Register Operations | `ADDW`, `SUBW`, `SLLW`, `SRLW`, `SRAW` |
 
 ## 📜License
 - Source code and HDL files are licensed under the MIT License.
