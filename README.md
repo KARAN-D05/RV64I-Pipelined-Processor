@@ -297,7 +297,7 @@ The baseline implementation was compared against two experimental configurations
 
 Compared with the baseline, the KSA configuration achieved approximately **48.8% higher estimated maximum frequency**, with a **2.43% increase in mapped core area**.
 
-The CLA(2 32-Bit Blocks) configuration achieved approximately **55.8% higher estimated maximum frequency**, with an **8.59% increase in mapped core area**.
+The hierarchical CLA(2*32-Bit Blocks) configuration achieved approximately **55.8% higher estimated maximum frequency**, with an **8.59% increase in mapped core area**.
 
 > Adder architectures reuses the IP from [High-Performance Adder Architectures](https://github.com/KARAN-D05/High-Performance-Adder-Architectures).
 
