@@ -289,7 +289,7 @@ The primary focus of this project is processor architecture and microarchitectur
 
 The baseline implementation was compared against two experimental configurations: a 64-bit Kogge–Stone Adder (KSA) and a Carry Lookahead Adder (CLA), each integrated into the TAG and ALU datapaths.
 
-| **Configuration** | **Core Area** | **Estimated Fmax** | **Relative Speedup** | **Relative Area** |  **Minimum Clock Period**  |
+| **Configuration** | **Core Area** | **Estimated Fmax** | **Relative Speedup** | **Relative Area** |  **Clock Period**  |
 |---|---|---|---|---|---|
 | RCA (TAG + ALU) | 131,735.09 µm² | 32.95 MHz | 1.00× | 1.00× |  30.35 ns |
 | KSA (TAG + ALU) | 134,935.66 µm² | 49.02 MHz | 1.49× | 1.024×| 20.40 ns |
