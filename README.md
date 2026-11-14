@@ -53,7 +53,7 @@ int main(void)
 
 **Toolchain:** RISC-V GNU Toolchain (`riscv64-unknown-elf-gcc`), targeting `RV64I` (`-march=rv64i -mabi=lp64`).
 
-The C source is compiled into RV64I assembly, assembled alongside the startup code (`Start.s`), and linked using `Mult.ld` to generate an ELF executable. Its instruction section is then extracted and converted into a HEX image for instruction ROM initialization.
+The C source is compiled into RV64I assembly, assembled alongside the startup code [Start.s](PERF/Programs/Mult/Start.s) and linked using [Mult.ld](PERF/Programs/Mult/Mult.ld) to generate an ELF executable. Its instruction section is then extracted and converted into a HEX image for instruction ROM initialization.
 
 The startup code initializes the stack pointer, places the operands in data RAM, and calls `main()`. Upon completion, the result is retrieved into architectural register `x10` (`a0`).
 
