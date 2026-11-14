@@ -4,4 +4,4 @@ CU/src/cu.sv linguist-detectable=false
 RF/src/rf.sv linguist-detectable=false 
 MEM/src/mem.sv linguist-detectable=false 
 PC/src/pc_tb.sv linguist-detectable=false 
-**/*_tb.sv linguist-detectable=false 
+**/*.sv linguist-detectable=false 
