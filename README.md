@@ -16,6 +16,57 @@ Classified as SISD under Flynn's taxonomy, it exploits instruction-level paralle
 ## 📚 Documentation
 - [Instruction Set Architecture](ISA.md)
 
+## 🚀 C Program Execution
+
+This demonstration verifies the processor's ability to execute a program written in C, compiled using the RISC-V GNU Toolchain targeting the RV64I base integer ISA.
+
+The program implements 64-bit unsigned multiplication using the shift-and-add algorithm, without relying on the hardware multiplication extension (`M`).
+
+`Mult.c`
+
+```c
+volatile unsigned long long multiplicand;
+volatile unsigned long long multiplier;
+volatile unsigned long long result;
+
+int main(void)
+{
+    unsigned long long a = multiplicand;
+    unsigned long long b = multiplier;
+    unsigned long long product = 0;
+
+    while (b != 0)
+    {
+        if (b & 1)
+            product += a;
+
+        a <<= 1;
+        b >>= 1;
+    }
+
+    result = product;
+    return 0;
+}
+```
+
+**Program Source:** [Mult.c](PERF/Programs/Mult/Mult.c)
+
+**Toolchain:** RISC-V GNU Toolchain (`riscv64-unknown-elf-gcc`), targeting `RV64I` (`-march=rv64i -mabi=lp64`).
+
+The C source is compiled into RV64I assembly, assembled alongside the startup code (`Start.s`), and linked using `Mult.ld` to generate an ELF executable. Its instruction section is then extracted and converted into a HEX image for instruction ROM initialization.
+
+The startup code initializes the stack pointer, places the operands in data RAM, and calls `main()`. Upon completion, the result is retrieved into architectural register `x10` (`a0`).
+
+> The waveform demonstrates successful execution of a compiled C program on the five-stage RV64I processor, producing the correct 64-bit multiplication result.
+
+`0x075BCD15 (123456789) × 0x3ADE68B1 (987654321) = 0x01B13114FBFF5385 (121932631112635269)`
+
+<p align="center">
+  <img src="PERF/Programs/images/Mult_Waveform.png" width="1000"/>
+  <br>
+  <sub>RTL simulation demonstrating execution of a compiled C workload and retrieval of the correct result in x10.</sub>
+</p>
+
 ## ↗️ EX/MEM → EX Forwarding
 
 This test verifies EX/MEM-to-EX data forwarding by executing consecutive dependent instructions, handling RAW dependencies with a dependency distance of 1, where the second instruction consumes the result produced by the preceding instruction.
