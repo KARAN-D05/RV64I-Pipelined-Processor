@@ -409,4 +409,4 @@ The hierarchical CLA(2*32-Bit Blocks) configuration achieved approximately **55.
 
 ## 📜License
 - Source code and HDL files are licensed under the MIT License.
-- Documentation, diagrams, images, and PDFs are licensed under Creative Commons Attribution 4.0 (CC BY 4.0).
+- Documentation, diagrams, images, and PDFs are licensed under Creative Commons Attribution 4.0 (CC BY 4.0). 
