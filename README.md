@@ -1,6 +1,8 @@
 # RV64I Pipelined Processor
 The processor follows a **five-stage, in-order pipeline architecture** (IF, ID, EX, MEM, WB), implementing a documented subset of the **RV64I Base Integer ISA**. It incorporates dedicated hazard handling, data forwarding paths, pipeline stalling, and control-flow redirection to manage instruction dependencies and execution flow.
 
+Classified as SISD under Flynn's taxonomy, it exploits instruction-level parallelism (ILP) by overlapping the execution of multiple instructions across pipeline stages.
+
 > **Core:** 51.31 MHz | 143,044.69 µm² (Sky130 HD)
 
 ## 🛠️ Tools & Technologies
