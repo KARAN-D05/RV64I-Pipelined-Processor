@@ -1,10 +1,11 @@
 `default_nettype none
 `include "eef.sv"
 `include "mef.sv"
- 
+
 module EFU #(
     parameter W = 64,
-    parameter F = 5
+    parameter F = 5,
+    parameter WBS = 4
 ) (
     input logic [F-1:0] id_ex_rs1,
     input logic [F-1:0] id_ex_rs2,
@@ -18,11 +19,16 @@ module EFU #(
     input logic [F-1:0] mem_wb_rd,
     input logic mem_wb_write_rf,
     input logic [W-1:0] mem_wb_result,
+    input logic [$clog2(WBS)-1:0] res,
+    input logic [W-1:0] ex_mem_t_out,
     output logic [W-1:0] alu_operand_a,
     output logic [W-1:0] alu_operand_b
 );
 
   logic [W-1:0] id_a, id_b, mem_a, mem_b;
+  
+  logic [W-1:0] f_data;
+  assign f_data = (res == 2'b11) ? ex_mem_t_out : ex_mem_result;
 
   EEF #(
     .W(W),
@@ -32,7 +38,7 @@ module EFU #(
     .id_ex_rs2(id_ex_rs2),
     .id_ex_data1(id_ex_data1),
     .id_ex_data2(id_ex_data2),
-    .ex_mem_result(ex_mem_result),
+    .ex_mem_result(f_data),
     .ex_mem_write_rf(ex_mem_write_rf),
     .ex_mem_rd(ex_mem_rd),
     .uses_rs1(uses_rs1),
