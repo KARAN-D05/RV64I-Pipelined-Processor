@@ -1,10 +1,11 @@
-`timescale 1ns/1ns
+=`timescale 1ns/1ns
 `include "efu.sv"
 
 module testbench;
 
   parameter W = 64;
   parameter F = 5;
+  parameter WBS = 4;
 
   logic [F-1:0] id_ex_rs1;
   logic [F-1:0] id_ex_rs2;
@@ -18,12 +19,15 @@ module testbench;
   logic [F-1:0] mem_wb_rd;
   logic mem_wb_write_rf;
   logic [W-1:0] mem_wb_result;
+  logic [$clog2(WBS)-1:0] res;
+  logic [W-1:0] ex_mem_t_out;
   logic [W-1:0] alu_operand_a;
   logic [W-1:0] alu_operand_b;
 
   EFU #(
     .W(W),
-    .F(F)
+    .F(F),
+    .WBS(WBS)
   ) dut (
     .id_ex_rs1(id_ex_rs1),
     .id_ex_rs2(id_ex_rs2),
@@ -37,22 +41,27 @@ module testbench;
     .mem_wb_rd(mem_wb_rd),
     .mem_wb_write_rf(mem_wb_write_rf),
     .mem_wb_result(mem_wb_result),
+    .res(res),
+    .ex_mem_t_out(ex_mem_t_out),
     .alu_operand_a(alu_operand_a),
     .alu_operand_b(alu_operand_b)
   );
 
   initial begin
 
-    $monitor("time=%0t | rs1=%0d rs2=%0d | uses_rs1=%b uses_rs2=%b | ID/EX data1=%h data2=%h | EX/MEM rd=%0d write=%b result=%h | MEM/WB rd=%0d write=%b result=%h | EEF A=%h B=%h | MEF A=%h B=%h | selected A=%h B=%h",
-    $time,
-    id_ex_rs1, id_ex_rs2,
-    uses_rs1, uses_rs2,
-    id_ex_data1, id_ex_data2,
-    ex_mem_rd, ex_mem_write_rf, ex_mem_result,
-    mem_wb_rd, mem_wb_write_rf, mem_wb_result,
-    dut.id_a, dut.id_b,
-    dut.mem_a, dut.mem_b,
-    alu_operand_a, alu_operand_b);
+    $monitor(
+      "time=%0t | rs1=%0d rs2=%0d | uses_rs1=%b uses_rs2=%b | ID/EX data1=%h data2=%h | EX/MEM rd=%0d write=%b result=%h t_out=%h res=%b | MEM/WB rd=%0d write=%b result=%h | EEF A=%h B=%h | MEF A=%h B=%h | selected A=%h B=%h",
+      $time,
+      id_ex_rs1, id_ex_rs2,
+      uses_rs1, uses_rs2,
+      id_ex_data1, id_ex_data2,
+      ex_mem_rd, ex_mem_write_rf, ex_mem_result,
+      ex_mem_t_out, res,
+      mem_wb_rd, mem_wb_write_rf, mem_wb_result,
+      dut.id_a, dut.id_b,
+      dut.mem_a, dut.mem_b,
+      alu_operand_a, alu_operand_b
+    );
 
     $dumpfile("Sim.vcd");
     $dumpvars(0, testbench);
@@ -61,14 +70,20 @@ module testbench;
     id_ex_rs2 = 5'd2;
     id_ex_data1 = 64'h1111;
     id_ex_data2 = 64'h2222;
+
     ex_mem_rd = 5'd1;
     ex_mem_result = 64'hAAAA;
+    ex_mem_t_out = 64'hAAAA0000;
     ex_mem_write_rf = 1'b1;
+
     mem_wb_rd = 5'd2;
     mem_wb_result = 64'hBBBB;
     mem_wb_write_rf = 1'b1;
+
     uses_rs1 = 1'b1;
     uses_rs2 = 1'b1;
+
+    res = 2'b00;
     #1;
 
     id_ex_rs1 = 5'd3;
@@ -187,7 +202,55 @@ module testbench;
     id_ex_data2 = 64'h33334444;
     #1;
 
-    $display("Simulation Complete");
+    id_ex_rs1 = 5'd25;
+    id_ex_rs2 = 5'd26;
+    ex_mem_rd = 5'd25;
+    mem_wb_rd = 5'd26;
+    ex_mem_write_rf = 1'b1;
+    mem_wb_write_rf = 1'b1;
+
+    ex_mem_result = 64'h12345678;
+    ex_mem_t_out = 64'hABCDEF01;
+    mem_wb_result = 64'h87654321;
+
+    res = 2'b11;
+    #1;
+
+    res = 2'b10;
+    #1;
+
+    id_ex_rs1 = 5'd27;
+    id_ex_rs2 = 5'd28;
+    ex_mem_rd = 5'd29;
+    mem_wb_rd = 5'd30;
+    res = 2'b11;
+    #1;
+
+    id_ex_rs1 = 5'd25;
+    id_ex_rs2 = 5'd26;
+    ex_mem_rd = 5'd25;
+    mem_wb_rd = 5'd26;
+
+    ex_mem_write_rf = 1'b1;
+    mem_wb_write_rf = 1'b1;
+
+    ex_mem_result = 64'h12345678;
+    ex_mem_t_out = 64'hABCDEF01;
+    mem_wb_result = 64'h87654321;
+
+    res = 2'b00;
+    #1;
+
+    res = 2'b01;
+    #1;
+
+    res = 2'b10;
+    #1;
+    
+    res = 2'b11;
+    #1;
+
+    $display("Simulation Complete!");
     $finish;
 
   end
