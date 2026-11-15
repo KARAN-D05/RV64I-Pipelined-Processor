@@ -4,6 +4,8 @@ The EX Forwarding (EFU) unit integrates the EX-to-EX Forwarding (EEF) and MEM-to
 
 It selects the appropriate ALU operands from three possible sources: the original operands stored in ID/EX, the result available in EX/MEM, or the result available in MEM/WB. When both forwarding paths detect a dependency for the same operand, EX/MEM takes priority because it contains the more recent result.
 
+The EFU also supports EX/MEM result selection through the `res` control signal. When `res == 2'b11`, the forwarding path uses `ex_mem_t_out`; for all other values, it uses `ex_mem_result`.
+
 <p align="center">
   <img src="images/EFU_Waveform.png" width="1000"/>
   <br>
@@ -17,6 +19,7 @@ It selects the appropriate ALU operands from three possible sources: the origina
 - Implements independent forwarding selection for both ALU operands.
 - Prioritizes EX/MEM over MEM/WB when both forwarding conditions match the same source register.
 - Supports simultaneous forwarding from different pipeline stages to separate ALU operands.
+- Selects `ex_mem_t_out` when `res == 2'b11`; otherwise, selects `ex_mem_result`.
 - Preserves original ID/EX operands when no forwarding condition is satisfied.
 - Uses `uses_rs1` and `uses_rs2` metadata through the integrated forwarding units.
 - Prevents forwarding from the zero register (`x0`).
@@ -33,6 +36,8 @@ It selects the appropriate ALU operands from three possible sources: the origina
 | `ex_mem_result` | Input | 64 bits | Result available in EX/MEM |
 | `ex_mem_write_rf` | Input | 1 bit | EX/MEM register-file write control |
 | `ex_mem_rd` | Input | 5 bits | Destination register index from EX/MEM |
+| `ex_mem_t_out` | Input | 64 bits | Alternate EX/MEM result input |
+| `res` | Input | 2 bits | Selects the EX/MEM result source; `2'b11` selects `ex_mem_t_out`, all other values select `ex_mem_result` |
 | `mem_wb_rd` | Input | 5 bits | Destination register index from MEM/WB |
 | `mem_wb_write_rf` | Input | 1 bit | MEM/WB register-file write control |
 | `mem_wb_result` | Input | 64 bits | Result available in MEM/WB |
@@ -49,6 +54,12 @@ The EFU instantiates two independent forwarding units:
 - **MEF:** Detects MEM/WB-to-EX dependencies.
 
 Both units independently evaluate the source-register dependencies and provide candidate operands to the EFU.
+
+Before the EX/MEM result reaches EEF, the EFU selects the appropriate data using `res`:
+
+```systemverilog
+assign f_data = (res == 2'b11) ? ex_mem_t_out : ex_mem_result;
+```
 
 The EFU then performs priority selection independently for each ALU operand.
 
@@ -77,8 +88,8 @@ If neither forwarding condition matches an operand, its original ID/EX value is 
 
 ## Verification
 
-- RTL simulation: 12 directed test vectors verified.
-- Gate-level simulation: 12 directed test vectors verified using the synthesized and technology-mapped netlist.
+- RTL simulation: 19 directed test vectors verified.
+- Gate-level simulation: 19 directed test vectors verified using the synthesized and technology-mapped netlist.
 - Independent forwarding: Verified separate forwarding selections for both ALU operands.
 - Mixed-source forwarding: Verified one operand receiving EX/MEM data while the other receives MEM/WB data, in both combinations.
 - Priority selection: Verified EX/MEM priority when both forwarding units detect a match for the same source register.
@@ -86,4 +97,5 @@ If neither forwarding condition matches an operand, its original ID/EX value is 
 - Source qualification: Verified that unused source registers do not trigger forwarding.
 - Zero-register handling: Verified that forwarding from `x0` is prevented.
 - Write qualification: Verified that both EX/MEM and MEM/WB write controls correctly qualify forwarding.
+- EX/MEM result selection: Verified all four `res` values, confirming that `2'b11` selects `ex_mem_t_out` and all other values select `ex_mem_result`.
 - Operand selection: Verified original ID/EX operand pass-through when forwarding is not required.
