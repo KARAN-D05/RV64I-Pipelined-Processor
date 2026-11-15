@@ -1,4 +1,4 @@
-`default_nettype none 
+`default_nettype none
 `include "if.sv"
 `include "hhu.sv"
 `include "ifid.sv"
@@ -262,7 +262,8 @@ module CORE (
 
   EFU #(
     .W(64),
-    .F(5)
+    .F(5),
+    .WBS(4)
   ) efu_inst (
     .id_ex_rs1(idex_rs1_out),
     .id_ex_rs2(idex_rs2_out),
@@ -276,6 +277,8 @@ module CORE (
     .mem_wb_rd(memwb_rd_out),
     .mem_wb_write_rf(memwb_c_word_out[2]),
     .mem_wb_result(wb_out),
+    .ex_mem_t_out(exmem_t_out),
+    .res(exmem_c_word_out[1:0]),
     .alu_operand_a(efu_data_out1),
     .alu_operand_b(efu_data_out2)
   );
