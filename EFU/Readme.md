@@ -37,7 +37,7 @@ The EFU also supports EX/MEM result selection through the `res` control signal. 
 | `ex_mem_write_rf` | Input | 1 bit | EX/MEM register-file write control |
 | `ex_mem_rd` | Input | 5 bits | Destination register index from EX/MEM |
 | `ex_mem_t_out` | Input | 64 bits | Alternate EX/MEM result input |
-| `res` | Input | 2 bits | Selects the EX/MEM result source; `2'b11` selects `ex_mem_t_out`, all other values select `ex_mem_result` |
+| `res` | Input | 2 bits | Selects the EX/MEM result source; `2'b11` selects `ex_mem_t_out`, else selects `ex_mem_result` |
 | `mem_wb_rd` | Input | 5 bits | Destination register index from MEM/WB |
 | `mem_wb_write_rf` | Input | 1 bit | MEM/WB register-file write control |
 | `mem_wb_result` | Input | 64 bits | Result available in MEM/WB |
