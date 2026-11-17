@@ -5,6 +5,12 @@ Classified as SISD under Flynn's taxonomy, it exploits instruction-level paralle
 
 > **Core:** 51.31 MHz | 143,044.69 µm² (Sky130 HD)
 
+<p align="center">
+  <img src="PERF/Programs/images/Hello_Waveform.png" width="1000"/>
+  <br>
+  <sub>Hello World! 👋 Generated from C and successfully executed on the custom RV64I processor</sub>
+</p>
+
 ## 🛠️ Tools & Technologies
 ![RISC-V](https://img.shields.io/badge/ISA-RISC_V_(RV64I)-3949AB?style=flat-square)
 ![5-Stage Pipeline](https://img.shields.io/badge/Design-5--Stage_Pipeline-D50000?style=flat-square)
