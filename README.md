@@ -8,7 +8,7 @@ Classified as SISD under Flynn's taxonomy, it exploits instruction-level paralle
 <p align="center">
   <img src="PERF/Programs/images/Hello_Waveform.png" width="1000"/>
   <br>
-  <sub>Hello World! 👋 Generated from C and successfully executed on the custom RV64I processor</sub>
+  <sub>Hello World! 👋 Generated from C and executed on the RV64I processor</sub>
 </p>
 
 ## 🛠️ Tools & Technologies
