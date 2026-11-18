@@ -17,7 +17,7 @@ Classified as SISD under Flynn's taxonomy, it exploits instruction-level paralle
 ![Icarus Verilog](https://img.shields.io/badge/Icarus_Verilog-Simulation-8E24AA?style=flat-square)
 ![Sky130HD](https://img.shields.io/badge/Sky130HD-Characterization-455A64?style=flat-square)
 ![GTKWave](https://img.shields.io/badge/GTKWave-Waveforms-F57C00?style=flat-square)
-![Yosys](https://img.shields.io/badge/Yosys-Logic_Synthesis-43A047?style=flat-square)
+![Yosys](https://img.shields.io/badge/Yosys-Synthesis-43A047?style=flat-square)
 
 ## 📚 Documentation
 - [Instruction Set Architecture](ISA.md)
