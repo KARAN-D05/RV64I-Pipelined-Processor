@@ -15,7 +15,7 @@ Classified as SISD under Flynn's taxonomy, it exploits instruction-level paralle
 ![RISC-V](https://img.shields.io/badge/ISA-RISC_V_(RV64I)-3949AB?style=flat-square)
 ![5-Stage Pipeline](https://img.shields.io/badge/Design-5--Stage_Pipeline-D50000?style=flat-square)
 ![Icarus Verilog](https://img.shields.io/badge/Icarus_Verilog-Simulation-8E24AA?style=flat-square)
-![Sky130HD](https://img.shields.io/badge/Sky130HD-Physical_Characterization-455A64?style=flat-square)
+![Sky130HD](https://img.shields.io/badge/Sky130HD-Characterization-455A64?style=flat-square)
 ![GTKWave](https://img.shields.io/badge/GTKWave-Waveforms-F57C00?style=flat-square)
 ![Yosys](https://img.shields.io/badge/Yosys-Logic_Synthesis-43A047?style=flat-square)
 
