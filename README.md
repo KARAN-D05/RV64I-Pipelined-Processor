@@ -251,13 +251,13 @@ The instructions writing to `x3` and `x4` must not execute.
   <sub>RTL simulation waveform showing branch resolution, pipeline flush, and execution at the branch target.</sub>
 </p>
 
-## ⚡ Core Timing Evaluation
+## ⚡ Core Evaluation
 
 The primary focus of this project is processor architecture and microarchitectural behavior rather than maximizing operating frequency. Nevertheless, synthesis-based timing analysis was performed to evaluate the impact of datapath implementation choices on the core's timing characteristics.
 
 The baseline implementation was compared against two experimental configurations: a 64-bit Kogge–Stone Adder (KSA) and a Carry Lookahead Adder (CLA), each integrated into the TAG and ALU datapaths.
 
-| **Configuration** | **Core Area** | **Estimated Fmax** | **Relative Speedup** | **Clock Period** | **Estimated Power** |
+| **Configuration** | **Area** | **Estimated Fmax** | **Relative Speedup** | **Clock** | **Estimated Power** |
 |---|---|---|---|---|---|
 | RCA (TAG + ALU) | 131,735.09 µm² | 32.95 MHz | 1.00× | 30.35 ns | 4.04 mW |
 | KSA (TAG + ALU) | 134,935.66 µm² | 49.02 MHz | 1.49× | 20.40 ns | 5.99 mW |
