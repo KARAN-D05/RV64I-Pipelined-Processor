@@ -3,7 +3,7 @@ The processor follows a **five-stage, in-order pipeline architecture** (IF, ID, 
 
 Classified as SISD under Flynn's taxonomy, it exploits instruction-level parallelism (ILP) by overlapping the execution of multiple instructions across pipeline stages.
 
-> **Core:** 51.31 MHz | 143,044.69 µm² (Sky130 HD) | 6.30 mW
+> **Core:** 51.31 MHz | 143,044.69 µm² | 6.30 mW
 
 <p align="center">
   <img src="PERF/Programs/images/Hello_Waveform.png" width="1000"/>
