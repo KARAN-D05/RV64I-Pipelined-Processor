@@ -3,7 +3,7 @@ The processor follows a **five-stage, in-order pipeline architecture** (IF, ID, 
 
 Classified as SISD under Flynn's taxonomy, it exploits instruction-level parallelism (ILP) by overlapping the execution of multiple instructions across pipeline stages.
 
-> **Core:** 51.31 MHz | 143,044.69 µm² (Sky130 HD)
+> **Core:** 51.31 MHz | 143,044.69 µm² (Sky130 HD) | 6.30 mW
 
 <p align="center">
   <img src="PERF/Programs/images/Hello_Waveform.png" width="1000"/>
@@ -257,17 +257,17 @@ The primary focus of this project is processor architecture and microarchitectur
 
 The baseline implementation was compared against two experimental configurations: a 64-bit Kogge–Stone Adder (KSA) and a Carry Lookahead Adder (CLA), each integrated into the TAG and ALU datapaths.
 
-| **Configuration** | **Core Area** | **Estimated Fmax** | **Relative Speedup** | **Relative Area** |  **Clock Period**  |
+| **Configuration** | **Core Area** | **Estimated Fmax** | **Relative Speedup** | **Clock Period** | **Estimated Power** |
 |---|---|---|---|---|---|
-| RCA (TAG + ALU) | 131,735.09 µm² | 32.95 MHz | 1.00× | 1.00× |  30.35 ns |
-| KSA (TAG + ALU) | 134,935.66 µm² | 49.02 MHz | 1.49× | 1.024×| 20.40 ns |
-| CLA (TAG + ALU) | 143,044.69 µm² | 51.31 MHz | 1.56× | 1.086×| 19.49 ns |
-
-Compared with the baseline, the KSA configuration achieved approximately **48.8% higher estimated maximum frequency**, with a **2.43% increase in mapped core area**.
-
-The hierarchical CLA(2*32-Bit Blocks) configuration achieved approximately **55.8% higher estimated maximum frequency**, with an **8.59% increase in mapped core area**.
+| RCA (TAG + ALU) | 131,735.09 µm² | 32.95 MHz | 1.00× | 30.35 ns | 4.04 mW |
+| KSA (TAG + ALU) | 134,935.66 µm² | 49.02 MHz | 1.49× | 20.40 ns | 5.99 mW |
+| CLA (TAG + ALU) | 143,044.69 µm² | 51.31 MHz | 1.56× | 19.49 ns | 6.30 mW |
 
 > Adder architectures reuses the IP from [High-Performance Adder Architectures](https://github.com/KARAN-D05/High-Performance-Adder-Architectures).
+
+Compared with the baseline, the KSA configuration achieved approximately 48.8% higher estimated maximum frequency, with a 2.43% increase in mapped core area and a 48.3% increase in estimated power consumption.
+
+The hierarchical CLA (2 × 32-bit blocks) configuration achieved approximately 55.8% higher estimated maximum frequency, with an 8.59% increase in mapped core area and a 55.9% increase in estimated power consumption.
 
 ## ⚙️ Supported Instructions
 
