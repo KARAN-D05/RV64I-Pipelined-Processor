@@ -8,6 +8,9 @@ Classified as SISD under Flynn's taxonomy, it exploits instruction-level paralle
 <p align="center">
   <img src="PERF/Programs/images/Hello_Waveform.png" width="1000"/>
   <br>
+Address : 00  01  02  03  04  05  06  07  08  09  10  11  12  
+Hex     : 48  65  6c  6c  6f  20  57  6f  72  6c  64  21  00  
+ASCII   : H   e   l   l   o       W   o   r   l   d   !    
   <sub>Hello World! 👋 Generated from C and executed on the RV64I processor</sub>
 </p>
 
