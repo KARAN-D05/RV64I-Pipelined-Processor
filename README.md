@@ -6,7 +6,7 @@ Classified as SISD under Flynn's taxonomy, it exploits instruction-level paralle
 > **Core:** 51.31 MHz | 143,044.69 µm² | 6.30 mW
 
 <p align="center">
-  <img src="PERF/Programs/images/Hello_Waveform.png" width="1000"/>
+  <img src="PERF/Programs/images/Hello_World_Waveform.png" width="1000"/>
   <br>   
   <sub>Hello World! 👋 Generated from C and executed on the RV64I processor</sub>
 </p>
