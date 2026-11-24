@@ -267,7 +267,7 @@ The baseline implementation was compared against two experimental configurations
 
 Compared with the baseline, the KSA configuration achieved approximately 48.8% higher estimated maximum frequency, with a 2.43% increase in mapped core area and a 48.3% increase in estimated power consumption.
 
-The hierarchical CLA (2 × 32-bit blocks) configuration achieved approximately 55.8% higher estimated maximum frequency, with an 8.59% increase in mapped core area and a 55.9% increase in estimated power consumption.
+The hierarchical CLA (2 × 32-bit blocks) configuration achieved approximately 55.7% higher estimated maximum frequency, with an 8.59% increase in mapped core area and a 55.9% increase in estimated power consumption.
 
 ## ⚙️ Supported Instructions
 
